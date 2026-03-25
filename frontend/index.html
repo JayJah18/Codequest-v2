@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CodeQuest Prototype</title>
+    <link rel="stylesheet" href="/ui/static/style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="header">
+        <h1>CodeQuest (Minimal Prototype)</h1>
+        <p class="subtle">Generate a question, run deterministic tests, then optionally ask for feedback.</p>
+      </header>
+
+      <section class="card">
+        <div class="row">
+          <label class="field">
+            <span>Concept</span>
+            <select id="concept">
+              <option value="variables">variables</option>
+              <option value="conditionals">conditionals</option>
+              <option value="loops" selected>loops</option>
+              <option value="strings">strings</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Difficulty</span>
+            <select id="difficulty">
+              <option value="beginner" selected>beginner</option>
+              <option value="intermediate">intermediate</option>
+            </select>
+          </label>
+
+          <button id="btnGenerate" class="btn primary">Generate Question</button>
+        </div>
+
+        <div id="genError" class="error hidden"></div>
+      </section>
+
+      <section class="card">
+        <h2>Question</h2>
+        <div class="meta">
+          <div><strong>Title:</strong> <span id="title">—</span></div>
+          <div><strong>Function:</strong> <code id="functionName">—</code></div>
+          <div><strong>Question ID:</strong> <code id="questionId">—</code></div>
+        </div>
+        <pre id="questionText" class="pre">Generate a question to begin.</pre>
+      </section>
+
+      <section class="card">
+        <h2>Your code</h2>
+        <textarea id="code" spellcheck="false" class="code" placeholder="Write your Python function here..."></textarea>
+
+        <div class="row">
+          <button id="btnRunTests" class="btn">Run Tests</button>
+          <div id="testSummary" class="subtle"></div>
+        </div>
+        <div id="testError" class="error hidden"></div>
+        <div id="testResults" class="results"></div>
+      </section>
+
+      <section class="card">
+        <div class="row">
+          <h2 class="grow">Feedback</h2>
+          <button id="btnFeedback" class="btn">Get Feedback</button>
+        </div>
+        <div id="feedbackError" class="error hidden"></div>
+        <div id="feedback" class="pre">Run tests first, then click “Get Feedback”.</div>
+      </section>
+    </main>
+
+    <script src="/ui/static/app.js"></script>
+  </body>
+</html>
+

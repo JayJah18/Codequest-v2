@@ -1,0 +1,105 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: #0b1020;
+  color: #e8ecff;
+}
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+.header h1 { margin: 0 0 6px; font-size: 22px; }
+.subtle { color: #b8c0e6; margin: 0; }
+.card {
+  background: #121a33;
+  border: 1px solid #24305f;
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 14px;
+}
+.row {
+  display: flex;
+  gap: 12px;
+  align-items: end;
+  flex-wrap: wrap;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 200px;
+}
+select {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #2a3a7a;
+  background: #0f1630;
+  color: #e8ecff;
+}
+.btn {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #2a3a7a;
+  background: #0f1630;
+  color: #e8ecff;
+  cursor: pointer;
+}
+.btn.primary {
+  background: #2a44ff;
+  border-color: #2a44ff;
+}
+.btn:disabled { opacity: 0.55; cursor: not-allowed; }
+.pre {
+  white-space: pre-wrap;
+  background: #0f1630;
+  border: 1px solid #2a3a7a;
+  border-radius: 10px;
+  padding: 12px;
+  margin: 10px 0 0;
+}
+.meta {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+code { color: #cfe0ff; }
+.code {
+  width: 100%;
+  min-height: 240px;
+  resize: vertical;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 13px;
+  line-height: 1.35;
+  background: #0f1630;
+  color: #e8ecff;
+  border: 1px solid #2a3a7a;
+  border-radius: 10px;
+  padding: 12px;
+  margin-top: 10px;
+}
+.results {
+  margin-top: 10px;
+  display: grid;
+  gap: 8px;
+}
+.test {
+  border-radius: 10px;
+  padding: 10px 12px;
+  border: 1px solid #2a3a7a;
+  background: #0f1630;
+}
+.test.pass { border-color: #1f9d55; }
+.test.fail { border-color: #d64545; }
+.error {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #d64545;
+  background: rgba(214, 69, 69, 0.12);
+  color: #ffd5d5;
+}
+.hidden { display: none; }
+.grow { flex: 1; }
