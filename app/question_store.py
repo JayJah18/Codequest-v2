@@ -24,3 +24,7 @@ class QuestionStore:
         with self._lock:
             return self._items.get(question_id)
 
+    def clear(self) -> None:
+        with self._lock:
+            self._items.clear()
+

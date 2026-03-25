@@ -72,7 +72,10 @@ async function onGenerate() {
   const concept = $("concept").value;
   const difficulty = $("difficulty").value;
 
-  $("btnGenerate").disabled = true;
+  const btn = $("btnGenerate");
+  const oldLabel = btn.textContent;
+  btn.textContent = "Generating...";
+  btn.disabled = true;
   try {
     const pkg = await apiPost("/generate-question", { concept, difficulty });
     currentQuestionId = pkg.question_id;
@@ -89,7 +92,8 @@ async function onGenerate() {
   } catch (e) {
     setError("genError", String(e.message || e));
   } finally {
-    $("btnGenerate").disabled = false;
+    btn.disabled = false;
+    btn.textContent = oldLabel;
   }
 }
 
@@ -104,7 +108,10 @@ async function onRunTests() {
   }
 
   const learner_code = $("code").value;
-  $("btnRunTests").disabled = true;
+  const btn = $("btnRunTests");
+  const oldLabel = btn.textContent;
+  btn.textContent = "Running...";
+  btn.disabled = true;
   try {
     const resp = await apiPost("/submit-answer", { question_id: currentQuestionId, learner_code });
     lastTestResults = resp.test_results;
@@ -115,7 +122,8 @@ async function onRunTests() {
   } catch (e) {
     setError("testError", String(e.message || e));
   } finally {
-    $("btnRunTests").disabled = false;
+    btn.disabled = false;
+    btn.textContent = oldLabel;
   }
 }
 
@@ -127,7 +135,10 @@ async function onFeedback() {
   }
 
   const learner_code = $("code").value;
-  $("btnFeedback").disabled = true;
+  const btn = $("btnFeedback");
+  const oldLabel = btn.textContent;
+  btn.textContent = "Getting...";
+  btn.disabled = true;
   try {
     const resp = await apiPost("/get-feedback", {
       question_id: currentQuestionId,
@@ -137,7 +148,8 @@ async function onFeedback() {
   } catch (e) {
     setError("feedbackError", String(e.message || e));
   } finally {
-    $("btnFeedback").disabled = false;
+    btn.disabled = false;
+    btn.textContent = oldLabel;
   }
 }
 

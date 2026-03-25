@@ -48,10 +48,10 @@ def generate_question_json(concept: str, difficulty: str) -> Dict[str, Any]:
         "Return only the JSON object."
     )
 
-    # Cap tokens and lower temperature to speed up and keep output compact
+    # Cap tokens and keep temperature low to speed up and keep output compact
     ollama_options = {
         "num_predict": int(os.getenv("OLLAMA_NUM_PREDICT", "1024")),
-        "temperature": float(os.getenv("OLLAMA_TEMPERATURE", "0.3")),
+        "temperature": float(os.getenv("OLLAMA_TEMPERATURE", "0.2")),
     }
 
     content = _chat(
@@ -99,11 +99,17 @@ def generate_feedback_text(
         "test_results": test_results,
     }
 
+    feedback_options = {
+        "num_predict": int(os.getenv("OLLAMA_FEEDBACK_NUM_PREDICT", "256")),
+        "temperature": float(os.getenv("OLLAMA_FEEDBACK_TEMPERATURE", "0.2")),
+    }
+
     content = _chat(
         [
             {"role": "system", "content": system},
             {"role": "user", "content": json.dumps(user_payload, ensure_ascii=False)},
-        ]
+        ],
+        options=feedback_options,
     )
     return content.strip()
 
