@@ -1,0 +1,162 @@
+[
+  {
+    "task_id": "q1",
+    "concept": "variables",
+    "difficulty": "beginner",
+    "question_text": "Create two variables called name and age, then print a sentence showing both values.",
+    "subtasks": ["Create a variable named name", "Create a variable named age", "Store a text value in name", "Store a number value in age", "Print one sentence containing both values"],
+    "model_answer": ""
+  },
+  {
+    "task_id": "q2",
+    "concept": "variables",
+    "difficulty": "beginner",
+    "question_text": "Store two numbers in variables and print their sum.",
+    "subtasks": ["Create a first number variable", "Create a second number variable", "Calculate the sum", "Store the sum in a variable", "Print the sum"],
+    "model_answer": ""
+  },
+  {
+    "task_id": "q3",
+    "concept": "variables",
+    "difficulty": "beginner",
+    "question_text": "Create a variable for a city and print a greeting that includes the city.",
+    "subtasks": ["Create a variable named city", "Assign a string value to city", "Create a greeting sentence", "Include city in the sentence", "Print the final sentence"],
+    "model_answer": ""
+  },
+  {
+    "task_id": "q4",
+    "concept": "variables",
+    "difficulty": "beginner",
+    "question_text": "Store width and height values, calculate area, and print the result.",
+    "subtasks": ["Create width variable", "Create height variable", "Multiply width and height", "Store result in area variable", "Print area"],
+    "model_answer": ""
+  },
+  {
+    "task_id": "q5",
+    "concept": "variables",
+    "difficulty": "beginner",
+    "question_text": "Create a variable for temperature in Celsius and print a message with that value.",
+    "subtasks": ["Create celsius variable", "Assign a numeric value", "Create an output message", "Include celsius value in output", "Print the output message"],
+    "model_answer": ""
+  },
+  {
+    "task_id": "q6",
+    "concept": "conditionals",
+    "difficulty": "beginner",
+    "question_text": "Write a program that checks if a number is positive or not positive.",
+    "subtasks": ["Create a number variable", "Use an if statement", "Check if number is greater than zero", "Print positive when true", "Print not positive when false"],
+    "model_answer": ""
+  },
+  {
+    "task_id": "q7",
+    "concept": "conditionals",
+    "difficulty": "beginner",
+    "question_text": "Check if a user age is at least 18 and print access granted or denied.",
+    "subtasks": ["Create an age variable", "Use an if else structure", "Check age greater than or equal to 18", "Print access granted for true case", "Print access denied for false case"],
+    "model_answer": ""
+  },
+  {
+    "task_id": "q8",
+    "concept": "conditionals",
+    "difficulty": "beginner",
+    "question_text": "Check whether a number is even or odd and print the result.",
+    "subtasks": ["Create a number variable", "Use modulo operator with 2", "Use conditional logic", "Print even when divisible by 2", "Print odd otherwise"],
+    "model_answer": ""
+  },
+  {
+    "task_id": "q9",
+    "concept": "conditionals",
+    "difficulty": "beginner",
+    "question_text": "Compare two numbers and print which one is larger, or equal.",
+    "subtasks": ["Create first number variable", "Create second number variable", "Use if elif else", "Handle first larger case", "Handle second larger and equal cases"],
+    "model_answer": ""
+  },
+  {
+    "task_id": "q10",
+    "concept": "conditionals",
+    "difficulty": "beginner",
+    "question_text": "Check if a password string is exactly admin123 and print valid or invalid.",
+    "subtasks": ["Create a password variable", "Use equality comparison", "Use if else statement", "Print valid for matching password", "Print invalid otherwise"],
+    "model_answer": ""
+  },
+  {
+    "task_id": "q11",
+    "concept": "loops",
+    "difficulty": "beginner",
+    "question_text": "Use a for loop to print numbers 1 to 5.",
+    "subtasks": ["Use a for loop", "Use range to cover 1 through 5", "Print each number", "Ensure exactly five outputs", "Keep output order ascending"],
+    "model_answer": ""
+  },
+  {
+    "task_id": "q12",
+    "concept": "loops",
+    "difficulty": "beginner",
+    "question_text": "Loop through a list of fruits and print each fruit.",
+    "subtasks": ["Create a fruits list variable", "Use a loop to iterate list items", "Access each item in loop", "Print each fruit", "Do not hardcode each print separately"],
+    "model_answer": ""
+  },
+  {
+    "task_id": "q13",
+    "concept": "loops",
+    "difficulty": "beginner",
+    "question_text": "Use a while loop to print countdown from 3 to 1.",
+    "subtasks": ["Create a counter variable starting at 3", "Use a while loop", "Print counter each iteration", "Decrease counter each loop", "Stop at 1 and exit loop"],
+    "model_answer": ""
+  },
+  {
+    "task_id": "q14",
+    "concept": "loops",
+    "difficulty": "beginner",
+    "question_text": "Calculate the total of numbers in a list using a loop and print the total.",
+    "subtasks": ["Create a list of numbers", "Create a total accumulator variable", "Loop through the numbers", "Add each number to total", "Print final total"],
+    "model_answer": ""
+  },
+  {
+    "task_id": "q15",
+    "concept": "loops",
+    "difficulty": "beginner",
+    "question_text": "Print only even numbers from 1 to 10 using a loop and condition.",
+    "subtasks": ["Use a loop from 1 to 10", "Use conditional check for even numbers", "Use modulo operator correctly", "Print only even values", "Exclude odd numbers from output"],
+    "model_answer": ""
+  },
+  {
+    "task_id": "q16",
+    "concept": "functions",
+    "difficulty": "beginner",
+    "question_text": "Write a function greet that takes a name and prints Hello plus the name.",
+    "subtasks": ["Define a function named greet", "Add one parameter called name", "Create greeting output using name", "Print greeting inside function", "Call the function once"],
+    "model_answer": ""
+  },
+  {
+    "task_id": "q17",
+    "concept": "functions",
+    "difficulty": "beginner",
+    "question_text": "Write a function add that takes two numbers and returns their sum.",
+    "subtasks": ["Define a function named add", "Add two parameters", "Compute sum of parameters", "Return the computed sum", "Call the function and print result"],
+    "model_answer": ""
+  },
+  {
+    "task_id": "q18",
+    "concept": "functions",
+    "difficulty": "beginner",
+    "question_text": "Write a function is_even that returns True when a number is even, otherwise False.",
+    "subtasks": ["Define function is_even", "Accept one numeric parameter", "Use modulo by 2", "Return True for even numbers", "Return False for odd numbers"],
+    "model_answer": ""
+  },
+  {
+    "task_id": "q19",
+    "concept": "functions",
+    "difficulty": "beginner",
+    "question_text": "Write a function square that returns the square of an input number.",
+    "subtasks": ["Define function square", "Accept one parameter", "Compute number times number", "Return computed value", "Call function and print output"],
+    "model_answer": ""
+  },
+  {
+    "task_id": "q20",
+    "concept": "functions",
+    "difficulty": "beginner",
+    "question_text": "Write a function show_message that prints a provided text argument.",
+    "subtasks": ["Define function show_message", "Accept one text parameter", "Print the parameter inside function", "Call function with sample text", "Ensure output matches given text"],
+    "model_answer": ""
+  }
+]

@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+import json
+import os
+import random
 from pathlib import Path
 from typing import Any
 from uuid import uuid4
@@ -31,7 +34,19 @@ class FeedbackRequest(BaseModel):
 
 app = FastAPI(title="LLM Evaluation Prototype")
 frontend_dir = Path(__file__).resolve().parent.parent / "frontend"
+data_dir = Path(__file__).resolve().parent.parent / "data"
 app.mount("/static", StaticFiles(directory=frontend_dir), name="static")
+USE_FIXED_DATASET = os.getenv("USE_FIXED_DATASET", "true").lower() == "true"
+
+
+def _load_fixed_tasks_with_answers() -> list[dict[str, Any]]:
+    path = data_dir / "fixed_tasks_with_answers.json"
+    if not path.exists():
+        raise HTTPException(
+            status_code=500,
+            detail="fixed_tasks_with_answers.json not found. Run backend/generate_model_answers.py first.",
+        )
+    return json.loads(path.read_text(encoding="utf-8"))
 
 
 @app.get("/")
@@ -41,6 +56,18 @@ def index() -> FileResponse:
 
 @app.post("/generate-task")
 def generate_task(payload: GenerateTaskRequest) -> dict[str, Any]:
+    if USE_FIXED_DATASET:
+        tasks = _load_fixed_tasks_with_answers()
+        filtered = [
+            task for task in tasks
+            if task.get("concept") == payload.concept and task.get("difficulty") == payload.difficulty
+        ]
+        if not filtered:
+            raise HTTPException(status_code=404, detail="No fixed task found for concept/difficulty.")
+        task = random.choice(filtered)
+        task_store.save_task(task)
+        return task
+
     template = load_prompt_template("task_generation_prompt.txt")
     prompt = template.format(concept=payload.concept, difficulty=payload.difficulty)
     llm_result = generate_json_with_ollama(prompt)
