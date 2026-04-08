@@ -1,130 +1,156 @@
 # prototype_llm_eval
 
-Focused research prototype for evaluating three LLM roles in a controlled workflow:
-1. Task generation
-2. Marking
-3. Feedback generation
+Dissertation-ready evaluation prototype for LLM-based:
+1. task generation,
+2. marking,
+3. feedback.
 
-This is intentionally separate from the broader CodeQuest system and keeps architecture minimal for dissertation evaluation.
+It stays modular and offline-friendly, and prioritizes reproducible artifacts over product features.
 
-## Folder structure
+## Why Gemini 2.5 for dataset generation
 
-- `backend/` - FastAPI app with 3 endpoints and in-memory task storage
-- `frontend/` - plain HTML/CSS/JS UI
-- `evaluation/` - helpers and scripts for marking experiments/comparison
-- `data/` - fixed tasks dataset and generated student answers
-- `prompts/` - editable prompt templates for each LLM role
-- `README.md` - usage and architecture notes
+Generation is fixed to Gemini by default (`gemini-2.5-flash`) because benchmark preparation needs fast, reliable structured outputs. This reduces dataset-build latency and stabilizes schema adherence for the fixed task bank.
 
-## How to run
+Ollama models are still included as open-model baselines for comparative marking/feedback experiments.
 
-From the repo root:
+## Why multiple models for marking and feedback
 
-1. Ensure dependencies are installed:
-   - `pip install -r requirements.txt`
-2. Ensure Ollama is running locally and a model is available (default: `llama3.2:3b`)
-3. Start the prototype backend:
-   - `uvicorn prototype_llm_eval.backend.main:app --reload`
-4. Open:
-   - `http://127.0.0.1:8000/`
+Marking and feedback are run across multiple providers (`gemini`, `llama`, `mistral`) to support comparative evaluation:
+- proprietary cloud vs open/local models,
+- agreement robustness against human ground truth,
+- model-specific failure modes in grading/feedback behavior.
 
-Optional environment variables:
-- `OLLAMA_URL` (default `http://localhost:11434/api/generate`)
-- `OLLAMA_MODEL` (default `llama3.2:3b`)
-- `USE_FIXED_DATASET` (default `true`)
+## Provider abstraction
 
-## Fixed dataset mode
+`backend/llm_provider.py` defines:
+- `LLMProvider.generate_text(prompt, system_prompt=None) -> str`
+- `LLMProvider.generate_json(prompt, system_prompt=None) -> dict`
 
-The prototype now supports a reproducible 20-question fixed dataset:
+Providers:
+- `GeminiProvider` (Google Generative AI, `GEMINI_API_KEY`)
+- `OllamaProvider` (local HTTP API, `OLLAMA_BASE_URL`, `OLLAMA_MODEL`)
+- `MistralProvider` (Mistral API if `MISTRAL_API_KEY` exists, otherwise Ollama fallback model)
 
-- `data/fixed_tasks.json` - 20 predefined tasks (5 each for variables, conditionals, loops, functions)
-- `data/fixed_tasks_with_answers.json` - same tasks after model answers are generated
-- `data/generated_answers.json` - answer variants per task (correct, partially_correct, incorrect)
+Factory:
+- `get_provider(name)` with names: `gemini`, `llama`, `mistral`
 
-When `USE_FIXED_DATASET=true`, `POST /generate-task` returns a matching task from `fixed_tasks_with_answers.json` and does not call the task generation LLM.
-When `USE_FIXED_DATASET=false`, it uses the existing dynamic LLM generation flow.
+## Strict task schema
 
-## Generate model answers for fixed tasks
+Every task must follow:
 
-Before fixed-mode task serving, generate model answers once:
+```json
+{
+  "task_id": "q1",
+  "concept": "variables",
+  "difficulty": "beginner",
+  "question_text": "string",
+  "subtasks": [
+    {"subtask_id": "s1", "label": "string"},
+    {"subtask_id": "s2", "label": "string"},
+    {"subtask_id": "s3", "label": "string"},
+    {"subtask_id": "s4", "label": "string"},
+    {"subtask_id": "s5", "label": "string"}
+  ],
+  "model_answer": "string"
+}
+```
 
-- `python -m prototype_llm_eval.backend.generate_model_answers`
+Rules:
+- exactly 20 tasks
+- concept split: 5 variables / 5 conditionals / 5 loops / 5 functions
+- exactly 5 subtasks per task
+- total subtasks = 100
+- unique `subtask_id` values per task
 
-This reads `fixed_tasks.json`, calls Ollama for each task, and writes `fixed_tasks_with_answers.json`.
+Subtasks are label-based and independently markable, enabling granular marking and disagreement analysis.
 
-## Evaluation pipeline
+## Prompt contract consistency (fair comparison)
 
-1. Generate model answers (if not already done):
-   - `python -m prototype_llm_eval.backend.generate_model_answers`
-2. Run sample marking evaluation:
+All marking models use the same `prompts/marking_prompt.txt` schema contract. Consistent prompt/output contracts are necessary so performance differences are due to model behavior, not formatting mismatches.
+
+## Environment configuration
+
+- `GEMINI_API_KEY` (required for Gemini provider)
+- `GEMINI_MODEL` (default: `gemini-2.5-flash`)
+- `OLLAMA_BASE_URL` (default: `http://localhost:11434`)
+- `OLLAMA_MODEL` (default for `llama`: `llama3.1`)
+- `MISTRAL_API_KEY` (optional; if missing, uses Ollama mistral fallback)
+- `MISTRAL_MODEL` (default: `mistral-small-latest`)
+- `MISTRAL_OLLAMA_MODEL` (default local fallback: `mistral`)
+- `TASK_GENERATION_PROVIDER` (default: `gemini`)
+- `ANSWER_VARIANT_PROVIDER` (default: `gemini`)
+- `MARKING_MODELS` (default: `gemini`; example: `gemini,llama,mistral`)
+- `FEEDBACK_MODELS` (default: `gemini`; example: `gemini,llama,mistral`)
+
+## Workflow
+
+1. Prepare fixed dataset + model answers (single provider, default Gemini):
+   - `python -m prototype_llm_eval.backend.prepare_fixed_dataset`
+2. Generate student answer variants:
+   - `python -m prototype_llm_eval.backend.generate_answer_variants`
+3. Run multi-model marking:
    - `python -m prototype_llm_eval.evaluation.run_sample_eval`
-3. Output produced:
-   - `evaluation/results/marking_results.csv`
-4. Fill human marks:
-   - Copy `evaluation/results/human_marks_template.csv` to `evaluation/results/human_marks.csv`
-   - Fill `human_mark` per subtask (`correct`/`incorrect` or `1`/`0`)
-5. Compare LLM vs human marking:
+4. Run multi-model feedback eval (smaller subset):
+   - `python -m prototype_llm_eval.evaluation.run_feedback_eval`
+5. Fill human marks:
+   - copy `evaluation/results/human_marks_template.csv` -> `evaluation/results/human_marks.csv`
+   - fill `human_mark` per row (`correct/incorrect` or `1/0`)
+6. Compare each marker model vs human:
    - `python -m prototype_llm_eval.evaluation.compare_results`
 
-Comparison script prints:
-- accuracy
-- agreement rate
-- confusion matrix counts (TP, TN, FP, FN)
-
-## API routes
+## API notes
 
 ### `POST /generate-task`
 Input:
 ```json
-{
-  "concept": "loops",
-  "difficulty": "beginner"
-}
+{"concept":"loops","difficulty":"beginner"}
 ```
-Output includes:
-- `task_id`
-- `concept`
-- `difficulty`
-- `question_text`
-- `subtasks` (4-5 items)
-- `model_answer`
+Output: strict task schema above.
 
 ### `POST /mark-answer`
 Input:
 ```json
-{
-  "task_id": "...",
-  "student_answer": "..."
-}
-```
-Output includes per-subtask marks, scores, star rating, and reasoning.
-
-### `POST /generate-feedback`
-Input:
-```json
-{
-  "task_id": "...",
-  "student_answer": "...",
-  "marking_result": {}
-}
+{"task_id":"...","student_answer":"..."}
 ```
 Output:
 ```json
 {
-  "feedback": "..."
+  "subtask_results": [
+    {"subtask_id":"s1","correct":true,"reason":"..."}
+  ],
+  "overall_score": 4,
+  "max_score": 5,
+  "star_rating": 4,
+  "reasoning": "..."
 }
 ```
 
-## LLM role design
+### `POST /generate-feedback`
+Input:
+```json
+{"task_id":"...","student_answer":"...","marking_result":{}}
+```
+Output:
+```json
+{"feedback":"..."}
+```
 
-- Task generation LLM:
-  - Uses `prompts/task_generation_prompt.txt`
-  - Returns structured task JSON in a beginner-friendly format
-- Marking LLM:
-  - Uses `prompts/marking_prompt.txt`
-  - Marks each subtask as correct/incorrect and returns structured scoring
-- Feedback LLM:
-  - Uses `prompts/feedback_prompt.txt`
-  - Produces learner-friendly feedback from task context + marking result
+## Output artifacts
 
-All three roles call Ollama with JSON-mode responses for easier downstream evaluation.
+- `data/fixed_tasks_with_answers.json` (fixed benchmark tasks + model answers)
+- `data/generated_answers.json` (3 answer variants per task)
+- `evaluation/results/marking_results.csv` (includes `marker_model`)
+- `evaluation/results/human_marks_template.csv` (ground-truth template)
+- `evaluation/results/feedback_results.json` (feedback model comparison)
+- `evaluation/results/comparison_summary.csv` (per-marker metric summary)
+
+## Evaluation interpretation
+
+- **Granular marking**: each subtask is judged separately.
+- **Answer variants**: simulate realistic student levels (strong / partial / weak).
+- **Human comparison**: human marks are the reference.
+- **Metrics**:
+  - accuracy, agreement rate
+  - confusion matrix counts (TP, TN, FP, FN)
+  - precision/recall/F1
+  - optional per-concept accuracy

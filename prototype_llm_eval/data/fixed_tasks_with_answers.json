@@ -26,7 +26,7 @@
         "label": "Print one sentence containing both values"
       }
     ],
-    "model_answer": ""
+    "model_answer": "name = \"Alice\"\nage = 30\nprint(f\"My name is {name} and I am {age} years old.\")"
   },
   {
     "task_id": "q2",
@@ -55,7 +55,7 @@
         "label": "Print the sum"
       }
     ],
-    "model_answer": ""
+    "model_answer": "first_number = 10\nsecond_number = 20\ntotal_sum = first_number + second_number\nprint(total_sum)"
   },
   {
     "task_id": "q3",
@@ -84,7 +84,7 @@
         "label": "Print the final sentence"
       }
     ],
-    "model_answer": ""
+    "model_answer": "city = \"Paris\"\nprint(f\"Welcome to {city}!\")"
   },
   {
     "task_id": "q4",
@@ -113,7 +113,7 @@
         "label": "Print area"
       }
     ],
-    "model_answer": ""
+    "model_answer": "my_width = 10\nmy_height = 5\ncalculated_area = my_width * my_height\nprint(calculated_area)"
   },
   {
     "task_id": "q5",
@@ -142,7 +142,7 @@
         "label": "Print the output message"
       }
     ],
-    "model_answer": ""
+    "model_answer": "celsius = 23.5\nprint(f\"The temperature is {celsius} degrees Celsius.\")"
   },
   {
     "task_id": "q6",
@@ -171,7 +171,7 @@
         "label": "Print not positive when false"
       }
     ],
-    "model_answer": ""
+    "model_answer": "number = 7\n\nif number > 0:\n    print(\"positive\")\nelse:\n    print(\"not positive\")"
   },
   {
     "task_id": "q7",
@@ -200,7 +200,7 @@
         "label": "Print access denied for false case"
       }
     ],
-    "model_answer": ""
+    "model_answer": "user_age = 20\n\nif user_age >= 18:\n    print(\"access granted\")\nelse:\n    print(\"access denied\")"
   },
   {
     "task_id": "q8",
@@ -229,7 +229,7 @@
         "label": "Print odd otherwise"
       }
     ],
-    "model_answer": ""
+    "model_answer": "# Create a number variable\nnumber_to_check = 7\n\n# Use modulo operator with 2 and conditional logic\nif number_to_check % 2 == 0:\n    # Print even when divisible by 2\n    print(\"Even\")\nelse:\n    # Print odd otherwise\n    print(\"Odd\")"
   },
   {
     "task_id": "q9",
@@ -258,7 +258,7 @@
         "label": "Handle second larger and equal cases"
       }
     ],
-    "model_answer": ""
+    "model_answer": "number1 = 15\nnumber2 = 7\n\nif number1 > number2:\n    print(\"The first number is larger.\")\nelif number2 > number1:\n    print(\"The second number is larger.\")\nelse:\n    print(\"The numbers are equal.\")"
   },
   {
     "task_id": "q10",
@@ -287,7 +287,7 @@
         "label": "Print invalid otherwise"
       }
     ],
-    "model_answer": ""
+    "model_answer": "password = \"admin123\" \n\nif password == \"admin123\":\n    print(\"valid\")\nelse:\n    print(\"invalid\")"
   },
   {
     "task_id": "q11",
@@ -316,7 +316,7 @@
         "label": "Keep output order ascending"
       }
     ],
-    "model_answer": ""
+    "model_answer": "for number in range(1, 6):\n    print(number)"
   },
   {
     "task_id": "q12",
@@ -345,7 +345,7 @@
         "label": "Do not hardcode each print separately"
       }
     ],
-    "model_answer": ""
+    "model_answer": "fruits = [\"apple\", \"banana\", \"cherry\", \"date\"]\n\nfor fruit in fruits:\n    print(fruit)"
   },
   {
     "task_id": "q13",
@@ -374,7 +374,7 @@
         "label": "Stop at 1 and exit loop"
       }
     ],
-    "model_answer": ""
+    "model_answer": "countdown_number = 3\n\nwhile countdown_number >= 1:\n    print(countdown_number)\n    countdown_number -= 1"
   },
   {
     "task_id": "q14",
@@ -403,7 +403,7 @@
         "label": "Print final total"
       }
     ],
-    "model_answer": ""
+    "model_answer": "# s1: Create a list of numbers\nnumbers = [10, 20, 30, 40, 50]\n\n# s2: Create a total accumulator variable\ntotal_sum = 0\n\n# s3: Loop through the numbers\nfor number in numbers:\n    # s4: Add each number to total\n    total_sum = total_sum + number\n\n# s5: Print final total\nprint(\"The total sum is:\", total_sum)"
   },
   {
     "task_id": "q15",
@@ -432,7 +432,7 @@
         "label": "Exclude odd numbers from output"
       }
     ],
-    "model_answer": ""
+    "model_answer": "for number in range(1, 11):\n    if number % 2 == 0:\n        print(number)"
   },
   {
     "task_id": "q16",
@@ -461,7 +461,7 @@
         "label": "Call the function once"
       }
     ],
-    "model_answer": ""
+    "model_answer": "def greet(name):\n    \"\"\"\n    Greets the given name with a 'Hello' message.\n    \"\"\"\n    print(f\"Hello {name}\")\n\n# Call the function once with an example name\ngreet(\"Alice\")"
   },
   {
     "task_id": "q17",
@@ -490,7 +490,7 @@
         "label": "Call the function and print result"
       }
     ],
-    "model_answer": ""
+    "model_answer": "def add(number1, number2):\n    sum_of_numbers = number1 + number2\n    return sum_of_numbers\n\nprint(add(7, 3))"
   },
   {
     "task_id": "q18",
@@ -519,7 +519,7 @@
         "label": "Return False for odd numbers"
       }
     ],
-    "model_answer": ""
+    "model_answer": "def is_even(number):\n    \"\"\"\n    Checks if a number is even.\n\n    Parameters:\n    number (int or float): The number to check.\n\n    Returns:\n    bool: True if the number is even, False otherwise.\n    \"\"\"\n    return number % 2 == 0"
   },
   {
     "task_id": "q19",
@@ -548,7 +548,7 @@
         "label": "Call function and print output"
       }
     ],
-    "model_answer": ""
+    "model_answer": "def square(number):\n  \"\"\"\n  Calculates the square of a given number.\n\n  Args:\n    number: The input number.\n\n  Returns:\n    The square of the input number.\n  \"\"\"\n  squared_value = number * number\n  return squared_value\n\n# Call the function with an example number and print the result\ninput_number = 7\noutput_square = square(input_number)\nprint(f\"The square of {input_number} is: {output_square}\")\n\n# Another example\nprint(f\"The square of 10 is: {square(10)}\")"
   },
   {
     "task_id": "q20",
@@ -577,6 +577,6 @@
         "label": "Ensure output matches given text"
       }
     ],
-    "model_answer": ""
+    "model_answer": "def show_message(message_content):\n    print(message_content)\n\nshow_message(\"Hello, Python beginners!\")"
   }
 ]

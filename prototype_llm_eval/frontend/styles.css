@@ -11,6 +11,15 @@ body {
   padding: 0 16px 24px;
 }
 
+.status {
+  background: #eef5ff;
+  border: 1px solid #c9dcff;
+  color: #123e7a;
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin-bottom: 14px;
+}
+
 .panel {
   background: #fff;
   border: 1px solid #ddd;
@@ -47,6 +56,19 @@ button {
 
 button:hover {
   background: #1859bb;
+}
+
+button:disabled {
+  background: #9aa4b2;
+  cursor: not-allowed;
+}
+
+button.secondary {
+  background: #374151;
+}
+
+button.secondary:hover {
+  background: #1f2937;
 }
 
 pre {

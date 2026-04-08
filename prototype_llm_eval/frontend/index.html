@@ -9,14 +9,15 @@
 <body>
   <main class="container">
     <h1>LLM Evaluation Prototype</h1>
+    <p id="statusBar" class="status">Ready.</p>
 
     <section class="panel">
       <h2>1) Generate Task</h2>
       <label for="concept">Concept</label>
       <select id="concept">
+        <option value="variables">variables</option>
+        <option value="conditionals">conditionals</option>
         <option value="loops">loops</option>
-        <option value="conditions">conditions</option>
-        <option value="lists">lists</option>
         <option value="functions">functions</option>
       </select>
 
@@ -27,6 +28,7 @@
       </select>
 
       <button id="generateTaskBtn">Generate Task</button>
+      <button id="clearBtn" class="secondary">Clear Outputs</button>
       <pre id="taskOutput"></pre>
     </section>
 

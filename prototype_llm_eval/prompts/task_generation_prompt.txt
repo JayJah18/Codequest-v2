@@ -5,13 +5,24 @@ Input concept: {concept}
 Input difficulty: {difficulty}
 
 Create a beginner-friendly Python programming question with this prescribed format:
-1) question_text: one short question statement suitable for novice students
-2) subtasks: 4 or 5 clear checklist-style subtasks, each easy to mark as correct/incorrect
-3) model_answer: a concise correct answer that addresses all subtasks
+1) question_text: one short, concrete coding task statement suitable for novice students
+   - must mention writing Python code for a practical mini-problem
+   - avoid vague prompts like "What is the value of x?"
+2) subtasks: exactly 5 clear checklist-style subtasks, each independently markable as correct/incorrect
+   - each item must be an object: {{"subtask_id":"s1", "label":"..."}}
+   - each subtask must be specific and code-action oriented
+   - avoid meta instructions like "verify output" or "for reference"
+3) model_answer: concise correct Python (and brief explanation only if needed) that satisfies every subtask
 
 Output schema:
-{
+{{
   "question_text": "string",
-  "subtasks": ["string", "string", "string", "string"],
+  "subtasks": [
+    {{"subtask_id": "s1", "label": "string"}},
+    {{"subtask_id": "s2", "label": "string"}},
+    {{"subtask_id": "s3", "label": "string"}},
+    {{"subtask_id": "s4", "label": "string"}},
+    {{"subtask_id": "s5", "label": "string"}}
+  ],
   "model_answer": "string"
-}
+}}
