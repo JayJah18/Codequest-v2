@@ -19,7 +19,15 @@ BANK_CONCEPT_SCHEDULE: tuple[str, ...] = (
     *(["functions"] * 5),
 )
 GENERATION_MAX_RETRIES = int(os.getenv("TASK_GENERATION_MAX_RETRIES", "5"))
-TASK_GENERATION_PROVIDER = os.getenv("TASK_GENERATION_PROVIDER", "gemini")
+
+
+def get_question_generation_provider() -> str:
+    """Live /demo-ui task JSON generation: gemini (default), llama (Ollama), or mistral."""
+    raw = (os.getenv("QUESTION_GENERATION_PROVIDER") or "gemini").strip().lower()
+    if raw in ("gemini", "llama", "mistral"):
+        return raw
+    print(f"WARNING: invalid QUESTION_GENERATION_PROVIDER={raw!r}; using gemini")
+    return "gemini"
 
 
 def normalize_task_payload(
@@ -83,7 +91,7 @@ def generate_one_task_llm(concept: str, difficulty: str, task_id: str) -> dict[s
     last_error = "unknown generation failure"
     for attempt in range(1, GENERATION_MAX_RETRIES + 1):
         prompt = template.format(concept=concept, difficulty=difficulty)
-        llm_result = generate_json(prompt, provider_name=TASK_GENERATION_PROVIDER)
+        llm_result = generate_json(prompt, provider_name=get_question_generation_provider())
         try:
             task = normalize_task_payload(llm_result, task_id=task_id, concept=concept, difficulty=difficulty)
             _validate_task_quality(task, task_id=task_id)

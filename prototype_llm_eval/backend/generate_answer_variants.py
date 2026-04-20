@@ -18,6 +18,7 @@ def _variant_prompt(task: dict[str, Any], variant_type: str) -> str:
         "partly_correct": "Intentionally solve only 2 or 3 subtasks correctly. The rest should be wrong or missing.",
         "fully_incorrect": "Produce code that clearly fails all subtasks.",
     }[variant_type]
+    subtasks_txt = json.dumps(task.get("subtasks", []), indent=2, ensure_ascii=False)
     return f"""
 You are simulating a beginner student's answer.
 
@@ -25,13 +26,32 @@ Task:
 {task["question_text"]}
 
 Subtasks:
-{task["subtasks"]}
+{subtasks_txt}
 
 Rules:
 - {variant_rule}
 - Keep the code realistic for a beginner.
 - Return only Python code, no markdown.
 """.strip()
+
+
+def generate_variant_codes_for_task(task: dict[str, Any]) -> list[dict[str, Any]]:
+    """Three synthetic learner submissions: fully_correct, partly_correct, fully_incorrect (same contract as generated_answers.json)."""
+    tid = str(task.get("task_id", "task"))
+    out: list[dict[str, Any]] = []
+    for idx, variant_type in enumerate(VARIANTS, start=1):
+        code = generate_text(
+            _variant_prompt(task, variant_type),
+            provider_name=ANSWER_VARIANT_PROVIDER,
+        ).strip()
+        out.append(
+            {
+                "answer_id": f"{tid}_v{idx}",
+                "variant_type": variant_type,
+                "code": code,
+            }
+        )
+    return out
 
 
 def main() -> None:

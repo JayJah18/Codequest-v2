@@ -142,6 +142,21 @@ def assert_valid_dataset(tasks: list[dict[str, Any]]) -> None:
         raise ValueError("Dataset validation failed:\n" + "\n".join(f"  - {e}" for e in errors))
 
 
+def validate_task_subset_for_evaluation(tasks: list[dict[str, Any]]) -> list[str]:
+    """Per-task schema checks for a pilot or partial run (does not require 20 tasks)."""
+    errors: list[str] = []
+    seen_ids: set[str] = set()
+    for i, task in enumerate(tasks):
+        label = f"task[{i}] ({task.get('task_id', '?')})"
+        errors.extend(validate_task_schema(task, label=label, require_model_answer=True))
+        tid = task.get("task_id")
+        if isinstance(tid, str) and tid.strip():
+            if tid in seen_ids:
+                errors.append(f"Duplicate task_id in subset: {tid!r}")
+            seen_ids.add(tid)
+    return errors
+
+
 def load_json_task_list(path: Path) -> list[dict[str, Any]]:
     text = path.read_text(encoding="utf-8")
     data = json.loads(text)

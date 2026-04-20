@@ -1,0 +1,84 @@
+.admin-main {
+  max-width: 960px;
+}
+
+.admin-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.admin-lead {
+  margin: 0 0 1.75rem;
+  max-width: 44rem;
+}
+
+.admin-lead code {
+  font-size: 0.88em;
+  background: var(--cq-bg);
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+}
+
+.admin-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.admin-tile {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform 0.12s ease, border-color 0.12s ease;
+}
+
+.admin-tile:hover {
+  transform: translateY(-2px);
+  border-color: rgba(56, 189, 248, 0.45);
+}
+
+.admin-tile-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--cq-accent);
+}
+
+.admin-tile h2 {
+  margin: 0.4rem 0 0.35rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.admin-tile p {
+  margin: 0;
+  font-size: 0.86rem;
+  color: var(--cq-muted);
+  line-height: 1.4;
+}
+
+.admin-tile code {
+  font-size: 0.85em;
+  color: #bae6fd;
+}
+
+.admin-files-title {
+  margin: 0 0 0.65rem;
+  font-size: 1rem;
+}
+
+.admin-files-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--cq-muted);
+  font-size: 0.88rem;
+}
+
+.admin-files-list code {
+  color: #e2e8f0;
+  font-size: 0.9em;
+}

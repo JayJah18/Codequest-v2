@@ -55,7 +55,7 @@
         "label": "Print the sum"
       }
     ],
-    "model_answer": "first_number = 10\nsecond_number = 20\ntotal_sum = first_number + second_number\nprint(total_sum)"
+    "model_answer": "num1 = 5\nnum2 = 10\nsum_of_numbers = num1 + num2\nprint(sum_of_numbers)"
   },
   {
     "task_id": "q3",
@@ -84,7 +84,7 @@
         "label": "Print the final sentence"
       }
     ],
-    "model_answer": "city = \"Paris\"\nprint(f\"Welcome to {city}!\")"
+    "model_answer": "city = \"London\"\nprint(f\"Welcome to {city}!\")"
   },
   {
     "task_id": "q4",
@@ -113,7 +113,7 @@
         "label": "Print area"
       }
     ],
-    "model_answer": "my_width = 10\nmy_height = 5\ncalculated_area = my_width * my_height\nprint(calculated_area)"
+    "model_answer": "width = 10\nheight = 5\narea = width * height\nprint(area)"
   },
   {
     "task_id": "q5",
@@ -142,7 +142,7 @@
         "label": "Print the output message"
       }
     ],
-    "model_answer": "celsius = 23.5\nprint(f\"The temperature is {celsius} degrees Celsius.\")"
+    "model_answer": "celsius = 22.5\nprint(f\"The current temperature is {celsius} degrees Celsius.\")"
   },
   {
     "task_id": "q6",
@@ -171,7 +171,7 @@
         "label": "Print not positive when false"
       }
     ],
-    "model_answer": "number = 7\n\nif number > 0:\n    print(\"positive\")\nelse:\n    print(\"not positive\")"
+    "model_answer": "number = 10  # Create a number variable\n\nif number > 0:  # Use an if statement and check if number is greater than zero\n    print(\"positive\")  # Print positive when true\nelse:\n    print(\"not positive\")  # Print not positive when false"
   },
   {
     "task_id": "q7",
@@ -200,7 +200,7 @@
         "label": "Print access denied for false case"
       }
     ],
-    "model_answer": "user_age = 20\n\nif user_age >= 18:\n    print(\"access granted\")\nelse:\n    print(\"access denied\")"
+    "model_answer": "user_age = 20\n\nif user_age >= 18:\n    print(\"Access granted\")\nelse:\n    print(\"Access denied\")"
   },
   {
     "task_id": "q8",
@@ -229,7 +229,7 @@
         "label": "Print odd otherwise"
       }
     ],
-    "model_answer": "# Create a number variable\nnumber_to_check = 7\n\n# Use modulo operator with 2 and conditional logic\nif number_to_check % 2 == 0:\n    # Print even when divisible by 2\n    print(\"Even\")\nelse:\n    # Print odd otherwise\n    print(\"Odd\")"
+    "model_answer": "# Create a number variable\nnumber = 7\n\n# Use conditional logic and modulo operator to check if the number is even or odd\nif number % 2 == 0:\n    # Print even when divisible by 2\n    print(\"Even\")\nelse:\n    # Print odd otherwise\n    print(\"Odd\")"
   },
   {
     "task_id": "q9",
@@ -258,7 +258,7 @@
         "label": "Handle second larger and equal cases"
       }
     ],
-    "model_answer": "number1 = 15\nnumber2 = 7\n\nif number1 > number2:\n    print(\"The first number is larger.\")\nelif number2 > number1:\n    print(\"The second number is larger.\")\nelse:\n    print(\"The numbers are equal.\")"
+    "model_answer": "number1 = 10\nnumber2 = 5\n\nif number1 > number2:\n    print(f\"{number1} is larger than {number2}\")\nelif number2 > number1:\n    print(f\"{number2} is larger than {number1}\")\nelse:\n    print(f\"{number1} is equal to {number2}\")"
   },
   {
     "task_id": "q10",
@@ -287,7 +287,7 @@
         "label": "Print invalid otherwise"
       }
     ],
-    "model_answer": "password = \"admin123\" \n\nif password == \"admin123\":\n    print(\"valid\")\nelse:\n    print(\"invalid\")"
+    "model_answer": "password = \"admin123\"\n\nif password == \"admin123\":\n    print(\"valid\")\nelse:\n    print(\"invalid\")"
   },
   {
     "task_id": "q11",
@@ -374,7 +374,7 @@
         "label": "Stop at 1 and exit loop"
       }
     ],
-    "model_answer": "countdown_number = 3\n\nwhile countdown_number >= 1:\n    print(countdown_number)\n    countdown_number -= 1"
+    "model_answer": "countdown_number = 3\n\nwhile countdown_number >= 1:\n    print(countdown_number)\n    countdown_number = countdown_number - 1"
   },
   {
     "task_id": "q14",
@@ -403,7 +403,7 @@
         "label": "Print final total"
       }
     ],
-    "model_answer": "# s1: Create a list of numbers\nnumbers = [10, 20, 30, 40, 50]\n\n# s2: Create a total accumulator variable\ntotal_sum = 0\n\n# s3: Loop through the numbers\nfor number in numbers:\n    # s4: Add each number to total\n    total_sum = total_sum + number\n\n# s5: Print final total\nprint(\"The total sum is:\", total_sum)"
+    "model_answer": "# Create a list of numbers\nnumbers = [10, 25, 30, 15, 5]\n\n# Create a total accumulator variable and initialize it to 0\ntotal = 0\n\n# Loop through each number in the list\nfor number in numbers:\n    # Add the current number to the total\n    total = total + number\n\n# Print the final total\nprint(\"The total of the numbers is:\", total)"
   },
   {
     "task_id": "q15",
@@ -461,7 +461,7 @@
         "label": "Call the function once"
       }
     ],
-    "model_answer": "def greet(name):\n    \"\"\"\n    Greets the given name with a 'Hello' message.\n    \"\"\"\n    print(f\"Hello {name}\")\n\n# Call the function once with an example name\ngreet(\"Alice\")"
+    "model_answer": "def greet(name):\n    \"\"\"\n    Prints a greeting message including the provided name.\n    \"\"\"\n    greeting = f\"Hello {name}\"\n    print(greeting)\n\n# Call the function once with an example name\ngreet(\"Alice\")"
   },
   {
     "task_id": "q17",
@@ -490,7 +490,7 @@
         "label": "Call the function and print result"
       }
     ],
-    "model_answer": "def add(number1, number2):\n    sum_of_numbers = number1 + number2\n    return sum_of_numbers\n\nprint(add(7, 3))"
+    "model_answer": "def add(num1, num2):\n    \"\"\"\n    This function takes two numbers and returns their sum.\n    \"\"\"\n    sum_result = num1 + num2\n    return sum_result\n\n# Call the function with example numbers and print the result\noutput = add(10, 5)\nprint(output)\n\n# You can also call it directly within print\nprint(add(7, 3))"
   },
   {
     "task_id": "q18",
@@ -519,7 +519,7 @@
         "label": "Return False for odd numbers"
       }
     ],
-    "model_answer": "def is_even(number):\n    \"\"\"\n    Checks if a number is even.\n\n    Parameters:\n    number (int or float): The number to check.\n\n    Returns:\n    bool: True if the number is even, False otherwise.\n    \"\"\"\n    return number % 2 == 0"
+    "model_answer": "def is_even(number):\n    \"\"\"\n    Checks if a given number is even.\n\n    An even number is an integer that is divisible by 2 with no remainder.\n    The modulo operator (%) returns the remainder of a division.\n    \"\"\"\n    return number % 2 == 0"
   },
   {
     "task_id": "q19",
@@ -548,7 +548,7 @@
         "label": "Call function and print output"
       }
     ],
-    "model_answer": "def square(number):\n  \"\"\"\n  Calculates the square of a given number.\n\n  Args:\n    number: The input number.\n\n  Returns:\n    The square of the input number.\n  \"\"\"\n  squared_value = number * number\n  return squared_value\n\n# Call the function with an example number and print the result\ninput_number = 7\noutput_square = square(input_number)\nprint(f\"The square of {input_number} is: {output_square}\")\n\n# Another example\nprint(f\"The square of 10 is: {square(10)}\")"
+    "model_answer": "def square(number):\n    \"\"\"\n    This function calculates the square of a given number.\n    \"\"\"\n    squared_number = number * number\n    return squared_number\n\n# Call the function with an example number and print the output\ninput_value = 7\noutput_value = square(input_value)\nprint(f\"The square of {input_value} is: {output_value}\")"
   },
   {
     "task_id": "q20",
@@ -577,6 +577,6 @@
         "label": "Ensure output matches given text"
       }
     ],
-    "model_answer": "def show_message(message_content):\n    print(message_content)\n\nshow_message(\"Hello, Python beginners!\")"
+    "model_answer": "def show_message(text_to_display):\n    \"\"\"\n    Prints the provided text argument to the console.\n\n    Args:\n        text_to_display (str): The text message to be printed.\n    \"\"\"\n    print(text_to_display)\n\n# Call the function with some sample text to demonstrate its usage.\nshow_message(\"This is a sample message.\")"
   }
 ]

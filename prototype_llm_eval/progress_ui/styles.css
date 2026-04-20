@@ -1,0 +1,85 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: #0f1419;
+  color: #e7ecf1;
+  line-height: 1.5;
+}
+.header {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid #243044;
+  background: #121a24;
+}
+.eyebrow {
+  margin: 0 0 0.25rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #7dd3fc;
+}
+.header h1 {
+  margin: 0 0 0.5rem;
+  font-size: 1.35rem;
+  font-weight: 650;
+}
+.sub {
+  margin: 0;
+  max-width: 52rem;
+  color: #9aa7b5;
+  font-size: 0.92rem;
+}
+.main {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 1.25rem 1.5rem 2.5rem;
+}
+.card {
+  background: #121a24;
+  border: 1px solid #243044;
+  border-radius: 10px;
+  padding: 1rem 1.15rem;
+  margin-bottom: 1rem;
+}
+.card h2 {
+  margin: 0 0 0.65rem;
+  font-size: 1.05rem;
+}
+.card-status {
+  border-color: #2d4a7a;
+  background: #121c2e;
+}
+.verdict {
+  margin: 0 0 0.75rem;
+  color: #e7ecf1;
+}
+.list {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: #c5d0dc;
+}
+.list li {
+  margin-bottom: 0.45rem;
+}
+.list code {
+  font-size: 0.85em;
+  background: #0b0f14;
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+}
+.muted {
+  color: #8b98a8;
+}
+.config-pre {
+  margin: 0;
+  font-size: 0.78rem;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  background: #0b0f14;
+  border: 1px solid #243044;
+  border-radius: 8px;
+  padding: 0.75rem;
+  color: #c5d0dc;
+}

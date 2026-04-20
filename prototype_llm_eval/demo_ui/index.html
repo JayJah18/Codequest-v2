@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learner demo interface — CodeQuest prototype</title>
+    <link rel="stylesheet" href="/static/theme.css" />
+    <link rel="stylesheet" href="/demo-ui/static/styles.css" />
+  </head>
+  <body>
+    <nav class="demo-topnav" aria-label="Site">
+      <a class="demo-topnav-brand" href="/">CodeQuest</a>
+      <div class="demo-topnav-links">
+        <a href="/">Home</a>
+        <a href="/login" class="demo-topnav-admin">Researcher login</a>
+      </div>
+    </nav>
+    <header class="header">
+      <p class="eyebrow">Learner demo interface</p>
+      <h1>Live generation, answer submission, marking &amp; feedback</h1>
+      <p class="sub">
+        <strong>Purpose:</strong> supervisor-facing <strong>learner experience</strong> demo. Tasks use the same JSON shape as
+        the research benchmark (task id, concept, difficulty, question text, five subtasks). This page is
+        <strong>not</strong> the research dashboard — no benchmark tables or question-appropriateness labelling here.
+      </p>
+      <p class="sub muted">
+        <strong>Live task:</strong> <code>POST /api/demo/generate-live-task</code> (provider from
+        <code>QUESTION_GENERATION_PROVIDER</code>). <strong>Frozen sample:</strong> read-only row from
+        <code>fixed_tasks_with_answers.json</code> for contrast. Research and evaluation UIs are behind
+        <a href="/login">researcher login</a> (not linked here for public demos).
+      </p>
+    </header>
+
+    <main class="layout">
+      <section class="card card-accent">
+        <h2>Generate a new task</h2>
+        <div class="row">
+          <label class="field">
+            Concept
+            <select id="concept-select">
+              <option value="variables">variables</option>
+              <option value="conditionals">conditionals</option>
+              <option value="loops">loops</option>
+              <option value="functions">functions</option>
+            </select>
+          </label>
+          <label class="field">
+            Difficulty
+            <select id="difficulty-select">
+              <option value="beginner">beginner</option>
+            </select>
+          </label>
+        </div>
+        <div class="actions">
+          <button type="button" id="btn-generate-live" class="primary">Generate live task + example answers</button>
+          <label class="task-picker"
+            >Sample task id
+            <input type="text" id="task-id-input" placeholder="q1" maxlength="8" />
+            <button type="button" id="btn-load-fixed" class="secondary">Load frozen sample</button>
+          </label>
+        </div>
+        <p id="server-hint" class="status status-soft"></p>
+        <p id="validation-banner" class="validation-banner hidden" role="status"></p>
+      </section>
+
+      <section class="card card-progression">
+        <h2>Progression status (honest)</h2>
+        <p id="progression-note" class="sub progression-note"></p>
+      </section>
+
+      <section class="card">
+        <h2>Current task</h2>
+        <p id="task-source" class="meta"></p>
+        <p id="task-kind" class="task-kind hidden" aria-live="polite"></p>
+        <p id="task-meta" class="meta"></p>
+        <div id="question-text" class="question"></div>
+        <h3>Subtasks</h3>
+        <ol id="subtask-list" class="subtasks"></ol>
+        <details id="reference-block" class="reference-block hidden">
+          <summary>Reference solution (for tutors)</summary>
+          <pre id="model-answer-pre" class="code-block"></pre>
+        </details>
+      </section>
+
+      <section class="card">
+        <h2>Your answer (Python)</h2>
+        <p class="sub muted">
+          Load an <strong>example learner submission</strong> (evaluation-style variant) or write your own. Then submit for
+          marking.
+        </p>
+        <div id="variant-bar-wrap" class="variant-bar-wrap hidden">
+          <span class="variant-label">Example answers</span>
+          <div id="variant-buttons" class="variant-bar"></div>
+        </div>
+        <p id="variants-note" class="variants-note hidden"></p>
+        <textarea id="student-code" rows="14" spellcheck="false" placeholder="Write your solution here…"></textarea>
+        <div class="actions">
+          <button type="button" id="btn-submit" class="primary">Submit for marking</button>
+        </div>
+        <p id="status" class="status" aria-live="polite"></p>
+      </section>
+
+      <section class="card">
+        <h2>Marking result</h2>
+        <div id="marking-summary" class="summary"></div>
+        <ul id="subtask-marks" class="marks"></ul>
+      </section>
+
+      <section class="card">
+        <h2>Feedback</h2>
+        <div id="feedback-text" class="feedback"></div>
+      </section>
+    </main>
+
+    <script src="/demo-ui/static/app.js"></script>
+  </body>
+</html>

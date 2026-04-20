@@ -1,0 +1,73 @@
+{
+  "notes": "Examples for screenshots and thesis discussion; labels heuristic where noted.",
+  "marking_examples": {
+    "gemini": {
+      "agreement_true_positive_subtask": {
+        "task_id": "q1",
+        "concept": "variables",
+        "answer_id": "q1_a1",
+        "variant_type": "fully_correct",
+        "subtask_id": "s1",
+        "subtask_label": "Create a variable named name",
+        "student_answer_code": "name = \"Alice\"\nage = 25\nprint(\"My name is \" + name + \" and I am \" + str(age) + \" years old.\")",
+        "llm_marker_model": "gemini",
+        "llm_mark_for_subtask": "correct",
+        "human_mark": "correct",
+        "notes": ""
+      },
+      "false_positive_llm_correct_human_incorrect": {
+        "task_id": "q1",
+        "concept": "variables",
+        "answer_id": "q1_a2",
+        "variant_type": "partly_correct",
+        "subtask_id": "s3",
+        "subtask_label": "Store a text value in name",
+        "student_answer_code": "name = \"Bella\"\nAGE = 22\nprint(\"My name is \" + name + \" and I am \" + age + \" years old.\")",
+        "llm_marker_model": "gemini",
+        "llm_mark_for_subtask": "correct",
+        "human_mark": "incorrect",
+        "notes": ""
+      },
+      "false_negative_llm_incorrect_human_correct": {
+        "task_id": "q3",
+        "concept": "variables",
+        "answer_id": "q3_a1",
+        "variant_type": "fully_correct",
+        "subtask_id": "s2",
+        "subtask_label": "Assign a string value to city",
+        "student_answer_code": "city = \"London\"\nprint(\"Hello from \" + city + \"!\")",
+        "llm_marker_model": "gemini",
+        "llm_mark_for_subtask": "",
+        "human_mark": "correct",
+        "notes": "LLM did not mark this one"
+      }
+    }
+  },
+  "question_examples": {
+    "default_first_task": {
+      "task_id": "q1",
+      "question_text": "Create two variables called name and age, then print a sentence showing both values.",
+      "note": "Fill question_generation_review.csv and re-run to export labeled examples."
+    }
+  },
+  "feedback_examples": {
+    "useful_sample": {
+      "task_id": "q1",
+      "answer_id": "q1_a1",
+      "feedback_model": "gemini",
+      "feedback_text": "FEEDBACK_ERROR: GEMINI_API_KEY is required.",
+      "run_timestamp": "2026-04-15T10:35:38.149354+00:00",
+      "actual_model_name": "gemini-2.5-flash",
+      "feedback_prompt_version": "PROMPT_VERSION:feedback_v1"
+    },
+    "weak_or_error_sample": {
+      "task_id": "q1",
+      "answer_id": "q1_a1",
+      "feedback_model": "gemini",
+      "feedback_text": "FEEDBACK_ERROR: GEMINI_API_KEY is required.",
+      "run_timestamp": "2026-04-15T10:35:38.149354+00:00",
+      "actual_model_name": "gemini-2.5-flash",
+      "feedback_prompt_version": "PROMPT_VERSION:feedback_v1"
+    }
+  }
+}

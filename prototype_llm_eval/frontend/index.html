@@ -1,52 +1,78 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LLM Evaluation Prototype</title>
-  <link rel="stylesheet" href="/static/styles.css" />
-</head>
-<body>
-  <main class="container">
-    <h1>LLM Evaluation Prototype</h1>
-    <p id="statusBar" class="status">Ready.</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeQuest — AI practice for programming</title>
+    <link rel="stylesheet" href="/static/theme.css" />
+    <link rel="stylesheet" href="/static/landing.css" />
+  </head>
+  <body class="cq-body">
+    <a class="cq-skip" href="#main">Skip to content</a>
+    <header class="cq-nav">
+      <a class="cq-brand" href="/">
+        <span class="cq-logo" aria-hidden="true">C</span>
+        <span>CodeQuest</span>
+      </a>
+      <nav class="cq-nav-links" aria-label="Primary">
+        <a class="cq-btn cq-btn-primary" href="/demo-ui">Try demo</a>
+        <a class="cq-btn cq-btn-secondary" href="/login">Login</a>
+      </nav>
+    </header>
 
-    <section class="panel">
-      <h2>1) Generate Task</h2>
-      <label for="concept">Concept</label>
-      <select id="concept">
-        <option value="variables">variables</option>
-        <option value="conditionals">conditionals</option>
-        <option value="loops">loops</option>
-        <option value="functions">functions</option>
-      </select>
+    <main id="main" class="cq-main">
+      <section class="cq-hero">
+        <div>
+          <p class="cq-tag">Prototype · dissertation demo</p>
+          <h1>Practice Python with AI-generated tasks and instant feedback</h1>
+          <p class="cq-lead">
+            CodeQuest explores how large language models can <strong>author short coding tasks</strong>,
+            <strong>mark multi-part answers</strong>, and deliver <strong>learner feedback</strong> — evaluated against a
+            fixed research benchmark.
+          </p>
+          <div class="cta cq-cta-row">
+            <a class="cq-btn cq-btn-primary" href="/demo-ui">Start demo</a>
+            <a class="cq-btn cq-btn-secondary" href="/login">Researcher login</a>
+          </div>
+          <div class="cq-pill-row" aria-label="Highlights">
+            <span class="cq-pill">AI-generated tasks</span>
+            <span class="cq-pill">Automated marking</span>
+            <span class="cq-pill">Explanatory feedback</span>
+            <span class="cq-pill">Research-backed evaluation</span>
+          </div>
+        </div>
+        <div class="cq-hero-art" aria-hidden="true">
+          <div class="cq-code-window">
+            <span class="cm"># Your task (example)</span><br />
+            <span class="kw">def</span> <span class="fn">greet</span>(name):<br />
+            &nbsp;&nbsp;<span class="kw">return</span> <span class="fn">str</span>(name).title()<br />
+            <span class="cm"># → Marking checks 5 subtasks + feedback</span>
+          </div>
+        </div>
+      </section>
 
-      <label for="difficulty">Difficulty</label>
-      <select id="difficulty">
-        <option value="beginner">beginner</option>
-        <option value="intermediate">intermediate</option>
-      </select>
+      <section class="cq-features">
+        <article class="cq-card cq-feature">
+          <div class="cq-feature-icon" aria-hidden="true">◇</div>
+          <h3>Structured tasks</h3>
+          <p>Each item has a clear question, difficulty, concept tag, and five independently markable subtasks.</p>
+        </article>
+        <article class="cq-card cq-feature">
+          <div class="cq-feature-icon" aria-hidden="true">✓</div>
+          <h3>Transparent marking</h3>
+          <p>See per-subtask correct/incorrect results and an overall score suitable for demos and supervision.</p>
+        </article>
+        <article class="cq-card cq-feature">
+          <div class="cq-feature-icon" aria-hidden="true">◎</div>
+          <h3>Built for evaluation</h3>
+          <p>Human labelling and benchmark metrics live alongside the learner-facing demo — for viva-ready evidence.</p>
+        </article>
+      </section>
+    </main>
 
-      <button id="generateTaskBtn">Generate Task</button>
-      <button id="clearBtn" class="secondary">Clear Outputs</button>
-      <pre id="taskOutput"></pre>
-    </section>
-
-    <section class="panel">
-      <h2>2) Mark Answer</h2>
-      <label for="studentAnswer">Student Answer</label>
-      <textarea id="studentAnswer" rows="8" placeholder="Paste or type the student answer here..."></textarea>
-      <button id="markAnswerBtn">Mark Answer</button>
-      <pre id="markOutput"></pre>
-    </section>
-
-    <section class="panel">
-      <h2>3) Generate Feedback</h2>
-      <button id="feedbackBtn">Generate Feedback</button>
-      <pre id="feedbackOutput"></pre>
-    </section>
-  </main>
-
-  <script src="/static/app.js"></script>
-</body>
+    <footer class="cq-footer">
+      Public demo: <a href="/demo-ui" style="color: var(--cq-accent)">/demo-ui</a> · Admin tools after
+      <a href="/login" style="color: var(--cq-accent)">login</a>. Prototype auth only — not production security.
+    </footer>
+  </body>
 </html>

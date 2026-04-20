@@ -18,7 +18,8 @@ from .llm_provider import generate_text
 INPUT_NAME = "fixed_tasks.json"
 OUTPUT_NAME = "fixed_tasks_with_answers.json"
 MAX_RETRIES = int(os.getenv("PREPARE_MODEL_ANSWER_MAX_RETRIES", "4"))
-TASK_GENERATION_PROVIDER = os.getenv("TASK_GENERATION_PROVIDER", "gemini")
+# Model-answer completion for fixed tasks uses the same provider as task authoring: Gemini only.
+_MODEL_ANSWER_PROVIDER = "gemini"
 
 
 def _python_compiles(code: str) -> tuple[bool, str]:
@@ -36,7 +37,7 @@ def _generate_valid_model_answer(task: dict[str, Any]) -> str:
     last_reason = ""
     for attempt in range(1, MAX_RETRIES + 1):
         prompt = build_prompt(task, fix_feedback=last_reason or None)
-        model_answer = generate_text(prompt, provider_name=TASK_GENERATION_PROVIDER)
+        model_answer = generate_text(prompt, provider_name=_MODEL_ANSWER_PROVIDER)
         ok, reason = _python_compiles(model_answer)
         if ok:
             return model_answer.strip()

@@ -1,0 +1,392 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: #eef2f7;
+  color: #1f2937;
+  line-height: 1.45;
+}
+
+.container {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 12px 14px 48px;
+}
+
+.page-head h1 {
+  margin: 0 0 6px;
+  font-size: 1.35rem;
+}
+
+.page-head .eyebrow {
+  margin: 0 0 6px;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #0369a1;
+  font-weight: 700;
+}
+
+.tagline {
+  margin: 0 0 12px;
+  color: #475569;
+  font-size: 0.92rem;
+}
+
+.tagline code {
+  font-size: 0.85em;
+  background: #e2e8f0;
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+
+.banner-fixed {
+  margin: 0 0 12px;
+  padding: 10px 12px;
+  font-size: 0.88rem;
+  color: #334155;
+  background: #fef9c3;
+  border: 1px solid #facc15;
+  border-radius: 8px;
+  line-height: 1.4;
+}
+
+.banner-fixed code {
+  font-size: 0.85em;
+  background: #fef08a;
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+
+.panel {
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
+}
+
+.panel-compact {
+  padding: 10px 12px;
+}
+
+.panel-title {
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+}
+
+.panel-human {
+  border-color: #93c5fd;
+  background: linear-gradient(180deg, #f8fafc 0%, #fff 48px);
+}
+
+.panel-llm {
+  border-color: #e2e8f0;
+}
+
+.status {
+  background: #dbeafe;
+  border: 1px solid #93c5fd;
+  color: #1e3a8a;
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  font-size: 0.92rem;
+}
+
+.status-soft {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #334155;
+}
+
+.hints {
+  margin: 0 0 10px;
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.sticky-bar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  margin-bottom: 12px;
+}
+
+.sticky-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+@media (max-width: 820px) {
+  .sticky-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.field label {
+  display: block;
+  margin: 0 0 4px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+select,
+textarea,
+button {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  border: 1px solid #94a3b8;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+select {
+  background: #fff;
+}
+
+button {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  min-height: 44px;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+button.secondary {
+  background: #475569;
+}
+
+button.secondary:hover {
+  background: #334155;
+}
+
+.sticky-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.position-label {
+  font-weight: 600;
+  color: #0f172a;
+  min-width: 140px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.row.tight {
+  flex: 1;
+  min-width: 160px;
+  max-width: 280px;
+}
+
+.sticky-actions #saveBtn {
+  flex: 1;
+  min-width: 160px;
+  max-width: 320px;
+}
+
+button.btn-save-primary {
+  background: #0f766e;
+  border: 2px solid #115e59;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.12);
+}
+
+button.btn-save-primary:hover {
+  background: #115e59;
+}
+
+.meta-line {
+  font-size: 0.9rem;
+  color: #475569;
+  margin-bottom: 10px;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (max-width: 820px) {
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pre-tight {
+  margin: 0;
+  background: #0f172a;
+  color: #e2e8f0;
+  border-radius: 8px;
+  padding: 10px 12px;
+  white-space: pre-wrap;
+  font-size: 0.88rem;
+  max-height: 220px;
+  overflow: auto;
+}
+
+.pre-code {
+  max-height: 280px;
+}
+
+.help-inline {
+  margin: 0 0 10px;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+/* Keep radios for form state but never block clicks on the big buttons */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  pointer-events: none;
+  left: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+details summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 8px;
+}
+
+.subtask-row {
+  position: relative;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  background: #fff;
+}
+
+.subtask-row:nth-child(even) {
+  background: #f8fafc;
+}
+
+.subtask-row.has-disagree {
+  border-color: #fb923c;
+  box-shadow: inset 4px 0 0 #ea580c;
+  background: #fff7ed;
+}
+
+.subtask-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 12px;
+  margin-bottom: 8px;
+}
+
+.subtask-id {
+  font-weight: 700;
+  color: #0f172a;
+  font-family: ui-monospace, monospace;
+}
+
+.subtask-label {
+  flex: 1;
+  min-width: 200px;
+  color: #334155;
+  font-size: 0.95rem;
+}
+
+.llm-line {
+  font-size: 0.82rem;
+  color: #64748b;
+}
+
+.llm-line strong {
+  color: #475569;
+}
+
+.disagree {
+  color: #b91c1c;
+  font-weight: 700;
+  margin-left: 4px;
+}
+
+.quick-mark {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.quick-mark button {
+  flex: 1;
+  min-width: 120px;
+  min-height: 48px;
+  font-size: 0.95rem;
+}
+
+.btn-correct {
+  background: #059669;
+}
+
+.btn-correct:hover {
+  background: #047857;
+}
+
+.btn-incorrect {
+  background: #dc2626;
+}
+
+.btn-incorrect:hover {
+  background: #b91c1c;
+}
+
+.quick-mark button.is-selected {
+  box-shadow: 0 0 0 3px #fbbf24, 0 2px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.02);
+}
+
+.quick-mark button:focus-visible {
+  outline: 3px solid #93c5fd;
+  outline-offset: 2px;
+}
+
+.mark-radios {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.reason-snippet {
+  font-size: 0.78rem;
+  color: #64748b;
+  margin-top: 6px;
+  font-style: italic;
+  max-height: 2.6em;
+  overflow: hidden;
+}

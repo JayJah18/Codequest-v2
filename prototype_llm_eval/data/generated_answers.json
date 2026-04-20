@@ -6,17 +6,17 @@
       {
         "answer_id": "q1_a1",
         "variant_type": "fully_correct",
-        "code": "name = \"Alice\"\nage = 20\nprint(\"Hello, my name is \" + name + \" and I am \" + str(age) + \" years old.\")"
+        "code": "name = \"Alice\"\nage = 25\nprint(\"My name is \" + name + \" and I am \" + str(age) + \" years old.\")"
       },
       {
         "answer_id": "q1_a2",
         "variant_type": "partly_correct",
-        "code": "name = \"Alice\"\nage is 25\nprint(\"My name is \" + name + \" and I am \" + age + \" years old.\")"
+        "code": "name = \"Bella\"\nAGE = 22\nprint(\"My name is \" + name + \" and I am \" + age + \" years old.\")"
       },
       {
         "answer_id": "q1_a3",
         "variant_type": "fully_incorrect",
-        "code": "Name = \"Alice\"\nAGE = 20\nprint(\"My name is \" + name + \" and I am \" + age + \" years old.\")"
+        "code": "name = John\nage = \"twenty five\"\nprint(\"My name is\" + name + \"and I am\" + age + \"years old.\")"
       }
     ]
   },
@@ -27,17 +27,17 @@
       {
         "answer_id": "q2_a1",
         "variant_type": "fully_correct",
-        "code": "number1 = 10\nnumber2 = 25\ntotal_sum = number1 + number2\nprint(total_sum)"
+        "code": "number1 = 10\nnumber2 = 20\nsum_result = number1 + number2\nprint(sum_result)"
       },
       {
         "answer_id": "q2_a2",
         "variant_type": "partly_correct",
-        "code": "a = 5\nb = 10\ntotal = a or b\nprint(total)"
+        "code": "number_one = 5\nnumber_two = 10\n\nresult = number_one * number_two # beginner might accidentally use wrong operator\n\nprint(\"Calculations complete.\") # beginner might print a status message instead of the actual sum, or forget which variable stores the sum"
       },
       {
         "answer_id": "q2_a3",
         "variant_type": "fully_incorrect",
-        "code": "print(\"5\" + \"10\")"
+        "code": "my first number = 5\nmy second number = 10\n\nsum result = my first number plus my second number\n\nprint sum result"
       }
     ]
   },
@@ -48,17 +48,17 @@
       {
         "answer_id": "q3_a1",
         "variant_type": "fully_correct",
-        "code": "city = \"Paris\"\ngreeting = f\"Hello from {city}!\"\nprint(greeting)"
+        "code": "city = \"London\"\nprint(\"Hello from \" + city + \"!\")"
       },
       {
         "answer_id": "q3_a2",
         "variant_type": "partly_correct",
-        "code": "city = \"London\"\nprint \"Hello\""
+        "code": "city = \"London\"\nprint(\"Hello from city\")"
       },
       {
         "answer_id": "q3_a3",
         "variant_type": "fully_incorrect",
-        "code": "City = newyork\nprint(\"Hello from\" City)"
+        "code": "my_place = 123\nprint(\"Hello \" my_place \"!\")"
       }
     ]
   },
@@ -74,12 +74,12 @@
       {
         "answer_id": "q4_a2",
         "variant_type": "partly_correct",
-        "code": "width = 10\nheight = 5\nwidth * height\nprint(\"The area calculation is complete!\")"
+        "code": "width = 10\nheight = 5\n\narea = width + height\n\nprint(Area)"
       },
       {
         "answer_id": "q4_a3",
         "variant_type": "fully_incorrect",
-        "code": "widdth = 10\nheigt = 5\nproduct = widdth + heigt\narrea = \"no idea\"\nprint(\"Result of calculations\")"
+        "code": "print(\"width = 10\")\nprint(\"height = 5\")\n\narea = width * height\n\nprint(\"area\")"
       }
     ]
   },
@@ -90,17 +90,17 @@
       {
         "answer_id": "q5_a1",
         "variant_type": "fully_correct",
-        "code": "celsius = 25\nprint(f\"The temperature in Celsius is {celsius} degrees.\")"
+        "code": "celsius = 22.5\noutput_message = \"The temperature in Celsius is \" + str(celsius) + \" degrees.\"\nprint(output_message)"
       },
       {
         "answer_id": "q5_a2",
         "variant_type": "partly_correct",
-        "code": "celsius = 25\n\nprint(\"The temperature is \" + celsius + \" degrees Celsius.\")"
+        "code": "celsius = 25\nprint(\"The temperature is \" + celsius)"
       },
       {
         "answer_id": "q5_a3",
         "variant_type": "fully_incorrect",
-        "code": "temperature = \"twenty five celsius\"\n\nprint(\"The temperature is: \" + temperature + celsius)"
+        "code": "temp_c = \"twenty five\"\n\nprint \"The temperature is \" + temp_c + \" degrees.\""
       }
     ]
   },
@@ -111,17 +111,17 @@
       {
         "answer_id": "q6_a1",
         "variant_type": "fully_correct",
-        "code": "number = 5\n\nif number > 0:\n    print(\"Positive\")\nelse:\n    print(\"Not positive\")"
+        "code": "number = 10\n\nif number > 0:\n    print(\"Positive\")\nelse:\n    print(\"Not positive\")"
       },
       {
         "answer_id": "q6_a2",
         "variant_type": "partly_correct",
-        "code": "number = -5\nif number >= 0:\n    print(\"Positive number\")\n# The student might forget the else part or not know how to handle it yet."
+        "code": "num = 5\n\nif num:\n    print(\"positive\")\n# else:\n#     print(\"not positive\")"
       },
       {
         "answer_id": "q6_a3",
         "variant_type": "fully_incorrect",
-        "code": "users_number = input(\"Please type a number: \")\n\nif users_number is positive\n    print \"Yes, that's a positive number!\""
+        "code": "number_input = input(\"Enter a number: \")\n\nprint(\"Let's check your number...\")\n\nprint(\"The number you entered is positive.\")\nprint(\"The number you entered is not positive.\")"
       }
     ]
   },
@@ -132,17 +132,17 @@
       {
         "answer_id": "q7_a1",
         "variant_type": "fully_correct",
-        "code": "age = 20\n\nif age >= 18:\n    print(\"access granted\")\nelse:\n    print(\"access denied\")"
+        "code": "age = 19\nif age >= 18:\n    print(\"access granted\")\nelse:\n    print(\"access denied\")"
       },
       {
         "answer_id": "q7_a2",
         "variant_type": "partly_correct",
-        "code": "user_age = 17 \n\nif user_age > 18: \n    print(\"access granted\")"
+        "code": "age = 17\n\nif age > 18:\n    print(\"You can enter\")\nelse:\n    print(\"access denied\")"
       },
       {
         "answer_id": "q7_a3",
         "variant_type": "fully_incorrect",
-        "code": "if 15:\n    print(\"Welcome\")"
+        "code": "if 17 > 18:\n    print(\"You can come in!\")\n\nif 17 < 18:\n    print(\"No entry.\")"
       }
     ]
   },
@@ -153,17 +153,17 @@
       {
         "answer_id": "q8_a1",
         "variant_type": "fully_correct",
-        "code": "my_number = 7\n\nif my_number % 2 == 0:\n    print(\"even\")\nelse:\n    print(\"odd\")"
+        "code": "num = 7  # s1: Create a number variable (using 7 as an example)\n\n# s2: Use modulo operator with 2\n# s3: Use conditional logic\nif num % 2 == 0:  # Check if the remainder when divided by 2 is 0\n    print(\"Even\")  # s4: Print even when divisible by 2\nelse:\n    print(\"Odd\")  # s5: Print odd otherwise"
       },
       {
         "answer_id": "q8_a2",
         "variant_type": "partly_correct",
-        "code": "number = 15\n\nresult = number % 2\n\nif result == 1:\n    print(\"Even\")\nelse:\n    print(\"Odd\")"
+        "code": "my_num = 10 \n\nrem = my_num % 2 \n\nif rem == 0 \n    print(\"It's even!\") \nelse:\n    print(\"It's odd!\")"
       },
       {
         "answer_id": "q8_a3",
         "variant_type": "fully_incorrect",
-        "code": "my_number = \"five\"\n\nif my_number == \"even\":\n    print(\"It is an Even number\")\nelif my_number == \"odd\":\n    print(\"This is an Odd number\")\nelse:\n    print(\"I cannot tell if it is even or odd\")"
+        "code": "if 7 / 2 == 2:\n    print(\"It's an odd number!\")\nelse:\n    print(\"It's an even number!\")"
       }
     ]
   },
@@ -179,12 +179,12 @@
       {
         "answer_id": "q9_a2",
         "variant_type": "partly_correct",
-        "code": "num1 = 10\nnum2 = 5\n\nif num1 > num2:\n    print(\"First number is bigger\")\nelse:\n    print(\"Second number is bigger\")"
+        "code": "num1 = 10\nnum2 = 7\n\nif num1 > num2:\n    print(\"Number one is bigger!\")\nelse:\n    print(\"Number two is bigger.\")"
       },
       {
         "answer_id": "q9_a3",
         "variant_type": "fully_incorrect",
-        "code": "num1 = input(\"Please type first number: \")\nnum2 = input(\"Please type second number: \")\n\nif num1 > num2:\n    print(\"The first number is biggest.\")\nif num2 > num1:\n    print(\"The second number is bigger.\")\nif num1 == num2:\n    print(\"Both numbers are same.\")\nif num1 < num2:\n    print(\"Number one is smaller than number two.\")"
+        "code": "number_one = \"10\"\nnumber_two = \"2\"\n\nif number_one > number_two:\n    print(\"Number one is bigger!\")\nif number_two > number_one:\n    print(\"Number two is bigger!\")\nif number_one == number_two:\n    print(\"They are the same!\")"
       }
     ]
   },
@@ -200,12 +200,12 @@
       {
         "answer_id": "q10_a2",
         "variant_type": "partly_correct",
-        "code": "password_entered = \"admin123\" # s1: Create a password variable\n\nif password_entered == \"Admin123\": # s2: Uses equality comparison but makes a case-sensitivity error\n    print(\"valid\") # s4: Prints valid for matching password (even if the condition is flawed)\n# s3: Uses if statement but misses the else part\n# s5: Prints invalid otherwise (missing)"
+        "code": "user_password = \"admin123\"\n\nif user_password == \"admin\":\n    print(\"Password accepted!\")\nelse:\n    print(\"invalid\")"
       },
       {
         "answer_id": "q10_a3",
         "variant_type": "fully_incorrect",
-        "code": "if \"admin123\":\n    print(\"Valid\")\nelse:\n    print(\"Invalid\")"
+        "code": "pw = input(\"Enter password: \")\npw = \"admin123\" \n\nif pw == \"admin123\":\n    print(\"Correct!\")\n\nif pw != \"admin123\":\n    print(\"Incorrect\")"
       }
     ]
   },
@@ -221,12 +221,12 @@
       {
         "answer_id": "q11_a2",
         "variant_type": "partly_correct",
-        "code": "for i in range(1, 5):\n    print(i)"
+        "code": "for x in range(5):\n    print(\"x\")"
       },
       {
         "answer_id": "q11_a3",
         "variant_type": "fully_incorrect",
-        "code": "x = 0\nwhile x < 7:\n    if x % 2 == 0:\n        print(\"Trying to count\")\n    else:\n        print(\"Still trying\")\n    x = x + 1"
+        "code": "for x in 1 to 5:\n    print(x)"
       }
     ]
   },
@@ -237,17 +237,17 @@
       {
         "answer_id": "q12_a1",
         "variant_type": "fully_correct",
-        "code": "fruits = [\"apple\", \"banana\", \"cherry\", \"grape\"]\n\nfor fruit in fruits:\n    print(fruit)"
+        "code": "fruits = [\"apple\", \"banana\", \"cherry\", \"date\"]\nfor fruit in fruits:\n    print(fruit)"
       },
       {
         "answer_id": "q12_a2",
         "variant_type": "partly_correct",
-        "code": "fruits = [\"apple\", \"banana\", \"cherry\"]\n\nprint(\"apple\")\nprint(\"banana\")\nprint(\"cherry\")"
+        "code": "fruits = [\"apple\", \"banana\", \"cherry\", \"date\"]\n\nprint(fruits[0])\nprint(fruits[1])\nprint(fruits[2])\nprint(fruits[3])"
       },
       {
         "answer_id": "q12_a3",
         "variant_type": "fully_incorrect",
-        "code": "apple = \"apple\"\nbanana = \"banana\"\ncherry = \"cherry\"\ndate = \"date\"\n\nprint(apple)\nprint(cherry)"
+        "code": "print(\"apple\")\nprint(\"banana\")\nprint(\"orange\")\nprint(\"grape\")"
       }
     ]
   },
@@ -258,17 +258,17 @@
       {
         "answer_id": "q13_a1",
         "variant_type": "fully_correct",
-        "code": "count = 3\n\nwhile count >= 1:\n    print(count)\n    count = count - 1"
+        "code": "count = 3\nwhile count >= 1:\n    print(count)\n    count = count - 1"
       },
       {
         "answer_id": "q13_a2",
         "variant_type": "partly_correct",
-        "code": "count = 3\nwhile count > 0:\n    print(count)"
+        "code": "count = 3\nwhile count >= 1:\n    print(count)\n    # I think I need something else here but I'm not sure what.\n    # It just keeps printing 3. Maybe it's supposed to stop by itself?"
       },
       {
         "answer_id": "q13_a3",
         "variant_type": "fully_incorrect",
-        "code": "x = \"three\"\n\nwhile x:\n    print(\"Countdown starting!\")"
+        "code": "counter = 0\n\nwhile True:\n    print(3)"
       }
     ]
   },
@@ -279,17 +279,17 @@
       {
         "answer_id": "q14_a1",
         "variant_type": "fully_correct",
-        "code": "numbers = [10, 20, 30, 40, 50]\n\ntotal = 0\n\nfor number in numbers:\n    total = total + number\n\nprint(\"The final total is:\", total)"
+        "code": "my_numbers = [7, 12, 3, 9, 15] # s1: Create a list of numbers\n\ntotal_sum = 0 # s2: Create a total accumulator variable\n\nfor number in my_numbers: # s3: Loop through the numbers\n    total_sum = total_sum + number # s4: Add each number to total\n\nprint(\"The final total is:\", total_sum) # s5: Print final total"
       },
       {
         "answer_id": "q14_a2",
         "variant_type": "partly_correct",
-        "code": "# Create a list of numbers\nmy_list = [10, 20, 30, 40]\n\n# Create a variable to hold the total\ntotal_sum = 0\n\n# Loop through each number in the list\nfor number in my_list:\n    # This tries to add the number, but it's not quite right\n    total_sum = number\n\n# Print the final result (this will show the last number, not the sum)\nprint(\"The total is:\", total_sum)"
+        "code": "my_list = [10, 5, 2]  # Subtask s1: Create a list of numbers\n\nthe_total = 0         # Subtask s2: Create a total accumulator variable\n\nfor item in my_list:  # Subtask s3: Loop through the numbers\n    print(item)       # Subtask s4: Beginner might print each item, forgetting to add to the total\n\n# Subtask s5: Print final total\nprint(\"The final total is:\", the_total)"
       },
       {
         "answer_id": "q14_a3",
         "variant_type": "fully_incorrect",
-        "code": "my_list = \"12345\"\ntotal = \"current_sum\"\nfor number in my_list:\n    total = total + number\nprint(total)"
+        "code": "num = 12345 \ntotal = \"zero\" \n\nfor i in range(5):\n    total = total + i\n\nprint(\"The answer is:\")"
       }
     ]
   },
@@ -305,7 +305,7 @@
       {
         "answer_id": "q15_a2",
         "variant_type": "partly_correct",
-        "code": "for i in range(10):\n    if i % 2 == 0:\n        print(i)"
+        "code": "for i in range(1, 11):\n    if i % 2 == 1:\n        print(i)"
       },
       {
         "answer_id": "q15_a3",
@@ -321,17 +321,17 @@
       {
         "answer_id": "q16_a1",
         "variant_type": "fully_correct",
-        "code": "def greet(name):\n    greeting_message = \"Hello \" + name\n    print(greeting_message)\n\ngreet(\"Python\")"
+        "code": "def greet(name):\n    print(\"Hello \" + name)\n\ngreet(\"Alice\")"
       },
       {
         "answer_id": "q16_a2",
         "variant_type": "partly_correct",
-        "code": "def greet():\n    # A beginner might forget to add the parameter to the function definition.\n    # So, 'name' is not defined in this scope.\n    print(\"Hello \" + name) \n\n# The function is called, but will raise a NameError because 'name' was not passed as a parameter\n# and is not defined within the function.\ngreet()"
+        "code": "def greet(name):\n    print(\"Hello there!\")"
       },
       {
         "answer_id": "q16_a3",
         "variant_type": "fully_incorrect",
-        "code": "name = \"World\" # A beginner might hardcode a value for 'name' directly\nprint(\"Hello\") # They might print \"Hello\" separately\nprint(name) # And then print the name separately, not combining them in one greeting"
+        "code": "def greet name:\n    print(\"Hello \" + name)\n\ngreet(\"World\")"
       }
     ]
   },
@@ -342,17 +342,17 @@
       {
         "answer_id": "q17_a1",
         "variant_type": "fully_correct",
-        "code": "# This is how we define a function called 'add'\n# It takes two things, which we call 'number1' and 'number2' for now\ndef add(number1, number2):  # Subtask s1: Define a function named add | Subtask s2: Add two parameters\n    # Inside the function, we want to add these two numbers together\n    # We'll store the result in a new variable called 'the_sum'\n    the_sum = number1 + number2  # Subtask s3: Compute sum of parameters\n\n    # Now we need to give back the result of our addition\n    return the_sum  # Subtask s4: Return the computed sum\n\n# After defining the function, we can use it!\n# Let's try adding 5 and 3\nmy_result = add(5, 3)  # Subtask s5: Call the function\n\n# And now we print what the function gave us back\nprint(\"The sum of 5 and 3 is:\", my_result)  # Subtask s5: print result\n\n# Let's try another one just to make sure it works!\n# print(\"Another sum:\", add(10, 20)) # A beginner might add this as another test"
+        "code": "# Define a function called 'add' that takes two numbers as input\ndef add(num1, num2): # s1, s2 - Defining the function and adding parameters\n    # Calculate the sum of the two numbers\n    # We store the result in a new variable called 'total_sum'\n    total_sum = num1 + num2 # s3 - Computing the sum\n\n    # Return the calculated sum\n    return total_sum # s4 - Returning the computed sum\n\n# Now let's try to use our 'add' function!\n\n# We'll pick two numbers to add\nmy_first_number = 7\nmy_second_number = 3\n\n# Call the 'add' function with our numbers\n# The result of the addition will be stored in 'result_of_addition'\nresult_of_addition = add(my_first_number, my_second_number) # s5 - Calling the function\n\n# Print out the result\nprint(\"The sum of\", my_first_number, \"and\", my_second_number, \"is:\", result_of_addition) # s5 - Printing the result"
       },
       {
         "answer_id": "q17_a2",
         "variant_type": "partly_correct",
-        "code": "def add(x, y):\n    total = x + y\n    # A beginner might forget to return the value\n    # and the function would implicitly return None.\n\n# A beginner might then try to print the result of calling the function,\n# not realizing that without a return statement, it will print None.\nprint(add(5, 3))"
+        "code": "def add(num1, num2):\n    total = num1 + num2\n\nadd(5, 3)\nprint(total)"
       },
       {
         "answer_id": "q17_a3",
         "variant_type": "fully_incorrect",
-        "code": "fun add (num1 num2):\n    the sum = num1 + num2\n    print(\"The answer is \" + the sum)\n\nadd 10, 20"
+        "code": "# Task: Write a function add that takes two numbers and returns their sum.\n\n# s1: Define a function named add (Fail - 'add' is a string, not a function)\n# s2: Add two parameters (Fail - 'add' is not a function, so no parameters)\n# s3: Compute sum of parameters (Fail - 'number1' and 'number2' are strings, no sum computed)\n# s4: Return the computed sum (Fail - No function to return from, no sum computed)\n# s5: Call the function and print result (Fail - 'add' is not called, it's just printed as a variable)\n\nadd = \"I need to make an add function here\" # Student thinks defining a variable named 'add' is making a function\n\nnumber1 = \"five\" # Student uses strings instead of numbers\nnumber2 = \"ten\"\n\n# Student is confused about how to make it a function, take parameters, and return.\n# Student tries to print what they have.\nprint(add, number1, number2)"
       }
     ]
   },
@@ -363,17 +363,17 @@
       {
         "answer_id": "q18_a1",
         "variant_type": "fully_correct",
-        "code": "def is_even(number):\n    # s1: Define function is_even\n    # s2: Accept one numeric parameter 'number'\n\n    # s3: Use modulo by 2 to find the remainder\n    remainder = number % 2\n\n    # s4 & s5: Check the remainder to determine if the number is even or odd\n    if remainder == 0:\n        # If the remainder is 0, the number is even\n        return True\n    else:\n        # Otherwise, the number is odd\n        return False"
+        "code": "def is_even(number):\n    if number % 2 == 0:\n        return True\n    else:\n        return False"
       },
       {
         "answer_id": "q18_a2",
         "variant_type": "partly_correct",
-        "code": "def is_even(number):\n    if number % 2 == 1:\n        return True\n    else:\n        return False"
+        "code": "def is_even(number):\n    return number % 2"
       },
       {
         "answer_id": "q18_a3",
         "variant_type": "fully_incorrect",
-        "code": "def isEvenCheck():\n    number_str = input(\"Please give me a number: \")\n    num = int(number_str)\n\n    if num == 2 or num == 4 or num == 6:\n        return \"It's even!\"\n    elif num == 1 or num == 3 or num == 5:\n        return \"It's odd.\"\n    else:\n        return \"I can't tell for this number.\""
+        "code": "def check_the_number_status():\n    entered_value = input(\"Please type a number here: \")\n    number = int(entered_value) # Beginners often assume input will be convertible\n\n    if number == 1:\n        return True # Fails: 1 is odd, but returns True\n    elif number == 2:\n        return False # Fails: 2 is even, but returns False\n    elif number > 100:\n        print(\"That's a very large number!\") # Fails: prints instead of returning boolean\n        # Implicitly returns None, which is not False\n    else:\n        return \"Not sure about this one.\" # Fails: returns string instead of boolean"
       }
     ]
   },
@@ -384,17 +384,17 @@
       {
         "answer_id": "q19_a1",
         "variant_type": "fully_correct",
-        "code": "def square(number_input):\n    # This function calculates the square of a number.\n\n    # Subtask s3: Compute number times number\n    # We multiply the input number by itself to get its square.\n    calculated_square = number_input * number_input\n\n    # Subtask s4: Return computed value\n    # We return the result of the calculation.\n    return calculated_square\n\n# Subtask s5: Call function and print output\n# Let's test the function with a couple of numbers.\n\n# First test: Square of 4\nnum1 = 4\nresult1 = square(num1)\nprint(f\"The square of {num1} is: {result1}\")\n\n# Second test: Square of 9\nnum2 = 9\nresult2 = square(num2)\nprint(f\"The square of {num2} is: {result2}\")\n\n# A direct call and print\nprint(\"The square of 12 is:\", square(12))"
+        "code": "def square(number_to_square):\n    # Subtask s3: Compute number times number\n    # We multiply the input number by itself to get its square\n    calculated_square = number_to_square * number_to_square\n    \n    # Subtask s4: Return computed value\n    # The function sends back the calculated square\n    return calculated_square\n\n# Subtask s5: Call function and print output\n# Let's try our square function with a number\nexample_number = 7\nsquared_value = square(example_number)\n\nprint(f\"The number is: {example_number}\")\nprint(f\"Its square is: {squared_value}\")\n\n# Let's try another number directly in the print statement\nprint(f\"The square of 12 is: {square(12)}\")"
       },
       {
         "answer_id": "q19_a2",
         "variant_type": "partly_correct",
-        "code": "def square(num):\n    result = num * num\n    print(result)\n\nprint(square(5))"
+        "code": "def square(number):\n    # Subtask s1: Define function square - Correct\n    # Subtask s2: Accept one parameter - Correct\n    \n    # Subtask s3: Compute number times number - Incorrect (beginner might confuse with doubling)\n    computed_value = number + number \n    \n    # Subtask s4: Return computed value - Incorrect (beginner might print instead of return)\n    print(\"The square of\", number, \"is:\", computed_value)\n\n# Subtask s5: Call function and print output - Incorrect (will print the function's internal output, then None because the function doesn't explicitly return anything)\ninput_number = 4\nresult_from_call = square(input_number)\nprint(\"Result stored from function call:\", result_from_call)"
       },
       {
         "answer_id": "q19_a3",
         "variant_type": "fully_incorrect",
-        "code": "x = 5\ny = x + x\nprint(y)"
+        "code": "square = \"I need to make a function to square a number, but I don't know how to define it yet.\"\n\n# Call function and print output\n# This part will cause an error because 'square' is not a function.\nprint(square(5))"
       }
     ]
   },
@@ -405,17 +405,17 @@
       {
         "answer_id": "q20_a1",
         "variant_type": "fully_correct",
-        "code": "def show_message(message):\n    print(message)\n\n# Calling the function with a sample text\nshow_message(\"Hello from the show_message function!\")"
+        "code": "def show_message(text):\n    print(text)\n\nshow_message(\"This is a test message!\")"
       },
       {
         "answer_id": "q20_a2",
         "variant_type": "partly_correct",
-        "code": "def show_message(message_to_show):\n    # Subtask s1: Define function show_message (Correct)\n    # Subtask s2: Accept one text parameter (Correct - 'message_to_show')\n\n    # Subtask s3: Print the parameter inside function (Intentionally wrong for beginner simulation)\n    # A beginner might forget to use the parameter and print a hardcoded string instead.\n    print(\"You sent a message!\")\n\n# Subtask s4: Call function with sample text (Correct)\n# Subtask s5: Ensure output matches given text (Will be wrong because s3 is wrong)\nshow_message(\"Hello from the function!\")\nshow_message(\"This is another message.\")"
+        "code": "def show_message(text_input):\n    print(\"Hello from the function!\")\n\nshow_message(\"This is my first message!\")"
       },
       {
         "answer_id": "q20_a3",
         "variant_type": "fully_incorrect",
-        "code": "global_message = \"I am a default message\"\n\n# Here is my function to show a message\ndef show_mssage(txt):\n    # I want to print the message\n    # I think this prints the message right\n    print(global_message)\n\n# Now I will try to use the function with some text\nshow_mssage(\"Hello, Python Student!\")\n\n# And maybe another test\nprint(\"Program finished.\")"
+        "code": "func show_messages:\n  my_text_output = \"Oops, I forgot the actual message!\"\n  print(my_text_output)\n\ncall_the_message_func(\"This should be printed!\")"
       }
     ]
   }

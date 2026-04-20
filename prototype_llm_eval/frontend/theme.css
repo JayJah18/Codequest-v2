@@ -1,0 +1,175 @@
+/**
+ * CodeQuest prototype — shared visual tokens (landing, login, admin, optional other UIs).
+ * Not a design system; dissertation / demo coherence only.
+ */
+:root {
+  --cq-bg: #0c1222;
+  --cq-bg-elevated: #111827;
+  --cq-surface: #161f33;
+  --cq-border: #2d3a52;
+  --cq-text: #e8edf5;
+  --cq-muted: #94a3b8;
+  --cq-accent: #38bdf8;
+  --cq-accent-dim: #0ea5e9;
+  --cq-success: #34d399;
+  --cq-warn: #fbbf24;
+  --cq-font: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+  --cq-radius: 12px;
+  --cq-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body.cq-body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--cq-font);
+  background: radial-gradient(1200px 800px at 10% -10%, rgba(56, 189, 248, 0.12), transparent 55%),
+    radial-gradient(900px 600px at 90% 20%, rgba(52, 211, 153, 0.08), transparent 50%), var(--cq-bg);
+  color: var(--cq-text);
+  line-height: 1.5;
+}
+
+.cq-skip {
+  position: absolute;
+  left: -9999px;
+}
+.cq-skip:focus {
+  left: 8px;
+  top: 8px;
+  z-index: 100;
+  padding: 8px 12px;
+  background: var(--cq-surface);
+  color: var(--cq-text);
+  border-radius: 6px;
+}
+
+.cq-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 1.5rem;
+  border-bottom: 1px solid var(--cq-border);
+  background: rgba(17, 24, 39, 0.85);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.cq-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+  color: var(--cq-text);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.cq-logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--cq-accent), var(--cq-success));
+  display: grid;
+  place-items: center;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #0c1222;
+}
+
+.cq-nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.cq-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.55rem 1rem;
+  border-radius: 10px;
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+  text-decoration: none;
+  transition: filter 0.15s ease, transform 0.1s ease;
+}
+
+.cq-btn:hover {
+  filter: brightness(1.08);
+}
+
+.cq-btn:active {
+  transform: scale(0.98);
+}
+
+.cq-btn-primary {
+  background: linear-gradient(135deg, var(--cq-accent-dim), #0284c7);
+  color: #0c1222;
+  border-color: rgba(56, 189, 248, 0.4);
+}
+
+.cq-btn-secondary {
+  background: var(--cq-surface);
+  color: var(--cq-text);
+  border-color: var(--cq-border);
+}
+
+.cq-btn-ghost {
+  background: transparent;
+  color: var(--cq-muted);
+  border-color: transparent;
+}
+
+.cq-btn-ghost:hover {
+  color: var(--cq-text);
+}
+
+.cq-main {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+}
+
+.cq-footer {
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.8rem;
+  color: var(--cq-muted);
+  border-top: 1px solid var(--cq-border);
+}
+
+.cq-card {
+  background: var(--cq-surface);
+  border: 1px solid var(--cq-border);
+  border-radius: var(--cq-radius);
+  padding: 1.25rem 1.35rem;
+  box-shadow: var(--cq-shadow);
+}
+
+.cq-muted {
+  color: var(--cq-muted);
+  font-size: 0.92rem;
+}
+
+.cq-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--cq-accent);
+  margin-bottom: 0.5rem;
+}

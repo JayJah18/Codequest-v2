@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Human marking interface — LLM eval</title>
+    <link rel="stylesheet" href="/static/theme.css" />
+    <link rel="stylesheet" href="/eval-ui/static/styles.css" />
+  </head>
+  <body>
+    <header class="cq-nav" style="position: relative">
+      <a class="cq-brand" href="/admin">
+        <span class="cq-logo" aria-hidden="true">C</span>
+        <span>CodeQuest</span>
+      </a>
+      <nav class="cq-nav-links" aria-label="Admin">
+        <a class="cq-btn cq-btn-ghost" href="/demo-ui">Public demo</a>
+        <a class="cq-btn cq-btn-secondary" href="/admin">Admin hub</a>
+      </nav>
+    </header>
+    <div class="container">
+      <header class="page-head">
+        <p class="eyebrow">Human marking interface</p>
+        <h1>Ground-truth labelling against LLM output</h1>
+        <p class="tagline">
+          Label each subtask as <strong>correct</strong> or <strong>incorrect</strong> for a fixed benchmark answer
+          attempt. Saves merge into <code>evaluation/results/human_marks.csv</code> (file-based, no database).
+        </p>
+        <p class="banner-fixed">
+          <strong>Not the learner demo</strong> — tasks and code come from the frozen dataset (
+          <code>fixed_tasks_with_answers.json</code> + <code>generated_answers.json</code>). For live task generation and
+          learner-style submission, use <code>/demo-ui</code>. For “is this question appropriate?” review, use
+          <code>/research-dashboard</code>.
+        </p>
+      </header>
+
+      <div id="statusBar" class="status">Loading evaluation data...</div>
+      <div id="progressBar" class="status status-soft"></div>
+      <p id="keyboardHints" class="hints"></p>
+
+      <div class="sticky-bar panel panel-compact">
+        <div class="sticky-grid">
+          <div class="field">
+            <label for="taskSelect">Task</label>
+            <select id="taskSelect"></select>
+          </div>
+          <div class="field">
+            <label for="answerSelect">Answer</label>
+            <select id="answerSelect"></select>
+          </div>
+          <div class="field">
+            <label for="markerModelSelect">Compare to LLM</label>
+            <select id="markerModelSelect"></select>
+          </div>
+        </div>
+        <div class="sticky-actions">
+          <span id="positionLabel" class="position-label"></span>
+          <div class="row tight">
+            <button type="button" id="prevBtn" class="secondary">← Prev</button>
+            <button type="button" id="nextBtn" class="secondary">Next →</button>
+          </div>
+          <button type="button" id="saveBtn" class="btn-save-primary">Save &amp; next</button>
+        </div>
+      </div>
+
+      <section class="panel">
+        <h2 class="panel-title">Task &amp; student code</h2>
+        <div id="taskMeta" class="meta-line"></div>
+        <div class="two-col">
+          <div>
+            <h3 class="sr-only">Question</h3>
+            <pre id="questionText" class="pre-tight"></pre>
+          </div>
+          <div>
+            <h3 class="sr-only">Student code</h3>
+            <pre id="studentCode" class="pre-tight pre-code"></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel panel-human">
+        <h2 class="panel-title">Your marks (5 subtasks)</h2>
+        <p class="help-inline">
+          Use the big buttons for speed. Values saved are still <code>correct</code> / <code>incorrect</code>.
+        </p>
+        <div id="humanControls"></div>
+        <label for="notesInput">Notes (optional, one per answer attempt)</label>
+        <textarea id="notesInput" rows="2" placeholder="e.g. ambiguous print format…"></textarea>
+      </section>
+
+      <section class="panel panel-llm">
+        <h2 class="panel-title">LLM marking (reference)</h2>
+        <div id="markingMeta" class="meta-line"></div>
+        <details id="llmDetails">
+          <summary>Show full LLM JSON &amp; rationale</summary>
+          <pre id="markingSummary" class="pre-tight pre-code"></pre>
+        </details>
+      </section>
+    </div>
+
+    <script src="/eval-ui/static/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Progression status — prototype verification</title>
+    <link rel="stylesheet" href="/static/theme.css" />
+    <link rel="stylesheet" href="/progress-ui/static/styles.css" />
+  </head>
+  <body>
+    <header class="cq-nav" style="position: relative">
+      <a class="cq-brand" href="/admin">
+        <span class="cq-logo" aria-hidden="true">C</span>
+        <span>CodeQuest</span>
+      </a>
+      <nav class="cq-nav-links" aria-label="Admin">
+        <a class="cq-btn cq-btn-ghost" href="/demo-ui">Public demo</a>
+        <a class="cq-btn cq-btn-secondary" href="/admin">Admin hub</a>
+      </nav>
+    </header>
+    <header class="header">
+      <p class="eyebrow">Progression status</p>
+      <h1>Prototype progression verification</h1>
+      <p class="sub">
+        This page documents what the codebase actually implements. It does <strong>not</strong> simulate learner unlocks or
+        a course map.
+      </p>
+    </header>
+
+    <main class="main">
+      <section class="card card-status">
+        <h2>Verdict</h2>
+        <p class="verdict">
+          <strong>Learner progression</strong> (sequential unlock, completion state, “next task” for a user) is
+          <strong>not implemented</strong> in this prototype. There is no progression API and no persisted learner profile.
+        </p>
+        <p class="sub">
+          The only “progress” UI in the repo is on <code>/eval-ui</code>: it counts how many benchmark answer attempts have
+          five human subtask labels saved in <code>human_marks.csv</code>. That supports <em>research labelling</em>, not
+          learner gameplay.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>What exists (evidence)</h2>
+        <ul class="list">
+          <li>
+            <code>GET /api/demo/config</code> — server mode, providers; includes <code>use_fixed_dataset</code> (benchmark
+            bank for <code>POST /generate-task</code> when fixed mode is on), not learner progression.
+          </li>
+          <li>
+            <code>POST /generate-task</code> — returns a task (sampled from frozen bank or freshly generated). No unlock
+            rules.
+          </li>
+          <li>
+            <code>POST /api/demo/generate-live-task</code> — one live task for demos; stored in <code>task_store</code> for
+            marking only.
+          </li>
+          <li>
+            <code>GET /api/eval/data</code> + <code>POST /api/eval/human-marks</code> — frozen benchmark + human ground
+            truth labelling.
+          </li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>What would be required for “full” progression</h2>
+        <ul class="list muted">
+          <li>A learner identity (even a demo session id) and server-side state for completed tasks.</li>
+          <li>Rules mapping concept/difficulty → next task, or a curated graph of tasks.</li>
+          <li>APIs to read/update progression and UI that reads them (separate from eval human marking).</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Live server hint</h2>
+        <pre id="config-pre" class="config-pre">Loading /api/demo/config…</pre>
+      </section>
+    </main>
+
+    <script src="/progress-ui/static/app.js"></script>
+  </body>
+</html>
