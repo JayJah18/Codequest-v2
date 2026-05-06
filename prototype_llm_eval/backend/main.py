@@ -49,6 +49,20 @@ QUESTION_REVIEW_FIELDNAMES = [
     "model_answer_present",
 ]
 
+FEEDBACK_REVIEW_FIELDNAMES = [
+    "task_id",
+    "concept",
+    "answer_id",
+    "variant_type",
+    "feedback_model",
+    "feedback_text",
+    "relevance_score",
+    "clarity_score",
+    "usefulness_score",
+    "overall_feedback_label",
+    "notes",
+]
+
 # --- Two evaluation/demo modes (orthogonal concerns) ---
 #
 # A) FIXED BENCHMARK MODE (USE_FIXED_DATASET=true)
@@ -71,15 +85,17 @@ FEEDBACK_PROVIDER = os.getenv("FEEDBACK_PROVIDER", "gemini")
 
 # --- Prototype admin gate (NOT production auth: no hashing, no DB, env-only credentials) ---
 SESSION_SECRET = os.getenv("SESSION_SECRET", "").strip() or "prototype-change-SESSION_SECRET-in-local-env"
-ADMIN_USERNAME = os.getenv("ADMIN_USERNAME", "admin").strip()
-_ADMIN_PASSWORD_ENV = os.getenv("ADMIN_PASSWORD", "").strip()
 
 
-def _admin_password_effective() -> str:
-    """Plaintext compare only — dissertation prototype."""
-    if _ADMIN_PASSWORD_ENV:
-        return _ADMIN_PASSWORD_ENV
-    return "codequest-demo"
+def _prototype_admin_credentials() -> tuple[str, str]:
+    """
+    Read admin username/password from the process environment on each call.
+    If ADMIN_PASSWORD is unset, the effective password is 'codequest-demo' (restart after editing local.env).
+    """
+    user = os.getenv("ADMIN_USERNAME", "admin").strip() or "admin"
+    raw = os.getenv("ADMIN_PASSWORD", "").strip()
+    effective = raw if raw else "codequest-demo"
+    return user, effective
 
 
 def _session_is_admin(request: Request) -> bool:
@@ -178,6 +194,26 @@ class SaveHumanMarksRequest(BaseModel):
     subtasks: list[HumanSubtaskMark]
 
 
+class QuestionReviewSaveRequest(BaseModel):
+    task_id: str = Field(min_length=1)
+    human_question_label: str = ""
+    notes: str = ""
+    level_fit: str = ""
+    topic_fit: str = ""
+    clarity: str = ""
+
+
+class FeedbackReviewSaveRequest(BaseModel):
+    task_id: str = Field(min_length=1)
+    answer_id: str = Field(min_length=1)
+    feedback_model: str = Field(min_length=1)
+    relevance_score: str = ""
+    clarity_score: str = ""
+    usefulness_score: str = ""
+    overall_feedback_label: str = ""
+    notes: str = ""
+
+
 def _select_task_from_bank(concept: str, difficulty: str) -> dict[str, Any]:
     if not _task_bank:
         raise HTTPException(
@@ -200,11 +236,13 @@ def _load_prompt(prompt_filename: str) -> str:
 @asynccontextmanager
 async def lifespan(_app: FastAPI):
     global _task_bank
-    if not _ADMIN_PASSWORD_ENV:
-        print(
-            "PROTOTYPE AUTH: ADMIN_PASSWORD is not set in the environment; using insecure default "
-            "'codequest-demo'. Set ADMIN_PASSWORD in prototype_llm_eval/local.env for a real demo."
-        )
+    _au, _ = _prototype_admin_credentials()
+    _raw_len = len(os.getenv("ADMIN_PASSWORD", "").strip())
+    print(
+        f"PROTOTYPE AUTH: login username={_au!r}; ADMIN_PASSWORD from process env is "
+        f"{_raw_len} char(s). If 0, use password 'codequest-demo' or restart the server after editing local.env "
+        f"(uvicorn --reload does not reload env from disk)."
+    )
     task_store.tasks.clear()
     if USE_FIXED_DATASET:
         fixed_path = data_dir / "fixed_tasks_with_answers.json"
@@ -276,8 +314,14 @@ def legacy_console_page() -> FileResponse:
 
 @app.post("/api/auth/login")
 async def api_auth_login(request: Request, body: LoginRequest) -> dict[str, Any]:
-    if body.username.strip() != ADMIN_USERNAME or body.password != _admin_password_effective():
-        raise HTTPException(status_code=401, detail="Invalid username or password.")
+    expected_user, expected_password = _prototype_admin_credentials()
+    if body.username.strip() != expected_user or body.password != expected_password:
+        hint = (
+            "Invalid username or password. If ADMIN_PASSWORD is unset in the server process, "
+            "the password is the default 'codequest-demo'. Start via start_demo_server.ps1 (loads local.env) "
+            "and restart after changing local.env."
+        )
+        raise HTTPException(status_code=401, detail=hint)
     request.session["admin"] = True
     return {"ok": True, "role": "admin"}
 
@@ -487,6 +531,176 @@ def save_question_generation_review(payload: QuestionReviewSaveRequest) -> dict[
 
     written = _write_question_review_csv(out_rows)
     return {"ok": True, "path": str(written), "task_id": tid_target}
+
+
+def _feedback_results_json_path() -> Path:
+    return results_dir / "feedback_results.json"
+
+
+def _feedback_review_csv_path() -> Path:
+    return results_dir / "feedback_review.csv"
+
+
+def _feedback_review_row_key(r: dict[str, Any]) -> tuple[str, str, str]:
+    return (
+        str(r.get("task_id", "")).strip(),
+        str(r.get("answer_id", "")).strip(),
+        str(r.get("feedback_model", "")).strip(),
+    )
+
+
+def _load_feedback_results_items() -> list[dict[str, Any]]:
+    path = _feedback_results_json_path()
+    if not path.exists():
+        return []
+    raw = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(raw, list):
+        return []
+    return [x for x in raw if isinstance(x, dict)]
+
+
+def _merge_feedback_review_rows() -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    """
+    Merge feedback_results.json with optional saved scores in feedback_review.csv.
+    """
+    json_items = _load_feedback_results_items()
+    csv_path = _feedback_review_csv_path()
+    saved: dict[tuple[str, str, str], dict[str, str]] = {}
+    if csv_path.exists():
+        for r in _read_csv_rows(csv_path):
+            k = _feedback_review_row_key(r)
+            if all(k):
+                saved[k] = r
+
+    items: list[dict[str, Any]] = []
+    error_n = 0
+    scored_n = 0
+    models: set[str] = set()
+
+    for raw in json_items:
+        tid = str(raw.get("task_id", "")).strip()
+        aid = str(raw.get("answer_id", "")).strip()
+        fm = str(raw.get("feedback_model", "")).strip()
+        k = (tid, aid, fm)
+        models.add(fm)
+
+        text = str(raw.get("feedback_text", "")).strip()
+        if text.upper().startswith("FEEDBACK_ERROR"):
+            error_n += 1
+
+        row: dict[str, Any] = {
+            "task_id": tid,
+            "concept": str(raw.get("concept", "")).strip(),
+            "answer_id": aid,
+            "variant_type": str(raw.get("variant_type", "")).strip(),
+            "feedback_model": fm,
+            "feedback_text": text,
+            "relevance_score": "",
+            "clarity_score": "",
+            "usefulness_score": "",
+            "overall_feedback_label": "",
+            "notes": "",
+            "is_feedback_error": text.upper().startswith("FEEDBACK_ERROR"),
+            "run_timestamp": str(raw.get("run_timestamp", "")).strip(),
+            "actual_model_name": str(raw.get("actual_model_name", "")).strip(),
+        }
+        if k in saved:
+            old = saved[k]
+            for col in ("relevance_score", "clarity_score", "usefulness_score", "overall_feedback_label", "notes"):
+                v = old.get(col)
+                if v is not None and str(v).strip():
+                    row[col] = str(v).strip()
+
+        rs, cs, us = row["relevance_score"], row["clarity_score"], row["usefulness_score"]
+        if rs in {"1", "2", "3"} and cs in {"1", "2", "3"} and us in {"1", "2", "3"}:
+            scored_n += 1
+
+        items.append(row)
+
+    summary = {
+        "total": len(items),
+        "feedback_error_rows": error_n,
+        "fully_scored_1_3_count": scored_n,
+        "models_sorted": sorted(m for m in models if m),
+        "json_path": str(_feedback_results_json_path()),
+        "csv_path": str(csv_path),
+        "csv_exists": csv_path.exists(),
+    }
+    return items, summary
+
+
+def _write_feedback_review_csv(rows: list[dict[str, str]]) -> Path:
+    path = _feedback_review_csv_path()
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8-sig", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=FEEDBACK_REVIEW_FIELDNAMES)
+        w.writeheader()
+        for row in rows:
+            w.writerow({fn: str(row.get(fn, "")) for fn in FEEDBACK_REVIEW_FIELDNAMES})
+    return path
+
+
+@app.get("/api/research/feedback-review")
+def get_feedback_review() -> dict[str, Any]:
+    """
+    Rows from evaluation/results/feedback_results.json merged with human scores in feedback_review.csv.
+    """
+    items, summary = _merge_feedback_review_rows()
+    return {
+        "items": items,
+        "summary": summary,
+    }
+
+
+@app.post("/api/research/feedback-review")
+def save_feedback_review(payload: FeedbackReviewSaveRequest) -> dict[str, Any]:
+    json_items = _load_feedback_results_items()
+    if not json_items:
+        raise HTTPException(
+            status_code=404,
+            detail="No feedback_results.json — run: python -m prototype_llm_eval.evaluation.run_feedback_eval",
+        )
+
+    rs = payload.relevance_score.strip()
+    cs = payload.clarity_score.strip()
+    us = payload.usefulness_score.strip()
+    for name, val in (("relevance_score", rs), ("clarity_score", cs), ("usefulness_score", us)):
+        if val and val not in {"1", "2", "3"}:
+            raise HTTPException(status_code=400, detail=f"{name} must be empty or 1, 2, or 3.")
+    lab = payload.overall_feedback_label.strip().lower()
+    if lab and lab not in {"poor", "acceptable", "good"}:
+        raise HTTPException(
+            status_code=400,
+            detail='overall_feedback_label must be empty, "poor", "acceptable", or "good".',
+        )
+
+    tid_t = payload.task_id.strip()
+    aid_t = payload.answer_id.strip()
+    fm_t = payload.feedback_model.strip()
+    target = (tid_t, aid_t, fm_t)
+
+    merged, _summary = _merge_feedback_review_rows()
+    found = False
+    out_rows: list[dict[str, str]] = []
+    for row in merged:
+        k = (row["task_id"], row["answer_id"], row["feedback_model"])
+        if k == target:
+            found = True
+            row = {
+                **row,
+                "relevance_score": rs,
+                "clarity_score": cs,
+                "usefulness_score": us,
+                "overall_feedback_label": lab,
+                "notes": payload.notes.strip(),
+            }
+        out_rows.append({fn: str(row.get(fn, "")) for fn in FEEDBACK_REVIEW_FIELDNAMES})
+
+    if not found:
+        raise HTTPException(status_code=404, detail="No matching row in feedback_results.json for that task/answer/model.")
+
+    written = _write_feedback_review_csv(out_rows)
+    return {"ok": True, "path": str(written), "task_id": tid_t, "answer_id": aid_t, "feedback_model": fm_t}
 
 
 def _demo_tasks_list() -> list[dict[str, Any]]:

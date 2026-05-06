@@ -64,6 +64,17 @@ def main() -> None:
             }
         )
 
+    err_n = sum(
+        1
+        for r in rows
+        if str(r.get("feedback_text", "")).strip().upper().startswith("FEEDBACK_ERROR")
+    )
+    if err_n:
+        print(
+            f"WARNING: {err_n}/{len(rows)} rows contain FEEDBACK_ERROR in feedback_text. "
+            "Re-run run_feedback_eval with API keys / local models loaded, then regenerate this sheet."
+        )
+
     out.parent.mkdir(parents=True, exist_ok=True)
     with out.open("w", encoding="utf-8-sig", newline="") as f:
         w = csv.DictWriter(f, fieldnames=fieldnames)

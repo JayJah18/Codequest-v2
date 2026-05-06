@@ -196,6 +196,7 @@ Supporting JSON (recap):
 
 - `GET /api/research-summary` — dashboard aggregates (admin).
 - `GET` / `POST /api/research/question-review` — question appropriateness CSV (admin).
+- `GET` / `POST /api/research/feedback-review` — feedback quality scores CSV (admin; reads `feedback_results.json`).
 - `GET /api/demo/config`, demo task/mark/feedback — **public**.
 - `GET /api/eval/data`, `POST /api/eval/human-marks` — **admin**.
 
@@ -272,7 +273,8 @@ Marking is evaluated as **subtask-level correctness** (human vs model on each bi
 - **Default subset:** first **4** tasks after pilot filter (`FEEDBACK_EVAL_TASK_LIMIT`, default `4`). Set `FEEDBACK_EVAL_TASK_LIMIT=0` for no cap (all tasks after pilot filter), or `20` for full benchmark. If **`TASK_LIMIT`** is set, the default cap is **not** applied (pilot size already fixed).
 - Run: `python -m prototype_llm_eval.evaluation.run_feedback_eval`  
   → `evaluation/results/feedback_results.json` and `feedback_results.csv` (columns include `task_id`, `concept`, `answer_id`, `variant_type`, `feedback_model`, `feedback_text`, `run_timestamp`, `actual_model_name`, `feedback_prompt_version`).
-- Human review sheet:  
+- **In-browser:** **`/research-dashboard`** → *Feedback quality review* (after `run_feedback_eval`). Saves via `POST /api/research/feedback-review` to `evaluation/results/feedback_review.csv`.
+- Human review sheet (CLI):  
   `python -m prototype_llm_eval.evaluation.generate_feedback_review_sheet`  
   → `evaluation/results/feedback_review.csv` (fill scores 1–3 and `overall_feedback_label`: `poor` / `acceptable` / `good`).
 - Summarise:  

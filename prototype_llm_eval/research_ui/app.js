@@ -236,6 +236,252 @@ function initQuestionReviewPanel() {
   }
 }
 
+const frState = {
+  allItems: [],
+  items: [],
+  index: 0,
+  summary: {},
+};
+let frListenersBound = false;
+
+function currentFrRow() {
+  return frState.items[frState.index] || null;
+}
+
+function populateFrFilterModel() {
+  const sel = document.getElementById("fr-filter-model");
+  if (!sel) return;
+  const prev = sel.value;
+  const models = frState.summary.models_sorted || [];
+  sel.innerHTML = "";
+  const allOpt = document.createElement("option");
+  allOpt.value = "";
+  allOpt.textContent = "All models";
+  sel.appendChild(allOpt);
+  models.forEach((m) => {
+    const o = document.createElement("option");
+    o.value = m;
+    o.textContent = m;
+    sel.appendChild(o);
+  });
+  if (prev && models.includes(prev)) sel.value = prev;
+  else sel.value = "";
+}
+
+function applyFrFilter() {
+  const sel = document.getElementById("fr-filter-model");
+  const m = sel && sel.value ? sel.value : "";
+  frState.items = !m ? frState.allItems.slice() : frState.allItems.filter((r) => (r.feedback_model || "") === m);
+  if (frState.index >= frState.items.length) {
+    frState.index = Math.max(0, frState.items.length - 1);
+  }
+}
+
+function renderFrSummary() {
+  const host = document.getElementById("fr-summary");
+  if (!host) return;
+  const s = frState.summary || {};
+  host.innerHTML = "";
+  if (!frState.allItems.length) {
+    host.appendChild(
+      el("p", {
+        className: "sub",
+        textContent:
+          "No rows in feedback_results.json. From the repo: run python -m prototype_llm_eval.evaluation.run_feedback_eval (with GEMINI_API_KEY or local models), then refresh this page.",
+      })
+    );
+    return;
+  }
+  host.appendChild(
+    el("p", {
+      className: "sub",
+      textContent: `Rows: ${s.total ?? 0}. FEEDBACK_ERROR rows: ${s.feedback_error_rows ?? 0}. Fully scored (1–3 on all three dimensions): ${s.fully_scored_1_3_count ?? 0}. feedback_review.csv: ${s.csv_exists ? "on disk" : "created on first save"}.`,
+    })
+  );
+}
+
+function renderFrDetail() {
+  const host = document.getElementById("fr-detail");
+  if (!host) return;
+  const row = currentFrRow();
+  host.innerHTML = "";
+  if (!row) {
+    host.appendChild(el("p", { className: "sub", textContent: "No rows match the filter." }));
+    return;
+  }
+  if (row.is_feedback_error) {
+    host.appendChild(
+      el("p", {
+        className: "sub",
+        style: "color:#f85149;font-weight:600",
+        textContent:
+          "Generation failed for this row (FEEDBACK_ERROR). Re-run run_feedback_eval with working API keys before treating scores as meaningful.",
+      })
+    );
+  }
+  host.appendChild(
+    el("p", {
+      className: "qr-meta",
+      textContent: `${row.task_id} · ${row.answer_id} · ${row.variant_type} · ${row.concept} · ${row.feedback_model}${
+        row.actual_model_name ? ` · ${row.actual_model_name}` : ""
+      }`,
+    })
+  );
+  host.appendChild(el("h3", { textContent: "Feedback text" }));
+  host.appendChild(el("pre", { className: "sample fr-feedback-pre", textContent: row.feedback_text || "(empty)" }));
+}
+
+function syncFrFormFromRow() {
+  const row = currentFrRow();
+  const rel = document.getElementById("fr-relevance");
+  const clar = document.getElementById("fr-clarity");
+  const usef = document.getElementById("fr-usefulness");
+  const ov = document.getElementById("fr-overall");
+  const notes = document.getElementById("fr-notes");
+  if (!row) {
+    if (rel) rel.value = "";
+    if (clar) clar.value = "";
+    if (usef) usef.value = "";
+    if (ov) ov.value = "";
+    if (notes) notes.value = "";
+    return;
+  }
+  const pick123 = (v) => (["1", "2", "3"].includes(String(v)) ? String(v) : "");
+  if (rel) rel.value = pick123(row.relevance_score);
+  if (clar) clar.value = pick123(row.clarity_score);
+  if (usef) usef.value = pick123(row.usefulness_score);
+  if (ov) {
+    const v = String(row.overall_feedback_label || "").toLowerCase();
+    ov.value = ["poor", "acceptable", "good"].includes(v) ? v : "";
+  }
+  if (notes) notes.value = row.notes || "";
+}
+
+function populateFrRowSelect() {
+  const sel = document.getElementById("fr-row-select");
+  if (!sel) return;
+  sel.innerHTML = "";
+  frState.items.forEach((r, idx) => {
+    const opt = document.createElement("option");
+    opt.value = String(idx);
+    const errTag = r.is_feedback_error ? " ⚠ error" : "";
+    const sc =
+      r.relevance_score && r.clarity_score && r.usefulness_score
+        ? ` · R${r.relevance_score}C${r.clarity_score}U${r.usefulness_score}`
+        : "";
+    opt.textContent = `${r.task_id} · ${r.answer_id} · ${r.feedback_model}${sc}${errTag}`;
+    sel.appendChild(opt);
+  });
+  const safeIdx = Math.min(frState.index, Math.max(0, frState.items.length - 1));
+  sel.value = String(safeIdx);
+  frState.index = safeIdx;
+}
+
+function renderFrAll() {
+  populateFrFilterModel();
+  applyFrFilter();
+  renderFrSummary();
+  populateFrRowSelect();
+  renderFrDetail();
+  syncFrFormFromRow();
+}
+
+async function loadFeedbackReviewData() {
+  const res = await fetch("/api/research/feedback-review");
+  if (!res.ok) throw new Error(`feedback-review ${res.status}`);
+  const data = await res.json();
+  frState.allItems = data.items || [];
+  frState.summary = data.summary || {};
+}
+
+async function refreshFeedbackReview() {
+  await loadFeedbackReviewData();
+  frState.index = 0;
+  renderFrAll();
+}
+
+function initFeedbackReviewPanel() {
+  const sec = document.getElementById("sec-feedback-review");
+  if (!sec || frListenersBound) return;
+  frListenersBound = true;
+  const st = document.getElementById("fr-status");
+  const fmod = document.getElementById("fr-filter-model");
+  const rsel = document.getElementById("fr-row-select");
+  const prev = document.getElementById("fr-prev");
+  const next = document.getElementById("fr-next");
+  const save = document.getElementById("fr-save");
+
+  if (fmod) {
+    fmod.addEventListener("change", () => {
+      frState.index = 0;
+      renderFrAll();
+    });
+  }
+  if (rsel) {
+    rsel.addEventListener("change", () => {
+      const idx = Number(rsel.value);
+      if (!Number.isNaN(idx) && idx >= 0 && idx < frState.items.length) {
+        frState.index = idx;
+        renderFrDetail();
+        syncFrFormFromRow();
+      }
+    });
+  }
+  if (prev) {
+    prev.addEventListener("click", () => {
+      frState.index = Math.max(0, frState.index - 1);
+      renderFrAll();
+    });
+  }
+  if (next) {
+    next.addEventListener("click", () => {
+      if (!frState.items.length) return;
+      frState.index = Math.min(frState.items.length - 1, frState.index + 1);
+      renderFrAll();
+    });
+  }
+  if (save) {
+    save.addEventListener("click", async () => {
+      const row = currentFrRow();
+      if (!row) return;
+      if (st) st.textContent = "Saving…";
+      try {
+        const res = await fetch("/api/research/feedback-review", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            task_id: row.task_id,
+            answer_id: row.answer_id,
+            feedback_model: row.feedback_model,
+            relevance_score: document.getElementById("fr-relevance")?.value || "",
+            clarity_score: document.getElementById("fr-clarity")?.value || "",
+            usefulness_score: document.getElementById("fr-usefulness")?.value || "",
+            overall_feedback_label: document.getElementById("fr-overall")?.value || "",
+            notes: document.getElementById("fr-notes")?.value || "",
+          }),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) throw new Error(data.detail || `save failed (${res.status})`);
+        const prevKey = `${row.task_id}|${row.answer_id}|${row.feedback_model}`;
+        await loadFeedbackReviewData();
+        populateFrFilterModel();
+        applyFrFilter();
+        const i = frState.items.findIndex(
+          (r) => `${r.task_id}|${r.answer_id}|${r.feedback_model}` === prevKey
+        );
+        frState.index = i >= 0 ? i : 0;
+        renderFrSummary();
+        populateFrRowSelect();
+        renderFrDetail();
+        syncFrFormFromRow();
+        if (st) st.textContent = `Saved → ${data.path || "feedback_review.csv"}`;
+      } catch (e) {
+        if (st) st.textContent = `Save failed: ${e.message || e}`;
+      }
+    });
+  }
+}
+
 async function main() {
   const status = document.getElementById("load-status");
   let data;
@@ -262,6 +508,17 @@ async function main() {
     const st = document.getElementById("qr-status");
     if (st) st.textContent = `Could not load question review data: ${e}`;
     initQuestionReviewPanel();
+  }
+
+  try {
+    await refreshFeedbackReview();
+    showSection("sec-feedback-review", true);
+    initFeedbackReviewPanel();
+  } catch (e) {
+    showSection("sec-feedback-review", true);
+    const fst = document.getElementById("fr-status");
+    if (fst) fst.textContent = `Could not load feedback review: ${e}`;
+    initFeedbackReviewPanel();
   }
 
   const modes = data.system_modes;
