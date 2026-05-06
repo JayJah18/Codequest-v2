@@ -14,21 +14,6 @@ print(""My name is "" + name + "" and I am "" + str(age) + "" years old."")",gem
 q1,variables,q1_a1,fully_correct,s5,Print one sentence containing both values,"name = ""Alice""
 age = 25
 print(""My name is "" + name + "" and I am "" + str(age) + "" years old."")",gemini,correct,correct,
-q1,variables,q1_a2,partly_correct,s1,Create a variable named name,"name = ""Bella""
-AGE = 22
-print(""My name is "" + name + "" and I am "" + age + "" years old."")",gemini,correct,correct,
-q1,variables,q1_a2,partly_correct,s2,Create a variable named age,"name = ""Bella""
-AGE = 22
-print(""My name is "" + name + "" and I am "" + age + "" years old."")",gemini,incorrect,incorrect,
-q1,variables,q1_a2,partly_correct,s3,Store a text value in name,"name = ""Bella""
-AGE = 22
-print(""My name is "" + name + "" and I am "" + age + "" years old."")",gemini,correct,incorrect,
-q1,variables,q1_a2,partly_correct,s4,Store a number value in age,"name = ""Bella""
-AGE = 22
-print(""My name is "" + name + "" and I am "" + age + "" years old."")",gemini,incorrect,incorrect,
-q1,variables,q1_a2,partly_correct,s5,Print one sentence containing both values,"name = ""Bella""
-AGE = 22
-print(""My name is "" + name + "" and I am "" + age + "" years old."")",gemini,incorrect,incorrect,
 q1,variables,q1_a3,fully_incorrect,s1,Create a variable named name,"name = John
 age = ""twenty five""
 print(""My name is"" + name + ""and I am"" + age + ""years old."")",gemini,correct,incorrect,
@@ -1744,3 +1729,18 @@ q20,functions,q20_a3,fully_incorrect,s5,Ensure output matches given text,"func s
   print(my_text_output)
 
 call_the_message_func(""This should be printed!"")",gemini,incorrect,incorrect,
+q1,variables,q1_a2,partly_correct,s1,Create a variable named name,"name = ""Bella""
+AGE = 22
+print(""My name is "" + name + "" and I am "" + age + "" years old."")",gemini,correct,correct,
+q1,variables,q1_a2,partly_correct,s2,Create a variable named age,"name = ""Bella""
+AGE = 22
+print(""My name is "" + name + "" and I am "" + age + "" years old."")",gemini,incorrect,incorrect,
+q1,variables,q1_a2,partly_correct,s3,Store a text value in name,"name = ""Bella""
+AGE = 22
+print(""My name is "" + name + "" and I am "" + age + "" years old."")",gemini,correct,incorrect,
+q1,variables,q1_a2,partly_correct,s4,Store a number value in age,"name = ""Bella""
+AGE = 22
+print(""My name is "" + name + "" and I am "" + age + "" years old."")",gemini,incorrect,incorrect,
+q1,variables,q1_a2,partly_correct,s5,Print one sentence containing both values,"name = ""Bella""
+AGE = 22
+print(""My name is "" + name + "" and I am "" + age + "" years old."")",gemini,incorrect,incorrect,
