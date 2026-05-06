@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Research dashboard — LLM eval</title>
+    <link rel="stylesheet" href="/static/theme.css" />
+    <link rel="stylesheet" href="/research-ui/static/styles.css" />
+  </head>
+  <body>
+    <header class="cq-nav" style="position: relative">
+      <a class="cq-brand" href="/admin">
+        <span class="cq-logo" aria-hidden="true">C</span>
+        <span>CodeQuest</span>
+      </a>
+      <nav class="cq-nav-links" aria-label="Admin">
+        <a class="cq-btn cq-btn-ghost" href="/demo-ui">Public demo</a>
+        <a class="cq-btn cq-btn-secondary" href="/admin">Admin hub</a>
+      </nav>
+    </header>
+    <header class="header">
+      <p class="eyebrow">Research dashboard</p>
+      <h1>Benchmark summary, model comparison, question &amp; feedback review</h1>
+      <p class="sub">
+        <strong>Purpose:</strong> dissertation evidence — frozen benchmark metrics, CSV outputs, and human review of
+        <em>whether generated tasks fit the intended template</em>. This is not the learner demo (
+        <code>/demo-ui</code>) and not subtask ground-truth marking against student code (
+        <code>/eval-ui</code>).
+      </p>
+      <p class="sub sub-strong">
+        Live LLM task generation for supervisors uses <code>/demo-ui</code>. This dashboard reads saved artefacts (including
+        <code>question_generation_review.csv</code>) from disk.
+      </p>
+    </header>
+
+    <main id="main">
+      <p id="load-status" class="status">Loading…</p>
+
+      <section id="sec-question-review" class="card hidden">
+        <h2>Question appropriateness review (human)</h2>
+        <p class="sub">
+          Inspect each frozen benchmark task against the <strong>intended generation template</strong> (beginner-level,
+          concept-aligned, five independently markable subtasks, clear wording). Labels save to
+          <code>evaluation/results/question_generation_review.csv</code> via <code>POST /api/research/question-review</code>.
+        </p>
+        <p id="qr-status" class="status qr-status" role="status"></p>
+
+        <div class="review-layout">
+          <aside class="criteria-panel" aria-label="Appropriateness criteria">
+            <h3 class="criteria-title">Template expectations</h3>
+            <p class="criteria-lead">Appropriateness criteria:</p>
+            <ul class="criteria-list">
+              <li>Matches selected concept</li>
+              <li>Suitable for intended learner level (beginner)</li>
+              <li>Exactly five clear subtasks</li>
+              <li>Subtasks are independently markable</li>
+              <li>Question wording is understandable</li>
+            </ul>
+            <p class="criteria-foot">
+              This is <strong>not</strong> string-matching against another gold question file — it is human judgement vs the
+              rubric above.
+            </p>
+          </aside>
+
+          <div class="review-main">
+            <div id="qr-summary" class="qr-summary"></div>
+            <div class="qr-nav">
+              <label class="qr-field">
+                Task
+                <select id="qr-task-select"></select>
+              </label>
+              <div class="qr-nav-buttons">
+                <button type="button" id="qr-prev" class="btn-secondary">← Prev</button>
+                <button type="button" id="qr-next" class="btn-secondary">Next →</button>
+              </div>
+              <button type="button" id="qr-save" class="btn-primary">Save review</button>
+            </div>
+
+            <div id="qr-detail" class="qr-detail"></div>
+
+            <form id="qr-form" class="qr-form" onsubmit="return false;">
+              <fieldset>
+                <legend>Human judgement</legend>
+                <label class="qr-field">
+                  Appropriate?
+                  <select id="qr-label">
+                    <option value="">Not set</option>
+                    <option value="appropriate">appropriate</option>
+                    <option value="inappropriate">inappropriate</option>
+                  </select>
+                </label>
+                <div class="qr-grid">
+                  <label class="qr-field">
+                    Level fit (optional)
+                    <input type="text" id="qr-level-fit" maxlength="80" placeholder="e.g. 1–3 or short note" />
+                  </label>
+                  <label class="qr-field">
+                    Topic fit (optional)
+                    <input type="text" id="qr-topic-fit" maxlength="80" />
+                  </label>
+                  <label class="qr-field">
+                    Clarity (optional)
+                    <input type="text" id="qr-clarity" maxlength="80" />
+                  </label>
+                </div>
+                <label class="qr-field">
+                  Notes
+                  <textarea id="qr-notes" rows="3" placeholder="Why appropriate / inappropriate…"></textarea>
+                </label>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section id="sec-feedback-review" class="card hidden">
+        <h2>Feedback quality review (human)</h2>
+        <p class="sub">
+          Score LLM-written feedback from <code>evaluation/results/feedback_results.json</code>. Saves merge to
+          <code>evaluation/results/feedback_review.csv</code> via <code>POST /api/research/feedback-review</code>. Run
+          <code>python -m prototype_llm_eval.evaluation.run_feedback_eval</code> first if the JSON is missing or only
+          contains errors.
+        </p>
+        <p id="fr-status" class="status fr-status" role="status"></p>
+
+        <div class="review-layout">
+          <aside class="criteria-panel" aria-label="Scoring rubric">
+            <h3 class="criteria-title">Scores (1–3)</h3>
+            <p class="criteria-lead">Relevance</p>
+            <ul class="criteria-list">
+              <li><strong>1</strong> — Wrong focus or not about this submission</li>
+              <li><strong>2</strong> — Partly addresses the issue</li>
+              <li><strong>3</strong> — Clearly tied to code + marking</li>
+            </ul>
+            <p class="criteria-lead">Clarity</p>
+            <ul class="criteria-list">
+              <li><strong>1</strong> — Confusing / too jargon-heavy</li>
+              <li><strong>2</strong> — Understandable with effort</li>
+              <li><strong>3</strong> — Beginner-appropriate</li>
+            </ul>
+            <p class="criteria-lead">Usefulness</p>
+            <ul class="criteria-list">
+              <li><strong>1</strong> — No clear next step</li>
+              <li><strong>2</strong> — Vague hint</li>
+              <li><strong>3</strong> — Concrete, actionable</li>
+            </ul>
+            <p class="criteria-foot">
+              Overall label: <strong>poor</strong> / <strong>acceptable</strong> / <strong>good</strong>. Leave scores blank
+              while drafting; save when ready.
+            </p>
+          </aside>
+
+          <div class="review-main">
+            <div id="fr-summary" class="qr-summary"></div>
+            <div class="qr-nav">
+              <label class="qr-field">
+                Model filter
+                <select id="fr-filter-model">
+                  <option value="">All models</option>
+                </select>
+              </label>
+              <label class="qr-field">
+                Row
+                <select id="fr-row-select"></select>
+              </label>
+              <div class="qr-nav-buttons">
+                <button type="button" id="fr-prev" class="btn-secondary">← Prev</button>
+                <button type="button" id="fr-next" class="btn-secondary">Next →</button>
+              </div>
+              <button type="button" id="fr-save" class="btn-primary">Save review</button>
+            </div>
+
+            <div id="fr-detail" class="qr-detail"></div>
+
+            <form id="fr-form" class="qr-form" onsubmit="return false;">
+              <fieldset>
+                <legend>Human scores</legend>
+                <div class="qr-grid">
+                  <label class="qr-field">
+                    Relevance
+                    <select id="fr-relevance">
+                      <option value="">—</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                    </select>
+                  </label>
+                  <label class="qr-field">
+                    Clarity
+                    <select id="fr-clarity">
+                      <option value="">—</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                    </select>
+                  </label>
+                  <label class="qr-field">
+                    Usefulness
+                    <select id="fr-usefulness">
+                      <option value="">—</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                    </select>
+                  </label>
+                  <label class="qr-field">
+                    Overall
+                    <select id="fr-overall">
+                      <option value="">—</option>
+                      <option value="poor">poor</option>
+                      <option value="acceptable">acceptable</option>
+                      <option value="good">good</option>
+                    </select>
+                  </label>
+                </div>
+                <label class="qr-field">
+                  Notes
+                  <textarea id="fr-notes" rows="3" placeholder="Optional rationale…"></textarea>
+                </label>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section id="sec-modes" class="card hidden">
+        <h2>Benchmark vs demo (system)</h2>
+        <pre id="modes-pre" class="modes-pre"></pre>
+      </section>
+
+      <section id="sec-files" class="card hidden">
+        <h2>Source files</h2>
+        <ul id="file-status"></ul>
+      </section>
+
+      <section id="sec-dataset" class="card hidden">
+        <h2>Dataset summary</h2>
+        <table>
+          <tbody id="dataset-body"></tbody>
+        </table>
+      </section>
+
+      <section id="sec-marking" class="card hidden">
+        <h2>Marking performance</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Accuracy</th>
+              <th>F1</th>
+              <th>Coverage (n)</th>
+              <th>Coverage</th>
+            </tr>
+          </thead>
+          <tbody id="marking-body"></tbody>
+        </table>
+      </section>
+
+      <section id="sec-confusion" class="card hidden">
+        <h2>Confusion counts (subtask level)</h2>
+        <div id="confusion-wrap"></div>
+      </section>
+
+      <section id="sec-concept" class="card hidden">
+        <h2>Per-concept accuracy</h2>
+        <div id="concept-wrap"></div>
+      </section>
+
+      <section id="sec-variant" class="card hidden">
+        <h2>Per-variant accuracy</h2>
+        <div id="variant-wrap"></div>
+      </section>
+
+      <section id="sec-question" class="card hidden">
+        <h2>Question generation evaluation (CSV aggregate)</h2>
+        <div id="question-body"></div>
+      </section>
+
+      <section id="sec-feedback" class="card hidden">
+        <h2>Feedback evaluation</h2>
+        <div id="feedback-body"></div>
+      </section>
+
+      <section id="sec-speed" class="card hidden">
+        <h2>Speed comparison (static notes)</h2>
+        <ul id="speed-body"></ul>
+      </section>
+    </main>
+
+    <script src="/research-ui/static/app.js"></script>
+  </body>
+</html>

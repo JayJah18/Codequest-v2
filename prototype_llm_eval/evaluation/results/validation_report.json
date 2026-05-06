@@ -1,0 +1,51 @@
+{
+  "generated_at_utc": "2026-04-17T23:13:13.888772+00:00",
+  "environment_hints": {
+    "GEMINI_MODEL": "",
+    "OLLAMA_MODEL": "",
+    "MISTRAL_MODEL": ""
+  },
+  "fixed_dataset": {
+    "path": "C:\\Users\\jamal\\OneDrive - University of Derby\\Level 6\\Individual Project(CodeQuest)\\Codequest-v2\\prototype_llm_eval\\data\\fixed_tasks_with_answers.json",
+    "valid": true,
+    "errors": [],
+    "total_tasks": 20,
+    "total_subtasks": 100,
+    "expected_tasks": 20,
+    "expected_subtasks_total": 100
+  },
+  "answer_variants": {
+    "path": "C:\\Users\\jamal\\OneDrive - University of Derby\\Level 6\\Individual Project(CodeQuest)\\Codequest-v2\\prototype_llm_eval\\data\\generated_answers.json",
+    "total_answer_rows": 60,
+    "expected_per_task": 3,
+    "alignment_ok": true,
+    "alignment_errors": []
+  },
+  "marking_results": {
+    "path": "C:\\Users\\jamal\\OneDrive - University of Derby\\Level 6\\Individual Project(CodeQuest)\\Codequest-v2\\prototype_llm_eval\\evaluation\\results\\marking_results.csv",
+    "row_count": 180,
+    "marker_model_counts": {
+      "gemini": 60,
+      "llama": 60,
+      "mistral": 60
+    },
+    "actual_model_name_unique": [
+      "gemini-2.5-flash",
+      "llama3.1",
+      "mistral-small-latest"
+    ],
+    "marking_prompt_version_unique": [
+      "PROMPT_VERSION:marking_v1"
+    ]
+  },
+  "human_marks": {
+    "path": "C:\\Users\\jamal\\OneDrive - University of Derby\\Level 6\\Individual Project(CodeQuest)\\Codequest-v2\\prototype_llm_eval\\evaluation\\results\\human_marks.csv",
+    "row_count": 300,
+    "rows_with_human_mark": 300
+  },
+  "prompt_versions": {
+    "task_generation": "PROMPT_VERSION:task_generation_v1",
+    "marking": "PROMPT_VERSION:marking_v1",
+    "feedback": "PROMPT_VERSION:feedback_v1"
+  }
+}

@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+
+# Local API keys (never commit)
+prototype_llm_eval/local.env

@@ -1,0 +1,1746 @@
+task_id,concept,answer_id,variant_type,subtask_id,subtask_label,student_answer_code,llm_marker_model,llm_mark_for_subtask,human_mark,notes
+q1,variables,q1_a1,fully_correct,s1,Create a variable named name,"name = ""Alice""
+age = 25
+print(""My name is "" + name + "" and I am "" + str(age) + "" years old."")",gemini,correct,correct,
+q1,variables,q1_a1,fully_correct,s2,Create a variable named age,"name = ""Alice""
+age = 25
+print(""My name is "" + name + "" and I am "" + str(age) + "" years old."")",gemini,correct,correct,
+q1,variables,q1_a1,fully_correct,s3,Store a text value in name,"name = ""Alice""
+age = 25
+print(""My name is "" + name + "" and I am "" + str(age) + "" years old."")",gemini,correct,correct,
+q1,variables,q1_a1,fully_correct,s4,Store a number value in age,"name = ""Alice""
+age = 25
+print(""My name is "" + name + "" and I am "" + str(age) + "" years old."")",gemini,correct,correct,
+q1,variables,q1_a1,fully_correct,s5,Print one sentence containing both values,"name = ""Alice""
+age = 25
+print(""My name is "" + name + "" and I am "" + str(age) + "" years old."")",gemini,correct,correct,
+q1,variables,q1_a3,fully_incorrect,s1,Create a variable named name,"name = John
+age = ""twenty five""
+print(""My name is"" + name + ""and I am"" + age + ""years old."")",gemini,correct,incorrect,
+q1,variables,q1_a3,fully_incorrect,s2,Create a variable named age,"name = John
+age = ""twenty five""
+print(""My name is"" + name + ""and I am"" + age + ""years old."")",gemini,correct,incorrect,
+q1,variables,q1_a3,fully_incorrect,s3,Store a text value in name,"name = John
+age = ""twenty five""
+print(""My name is"" + name + ""and I am"" + age + ""years old."")",gemini,incorrect,incorrect,
+q1,variables,q1_a3,fully_incorrect,s4,Store a number value in age,"name = John
+age = ""twenty five""
+print(""My name is"" + name + ""and I am"" + age + ""years old."")",gemini,incorrect,incorrect,
+q1,variables,q1_a3,fully_incorrect,s5,Print one sentence containing both values,"name = John
+age = ""twenty five""
+print(""My name is"" + name + ""and I am"" + age + ""years old."")",gemini,incorrect,incorrect,
+q2,variables,q2_a1,fully_correct,s1,Create a first number variable,"number1 = 10
+number2 = 20
+sum_result = number1 + number2
+print(sum_result)",gemini,correct,correct,
+q2,variables,q2_a1,fully_correct,s2,Create a second number variable,"number1 = 10
+number2 = 20
+sum_result = number1 + number2
+print(sum_result)",gemini,correct,correct,
+q2,variables,q2_a1,fully_correct,s3,Calculate the sum,"number1 = 10
+number2 = 20
+sum_result = number1 + number2
+print(sum_result)",gemini,correct,correct,
+q2,variables,q2_a1,fully_correct,s4,Store the sum in a variable,"number1 = 10
+number2 = 20
+sum_result = number1 + number2
+print(sum_result)",gemini,correct,correct,
+q2,variables,q2_a1,fully_correct,s5,Print the sum,"number1 = 10
+number2 = 20
+sum_result = number1 + number2
+print(sum_result)",gemini,correct,correct,
+q2,variables,q2_a2,partly_correct,s1,Create a first number variable,"number_one = 5
+number_two = 10
+
+result = number_one * number_two # beginner might accidentally use wrong operator
+
+print(""Calculations complete."") # beginner might print a status message instead of the actual sum, or forget which variable stores the sum",gemini,correct,correct,
+q2,variables,q2_a2,partly_correct,s2,Create a second number variable,"number_one = 5
+number_two = 10
+
+result = number_one * number_two # beginner might accidentally use wrong operator
+
+print(""Calculations complete."") # beginner might print a status message instead of the actual sum, or forget which variable stores the sum",gemini,correct,correct,
+q2,variables,q2_a2,partly_correct,s3,Calculate the sum,"number_one = 5
+number_two = 10
+
+result = number_one * number_two # beginner might accidentally use wrong operator
+
+print(""Calculations complete."") # beginner might print a status message instead of the actual sum, or forget which variable stores the sum",gemini,incorrect,incorrect,
+q2,variables,q2_a2,partly_correct,s4,Store the sum in a variable,"number_one = 5
+number_two = 10
+
+result = number_one * number_two # beginner might accidentally use wrong operator
+
+print(""Calculations complete."") # beginner might print a status message instead of the actual sum, or forget which variable stores the sum",gemini,incorrect,incorrect,
+q2,variables,q2_a2,partly_correct,s5,Print the sum,"number_one = 5
+number_two = 10
+
+result = number_one * number_two # beginner might accidentally use wrong operator
+
+print(""Calculations complete."") # beginner might print a status message instead of the actual sum, or forget which variable stores the sum",gemini,incorrect,incorrect,
+q2,variables,q2_a3,fully_incorrect,s1,Create a first number variable,"my first number = 5
+my second number = 10
+
+sum result = my first number plus my second number
+
+print sum result",gemini,incorrect,incorrect,
+q2,variables,q2_a3,fully_incorrect,s2,Create a second number variable,"my first number = 5
+my second number = 10
+
+sum result = my first number plus my second number
+
+print sum result",gemini,incorrect,incorrect,
+q2,variables,q2_a3,fully_incorrect,s3,Calculate the sum,"my first number = 5
+my second number = 10
+
+sum result = my first number plus my second number
+
+print sum result",gemini,incorrect,incorrect,
+q2,variables,q2_a3,fully_incorrect,s4,Store the sum in a variable,"my first number = 5
+my second number = 10
+
+sum result = my first number plus my second number
+
+print sum result",gemini,incorrect,incorrect,
+q2,variables,q2_a3,fully_incorrect,s5,Print the sum,"my first number = 5
+my second number = 10
+
+sum result = my first number plus my second number
+
+print sum result",gemini,incorrect,incorrect,
+q3,variables,q3_a1,fully_correct,s1,Create a variable named city,"city = ""London""
+print(""Hello from "" + city + ""!"")",gemini,correct,correct,LLM did not mark this one
+q3,variables,q3_a1,fully_correct,s2,Assign a string value to city,"city = ""London""
+print(""Hello from "" + city + ""!"")",gemini,,correct,LLM did not mark this one
+q3,variables,q3_a1,fully_correct,s3,Create a greeting sentence,"city = ""London""
+print(""Hello from "" + city + ""!"")",gemini,,correct,LLM did not mark this one
+q3,variables,q3_a1,fully_correct,s4,Include city in the sentence,"city = ""London""
+print(""Hello from "" + city + ""!"")",gemini,,correct,LLM did not mark this one
+q3,variables,q3_a1,fully_correct,s5,Print the final sentence,"city = ""London""
+print(""Hello from "" + city + ""!"")",gemini,,correct,LLM did not mark this one
+q3,variables,q3_a2,partly_correct,s1,Create a variable named city,"city = ""London""
+print(""Hello from city"")",gemini,correct,correct,print format should be stricter
+q3,variables,q3_a2,partly_correct,s2,Assign a string value to city,"city = ""London""
+print(""Hello from city"")",gemini,correct,correct,print format should be stricter
+q3,variables,q3_a2,partly_correct,s3,Create a greeting sentence,"city = ""London""
+print(""Hello from city"")",gemini,correct,incorrect,print format should be stricter
+q3,variables,q3_a2,partly_correct,s4,Include city in the sentence,"city = ""London""
+print(""Hello from city"")",gemini,incorrect,incorrect,print format should be stricter
+q3,variables,q3_a2,partly_correct,s5,Print the final sentence,"city = ""London""
+print(""Hello from city"")",gemini,correct,incorrect,print format should be stricter
+q3,variables,q3_a3,fully_incorrect,s1,Create a variable named city,"my_place = 123
+print(""Hello "" my_place ""!"")",gemini,incorrect,incorrect,
+q3,variables,q3_a3,fully_incorrect,s2,Assign a string value to city,"my_place = 123
+print(""Hello "" my_place ""!"")",gemini,incorrect,incorrect,
+q3,variables,q3_a3,fully_incorrect,s3,Create a greeting sentence,"my_place = 123
+print(""Hello "" my_place ""!"")",gemini,incorrect,incorrect,
+q3,variables,q3_a3,fully_incorrect,s4,Include city in the sentence,"my_place = 123
+print(""Hello "" my_place ""!"")",gemini,incorrect,incorrect,
+q3,variables,q3_a3,fully_incorrect,s5,Print the final sentence,"my_place = 123
+print(""Hello "" my_place ""!"")",gemini,incorrect,incorrect,
+q4,variables,q4_a1,fully_correct,s1,Create width variable,"width = 10
+height = 5
+area = width * height
+print(area)",gemini,correct,correct,
+q4,variables,q4_a1,fully_correct,s2,Create height variable,"width = 10
+height = 5
+area = width * height
+print(area)",gemini,correct,correct,
+q4,variables,q4_a1,fully_correct,s3,Multiply width and height,"width = 10
+height = 5
+area = width * height
+print(area)",gemini,correct,correct,
+q4,variables,q4_a1,fully_correct,s4,Store result in area variable,"width = 10
+height = 5
+area = width * height
+print(area)",gemini,correct,correct,
+q4,variables,q4_a1,fully_correct,s5,Print area,"width = 10
+height = 5
+area = width * height
+print(area)",gemini,correct,correct,
+q4,variables,q4_a2,partly_correct,s1,Create width variable,"width = 10
+height = 5
+
+area = width + height
+
+print(Area)",gemini,correct,correct,
+q4,variables,q4_a2,partly_correct,s2,Create height variable,"width = 10
+height = 5
+
+area = width + height
+
+print(Area)",gemini,correct,correct,
+q4,variables,q4_a2,partly_correct,s3,Multiply width and height,"width = 10
+height = 5
+
+area = width + height
+
+print(Area)",gemini,incorrect,incorrect,
+q4,variables,q4_a2,partly_correct,s4,Store result in area variable,"width = 10
+height = 5
+
+area = width + height
+
+print(Area)",gemini,correct,correct,
+q4,variables,q4_a2,partly_correct,s5,Print area,"width = 10
+height = 5
+
+area = width + height
+
+print(Area)",gemini,incorrect,incorrect,
+q4,variables,q4_a3,fully_incorrect,s1,Create width variable,"print(""width = 10"")
+print(""height = 5"")
+
+area = width * height
+
+print(""area"")",gemini,incorrect,incorrect,
+q4,variables,q4_a3,fully_incorrect,s2,Create height variable,"print(""width = 10"")
+print(""height = 5"")
+
+area = width * height
+
+print(""area"")",gemini,incorrect,incorrect,
+q4,variables,q4_a3,fully_incorrect,s3,Multiply width and height,"print(""width = 10"")
+print(""height = 5"")
+
+area = width * height
+
+print(""area"")",gemini,incorrect,incorrect,
+q4,variables,q4_a3,fully_incorrect,s4,Store result in area variable,"print(""width = 10"")
+print(""height = 5"")
+
+area = width * height
+
+print(""area"")",gemini,incorrect,incorrect,
+q4,variables,q4_a3,fully_incorrect,s5,Print area,"print(""width = 10"")
+print(""height = 5"")
+
+area = width * height
+
+print(""area"")",gemini,incorrect,incorrect,
+q5,variables,q5_a1,fully_correct,s1,Create celsius variable,"celsius = 22.5
+output_message = ""The temperature in Celsius is "" + str(celsius) + "" degrees.""
+print(output_message)",gemini,correct,correct,
+q5,variables,q5_a1,fully_correct,s2,Assign a numeric value,"celsius = 22.5
+output_message = ""The temperature in Celsius is "" + str(celsius) + "" degrees.""
+print(output_message)",gemini,,correct,
+q5,variables,q5_a1,fully_correct,s3,Create an output message,"celsius = 22.5
+output_message = ""The temperature in Celsius is "" + str(celsius) + "" degrees.""
+print(output_message)",gemini,,correct,
+q5,variables,q5_a1,fully_correct,s4,Include celsius value in output,"celsius = 22.5
+output_message = ""The temperature in Celsius is "" + str(celsius) + "" degrees.""
+print(output_message)",gemini,,correct,
+q5,variables,q5_a1,fully_correct,s5,Print the output message,"celsius = 22.5
+output_message = ""The temperature in Celsius is "" + str(celsius) + "" degrees.""
+print(output_message)",gemini,,correct,
+q5,variables,q5_a2,partly_correct,s1,Create celsius variable,"celsius = 25
+print(""The temperature is "" + celsius)",gemini,correct,correct,
+q5,variables,q5_a2,partly_correct,s2,Assign a numeric value,"celsius = 25
+print(""The temperature is "" + celsius)",gemini,correct,correct,
+q5,variables,q5_a2,partly_correct,s3,Create an output message,"celsius = 25
+print(""The temperature is "" + celsius)",gemini,incorrect,incorrect,
+q5,variables,q5_a2,partly_correct,s4,Include celsius value in output,"celsius = 25
+print(""The temperature is "" + celsius)",gemini,incorrect,incorrect,
+q5,variables,q5_a2,partly_correct,s5,Print the output message,"celsius = 25
+print(""The temperature is "" + celsius)",gemini,incorrect,incorrect,
+q5,variables,q5_a3,fully_incorrect,s1,Create celsius variable,"temp_c = ""twenty five""
+
+print ""The temperature is "" + temp_c + "" degrees.""",gemini,correct,incorrect,
+q5,variables,q5_a3,fully_incorrect,s2,Assign a numeric value,"temp_c = ""twenty five""
+
+print ""The temperature is "" + temp_c + "" degrees.""",gemini,incorrect,incorrect,
+q5,variables,q5_a3,fully_incorrect,s3,Create an output message,"temp_c = ""twenty five""
+
+print ""The temperature is "" + temp_c + "" degrees.""",gemini,correct,incorrect,
+q5,variables,q5_a3,fully_incorrect,s4,Include celsius value in output,"temp_c = ""twenty five""
+
+print ""The temperature is "" + temp_c + "" degrees.""",gemini,correct,incorrect,
+q5,variables,q5_a3,fully_incorrect,s5,Print the output message,"temp_c = ""twenty five""
+
+print ""The temperature is "" + temp_c + "" degrees.""",gemini,correct,correct,
+q6,conditionals,q6_a1,fully_correct,s1,Create a number variable,"number = 10
+
+if number > 0:
+    print(""Positive"")
+else:
+    print(""Not positive"")",gemini,correct,correct,
+q6,conditionals,q6_a1,fully_correct,s2,Use an if statement,"number = 10
+
+if number > 0:
+    print(""Positive"")
+else:
+    print(""Not positive"")",gemini,correct,correct,
+q6,conditionals,q6_a1,fully_correct,s3,Check if number is greater than zero,"number = 10
+
+if number > 0:
+    print(""Positive"")
+else:
+    print(""Not positive"")",gemini,correct,correct,
+q6,conditionals,q6_a1,fully_correct,s4,Print positive when true,"number = 10
+
+if number > 0:
+    print(""Positive"")
+else:
+    print(""Not positive"")",gemini,correct,correct,
+q6,conditionals,q6_a1,fully_correct,s5,Print not positive when false,"number = 10
+
+if number > 0:
+    print(""Positive"")
+else:
+    print(""Not positive"")",gemini,correct,correct,
+q6,conditionals,q6_a2,partly_correct,s1,Create a number variable,"num = 5
+
+if num:
+    print(""positive"")
+# else:
+#     print(""not positive"")",gemini,correct,correct,
+q6,conditionals,q6_a2,partly_correct,s2,Use an if statement,"num = 5
+
+if num:
+    print(""positive"")
+# else:
+#     print(""not positive"")",gemini,correct,correct,
+q6,conditionals,q6_a2,partly_correct,s3,Check if number is greater than zero,"num = 5
+
+if num:
+    print(""positive"")
+# else:
+#     print(""not positive"")",gemini,incorrect,incorrect,
+q6,conditionals,q6_a2,partly_correct,s4,Print positive when true,"num = 5
+
+if num:
+    print(""positive"")
+# else:
+#     print(""not positive"")",gemini,correct,correct,
+q6,conditionals,q6_a2,partly_correct,s5,Print not positive when false,"num = 5
+
+if num:
+    print(""positive"")
+# else:
+#     print(""not positive"")",gemini,incorrect,incorrect,
+q6,conditionals,q6_a3,fully_incorrect,s1,Create a number variable,"number_input = input(""Enter a number: "")
+
+print(""Let's check your number..."")
+
+print(""The number you entered is positive."")
+print(""The number you entered is not positive."")",gemini,correct,incorrect,
+q6,conditionals,q6_a3,fully_incorrect,s2,Use an if statement,"number_input = input(""Enter a number: "")
+
+print(""Let's check your number..."")
+
+print(""The number you entered is positive."")
+print(""The number you entered is not positive."")",gemini,incorrect,incorrect,
+q6,conditionals,q6_a3,fully_incorrect,s3,Check if number is greater than zero,"number_input = input(""Enter a number: "")
+
+print(""Let's check your number..."")
+
+print(""The number you entered is positive."")
+print(""The number you entered is not positive."")",gemini,incorrect,incorrect,
+q6,conditionals,q6_a3,fully_incorrect,s4,Print positive when true,"number_input = input(""Enter a number: "")
+
+print(""Let's check your number..."")
+
+print(""The number you entered is positive."")
+print(""The number you entered is not positive."")",gemini,incorrect,incorrect,
+q6,conditionals,q6_a3,fully_incorrect,s5,Print not positive when false,"number_input = input(""Enter a number: "")
+
+print(""Let's check your number..."")
+
+print(""The number you entered is positive."")
+print(""The number you entered is not positive."")",gemini,incorrect,incorrect,
+q7,conditionals,q7_a1,fully_correct,s1,Create an age variable,"age = 19
+if age >= 18:
+    print(""access granted"")
+else:
+    print(""access denied"")",gemini,correct,correct,
+q7,conditionals,q7_a1,fully_correct,s2,Use an if else structure,"age = 19
+if age >= 18:
+    print(""access granted"")
+else:
+    print(""access denied"")",gemini,correct,correct,
+q7,conditionals,q7_a1,fully_correct,s3,Check age greater than or equal to 18,"age = 19
+if age >= 18:
+    print(""access granted"")
+else:
+    print(""access denied"")",gemini,correct,correct,
+q7,conditionals,q7_a1,fully_correct,s4,Print access granted for true case,"age = 19
+if age >= 18:
+    print(""access granted"")
+else:
+    print(""access denied"")",gemini,correct,correct,
+q7,conditionals,q7_a1,fully_correct,s5,Print access denied for false case,"age = 19
+if age >= 18:
+    print(""access granted"")
+else:
+    print(""access denied"")",gemini,correct,correct,
+q7,conditionals,q7_a2,partly_correct,s1,Create an age variable,"age = 17
+
+if age > 18:
+    print(""You can enter"")
+else:
+    print(""access denied"")",gemini,correct,correct,
+q7,conditionals,q7_a2,partly_correct,s2,Use an if else structure,"age = 17
+
+if age > 18:
+    print(""You can enter"")
+else:
+    print(""access denied"")",gemini,correct,correct,
+q7,conditionals,q7_a2,partly_correct,s3,Check age greater than or equal to 18,"age = 17
+
+if age > 18:
+    print(""You can enter"")
+else:
+    print(""access denied"")",gemini,incorrect,incorrect,
+q7,conditionals,q7_a2,partly_correct,s4,Print access granted for true case,"age = 17
+
+if age > 18:
+    print(""You can enter"")
+else:
+    print(""access denied"")",gemini,incorrect,correct,
+q7,conditionals,q7_a2,partly_correct,s5,Print access denied for false case,"age = 17
+
+if age > 18:
+    print(""You can enter"")
+else:
+    print(""access denied"")",gemini,correct,correct,
+q7,conditionals,q7_a3,fully_incorrect,s1,Create an age variable,"if 17 > 18:
+    print(""You can come in!"")
+
+if 17 < 18:
+    print(""No entry."")",gemini,incorrect,incorrect,
+q7,conditionals,q7_a3,fully_incorrect,s2,Use an if else structure,"if 17 > 18:
+    print(""You can come in!"")
+
+if 17 < 18:
+    print(""No entry."")",gemini,incorrect,incorrect,
+q7,conditionals,q7_a3,fully_incorrect,s3,Check age greater than or equal to 18,"if 17 > 18:
+    print(""You can come in!"")
+
+if 17 < 18:
+    print(""No entry."")",gemini,incorrect,incorrect,
+q7,conditionals,q7_a3,fully_incorrect,s4,Print access granted for true case,"if 17 > 18:
+    print(""You can come in!"")
+
+if 17 < 18:
+    print(""No entry."")",gemini,incorrect,incorrect,
+q7,conditionals,q7_a3,fully_incorrect,s5,Print access denied for false case,"if 17 > 18:
+    print(""You can come in!"")
+
+if 17 < 18:
+    print(""No entry."")",gemini,incorrect,correct,
+q8,conditionals,q8_a1,fully_correct,s1,Create a number variable,"num = 7  # s1: Create a number variable (using 7 as an example)
+
+# s2: Use modulo operator with 2
+# s3: Use conditional logic
+if num % 2 == 0:  # Check if the remainder when divided by 2 is 0
+    print(""Even"")  # s4: Print even when divisible by 2
+else:
+    print(""Odd"")  # s5: Print odd otherwise",gemini,correct,correct,
+q8,conditionals,q8_a1,fully_correct,s2,Use modulo operator with 2,"num = 7  # s1: Create a number variable (using 7 as an example)
+
+# s2: Use modulo operator with 2
+# s3: Use conditional logic
+if num % 2 == 0:  # Check if the remainder when divided by 2 is 0
+    print(""Even"")  # s4: Print even when divisible by 2
+else:
+    print(""Odd"")  # s5: Print odd otherwise",gemini,correct,correct,
+q8,conditionals,q8_a1,fully_correct,s3,Use conditional logic,"num = 7  # s1: Create a number variable (using 7 as an example)
+
+# s2: Use modulo operator with 2
+# s3: Use conditional logic
+if num % 2 == 0:  # Check if the remainder when divided by 2 is 0
+    print(""Even"")  # s4: Print even when divisible by 2
+else:
+    print(""Odd"")  # s5: Print odd otherwise",gemini,correct,correct,
+q8,conditionals,q8_a1,fully_correct,s4,Print even when divisible by 2,"num = 7  # s1: Create a number variable (using 7 as an example)
+
+# s2: Use modulo operator with 2
+# s3: Use conditional logic
+if num % 2 == 0:  # Check if the remainder when divided by 2 is 0
+    print(""Even"")  # s4: Print even when divisible by 2
+else:
+    print(""Odd"")  # s5: Print odd otherwise",gemini,correct,correct,
+q8,conditionals,q8_a1,fully_correct,s5,Print odd otherwise,"num = 7  # s1: Create a number variable (using 7 as an example)
+
+# s2: Use modulo operator with 2
+# s3: Use conditional logic
+if num % 2 == 0:  # Check if the remainder when divided by 2 is 0
+    print(""Even"")  # s4: Print even when divisible by 2
+else:
+    print(""Odd"")  # s5: Print odd otherwise",gemini,correct,correct,
+q8,conditionals,q8_a2,partly_correct,s1,Create a number variable,"my_num = 10 
+
+rem = my_num % 2 
+
+if rem == 0 
+    print(""It's even!"") 
+else:
+    print(""It's odd!"")",gemini,correct,correct,
+q8,conditionals,q8_a2,partly_correct,s2,Use modulo operator with 2,"my_num = 10 
+
+rem = my_num % 2 
+
+if rem == 0 
+    print(""It's even!"") 
+else:
+    print(""It's odd!"")",gemini,correct,correct,
+q8,conditionals,q8_a2,partly_correct,s3,Use conditional logic,"my_num = 10 
+
+rem = my_num % 2 
+
+if rem == 0 
+    print(""It's even!"") 
+else:
+    print(""It's odd!"")",gemini,incorrect,incorrect,
+q8,conditionals,q8_a2,partly_correct,s4,Print even when divisible by 2,"my_num = 10 
+
+rem = my_num % 2 
+
+if rem == 0 
+    print(""It's even!"") 
+else:
+    print(""It's odd!"")",gemini,incorrect,incorrect,
+q8,conditionals,q8_a2,partly_correct,s5,Print odd otherwise,"my_num = 10 
+
+rem = my_num % 2 
+
+if rem == 0 
+    print(""It's even!"") 
+else:
+    print(""It's odd!"")",gemini,incorrect,incorrect,
+q8,conditionals,q8_a3,fully_incorrect,s1,Create a number variable,"if 7 / 2 == 2:
+    print(""It's an odd number!"")
+else:
+    print(""It's an even number!"")",gemini,incorrect,incorrect,
+q8,conditionals,q8_a3,fully_incorrect,s2,Use modulo operator with 2,"if 7 / 2 == 2:
+    print(""It's an odd number!"")
+else:
+    print(""It's an even number!"")",gemini,incorrect,incorrect,
+q8,conditionals,q8_a3,fully_incorrect,s3,Use conditional logic,"if 7 / 2 == 2:
+    print(""It's an odd number!"")
+else:
+    print(""It's an even number!"")",gemini,correct,correct,
+q8,conditionals,q8_a3,fully_incorrect,s4,Print even when divisible by 2,"if 7 / 2 == 2:
+    print(""It's an odd number!"")
+else:
+    print(""It's an even number!"")",gemini,incorrect,incorrect,
+q8,conditionals,q8_a3,fully_incorrect,s5,Print odd otherwise,"if 7 / 2 == 2:
+    print(""It's an odd number!"")
+else:
+    print(""It's an even number!"")",gemini,incorrect,incorrect,
+q9,conditionals,q9_a1,fully_correct,s1,Create first number variable,"num1 = 10
+num2 = 5
+
+if num1 > num2:
+    print(""The first number is larger."")
+elif num2 > num1:
+    print(""The second number is larger."")
+else:
+    print(""The numbers are equal."")",gemini,correct,correct,
+q9,conditionals,q9_a1,fully_correct,s2,Create second number variable,"num1 = 10
+num2 = 5
+
+if num1 > num2:
+    print(""The first number is larger."")
+elif num2 > num1:
+    print(""The second number is larger."")
+else:
+    print(""The numbers are equal."")",gemini,correct,correct,
+q9,conditionals,q9_a1,fully_correct,s3,Use if elif else,"num1 = 10
+num2 = 5
+
+if num1 > num2:
+    print(""The first number is larger."")
+elif num2 > num1:
+    print(""The second number is larger."")
+else:
+    print(""The numbers are equal."")",gemini,correct,correct,
+q9,conditionals,q9_a1,fully_correct,s4,Handle first larger case,"num1 = 10
+num2 = 5
+
+if num1 > num2:
+    print(""The first number is larger."")
+elif num2 > num1:
+    print(""The second number is larger."")
+else:
+    print(""The numbers are equal."")",gemini,correct,correct,
+q9,conditionals,q9_a1,fully_correct,s5,Handle second larger and equal cases,"num1 = 10
+num2 = 5
+
+if num1 > num2:
+    print(""The first number is larger."")
+elif num2 > num1:
+    print(""The second number is larger."")
+else:
+    print(""The numbers are equal."")",gemini,correct,correct,
+q9,conditionals,q9_a2,partly_correct,s1,Create first number variable,"num1 = 10
+num2 = 7
+
+if num1 > num2:
+    print(""Number one is bigger!"")
+else:
+    print(""Number two is bigger."")",gemini,correct,correct,
+q9,conditionals,q9_a2,partly_correct,s2,Create second number variable,"num1 = 10
+num2 = 7
+
+if num1 > num2:
+    print(""Number one is bigger!"")
+else:
+    print(""Number two is bigger."")",gemini,correct,correct,
+q9,conditionals,q9_a2,partly_correct,s3,Use if elif else,"num1 = 10
+num2 = 7
+
+if num1 > num2:
+    print(""Number one is bigger!"")
+else:
+    print(""Number two is bigger."")",gemini,incorrect,incorrect,
+q9,conditionals,q9_a2,partly_correct,s4,Handle first larger case,"num1 = 10
+num2 = 7
+
+if num1 > num2:
+    print(""Number one is bigger!"")
+else:
+    print(""Number two is bigger."")",gemini,correct,correct,
+q9,conditionals,q9_a2,partly_correct,s5,Handle second larger and equal cases,"num1 = 10
+num2 = 7
+
+if num1 > num2:
+    print(""Number one is bigger!"")
+else:
+    print(""Number two is bigger."")",gemini,incorrect,incorrect,
+q9,conditionals,q9_a3,fully_incorrect,s1,Create first number variable,"number_one = ""10""
+number_two = ""2""
+
+if number_one > number_two:
+    print(""Number one is bigger!"")
+if number_two > number_one:
+    print(""Number two is bigger!"")
+if number_one == number_two:
+    print(""They are the same!"")",gemini,incorrect,incorrect,
+q9,conditionals,q9_a3,fully_incorrect,s2,Create second number variable,"number_one = ""10""
+number_two = ""2""
+
+if number_one > number_two:
+    print(""Number one is bigger!"")
+if number_two > number_one:
+    print(""Number two is bigger!"")
+if number_one == number_two:
+    print(""They are the same!"")",gemini,incorrect,incorrect,
+q9,conditionals,q9_a3,fully_incorrect,s3,Use if elif else,"number_one = ""10""
+number_two = ""2""
+
+if number_one > number_two:
+    print(""Number one is bigger!"")
+if number_two > number_one:
+    print(""Number two is bigger!"")
+if number_one == number_two:
+    print(""They are the same!"")",gemini,incorrect,incorrect,
+q9,conditionals,q9_a3,fully_incorrect,s4,Handle first larger case,"number_one = ""10""
+number_two = ""2""
+
+if number_one > number_two:
+    print(""Number one is bigger!"")
+if number_two > number_one:
+    print(""Number two is bigger!"")
+if number_one == number_two:
+    print(""They are the same!"")",gemini,correct,correct,
+q9,conditionals,q9_a3,fully_incorrect,s5,Handle second larger and equal cases,"number_one = ""10""
+number_two = ""2""
+
+if number_one > number_two:
+    print(""Number one is bigger!"")
+if number_two > number_one:
+    print(""Number two is bigger!"")
+if number_one == number_two:
+    print(""They are the same!"")",gemini,correct,correct,
+q10,conditionals,q10_a1,fully_correct,s1,Create a password variable,"password = ""admin123""
+
+if password == ""admin123"":
+    print(""valid"")
+else:
+    print(""invalid"")",gemini,correct,correct,
+q10,conditionals,q10_a1,fully_correct,s2,Use equality comparison,"password = ""admin123""
+
+if password == ""admin123"":
+    print(""valid"")
+else:
+    print(""invalid"")",gemini,correct,correct,
+q10,conditionals,q10_a1,fully_correct,s3,Use if else statement,"password = ""admin123""
+
+if password == ""admin123"":
+    print(""valid"")
+else:
+    print(""invalid"")",gemini,correct,correct,
+q10,conditionals,q10_a1,fully_correct,s4,Print valid for matching password,"password = ""admin123""
+
+if password == ""admin123"":
+    print(""valid"")
+else:
+    print(""invalid"")",gemini,correct,correct,
+q10,conditionals,q10_a1,fully_correct,s5,Print invalid otherwise,"password = ""admin123""
+
+if password == ""admin123"":
+    print(""valid"")
+else:
+    print(""invalid"")",gemini,correct,correct,
+q10,conditionals,q10_a2,partly_correct,s1,Create a password variable,"user_password = ""admin123""
+
+if user_password == ""admin"":
+    print(""Password accepted!"")
+else:
+    print(""invalid"")",gemini,correct,correct,
+q10,conditionals,q10_a2,partly_correct,s2,Use equality comparison,"user_password = ""admin123""
+
+if user_password == ""admin"":
+    print(""Password accepted!"")
+else:
+    print(""invalid"")",gemini,correct,correct,
+q10,conditionals,q10_a2,partly_correct,s3,Use if else statement,"user_password = ""admin123""
+
+if user_password == ""admin"":
+    print(""Password accepted!"")
+else:
+    print(""invalid"")",gemini,correct,correct,
+q10,conditionals,q10_a2,partly_correct,s4,Print valid for matching password,"user_password = ""admin123""
+
+if user_password == ""admin"":
+    print(""Password accepted!"")
+else:
+    print(""invalid"")",gemini,incorrect,correct,
+q10,conditionals,q10_a2,partly_correct,s5,Print invalid otherwise,"user_password = ""admin123""
+
+if user_password == ""admin"":
+    print(""Password accepted!"")
+else:
+    print(""invalid"")",gemini,correct,correct,
+q10,conditionals,q10_a3,fully_incorrect,s1,Create a password variable,"pw = input(""Enter password: "")
+pw = ""admin123"" 
+
+if pw == ""admin123"":
+    print(""Correct!"")
+
+if pw != ""admin123"":
+    print(""Incorrect"")",gemini,correct,incorrect,
+q10,conditionals,q10_a3,fully_incorrect,s2,Use equality comparison,"pw = input(""Enter password: "")
+pw = ""admin123"" 
+
+if pw == ""admin123"":
+    print(""Correct!"")
+
+if pw != ""admin123"":
+    print(""Incorrect"")",gemini,correct,incorrect,
+q10,conditionals,q10_a3,fully_incorrect,s3,Use if else statement,"pw = input(""Enter password: "")
+pw = ""admin123"" 
+
+if pw == ""admin123"":
+    print(""Correct!"")
+
+if pw != ""admin123"":
+    print(""Incorrect"")",gemini,incorrect,incorrect,
+q10,conditionals,q10_a3,fully_incorrect,s4,Print valid for matching password,"pw = input(""Enter password: "")
+pw = ""admin123"" 
+
+if pw == ""admin123"":
+    print(""Correct!"")
+
+if pw != ""admin123"":
+    print(""Incorrect"")",gemini,correct,correct,
+q10,conditionals,q10_a3,fully_incorrect,s5,Print invalid otherwise,"pw = input(""Enter password: "")
+pw = ""admin123"" 
+
+if pw == ""admin123"":
+    print(""Correct!"")
+
+if pw != ""admin123"":
+    print(""Incorrect"")",gemini,correct,correct,
+q11,loops,q11_a1,fully_correct,s1,Use a for loop,"for i in range(1, 6):
+    print(i)",gemini,correct,correct,
+q11,loops,q11_a1,fully_correct,s2,Use range to cover 1 through 5,"for i in range(1, 6):
+    print(i)",gemini,correct,correct,
+q11,loops,q11_a1,fully_correct,s3,Print each number,"for i in range(1, 6):
+    print(i)",gemini,correct,correct,
+q11,loops,q11_a1,fully_correct,s4,Ensure exactly five outputs,"for i in range(1, 6):
+    print(i)",gemini,correct,correct,
+q11,loops,q11_a1,fully_correct,s5,Keep output order ascending,"for i in range(1, 6):
+    print(i)",gemini,correct,correct,
+q11,loops,q11_a2,partly_correct,s1,Use a for loop,"for x in range(5):
+    print(""x"")",gemini,correct,correct,
+q11,loops,q11_a2,partly_correct,s2,Use range to cover 1 through 5,"for x in range(5):
+    print(""x"")",gemini,incorrect,incorrect,
+q11,loops,q11_a2,partly_correct,s3,Print each number,"for x in range(5):
+    print(""x"")",gemini,incorrect,incorrect,
+q11,loops,q11_a2,partly_correct,s4,Ensure exactly five outputs,"for x in range(5):
+    print(""x"")",gemini,correct,correct,
+q11,loops,q11_a2,partly_correct,s5,Keep output order ascending,"for x in range(5):
+    print(""x"")",gemini,incorrect,incorrect,
+q11,loops,q11_a3,fully_incorrect,s1,Use a for loop,"for x in 1 to 5:
+    print(x)",gemini,incorrect,incorrect,
+q11,loops,q11_a3,fully_incorrect,s2,Use range to cover 1 through 5,"for x in 1 to 5:
+    print(x)",gemini,incorrect,incorrect,
+q11,loops,q11_a3,fully_incorrect,s3,Print each number,"for x in 1 to 5:
+    print(x)",gemini,correct,correct,
+q11,loops,q11_a3,fully_incorrect,s4,Ensure exactly five outputs,"for x in 1 to 5:
+    print(x)",gemini,incorrect,incorrect,
+q11,loops,q11_a3,fully_incorrect,s5,Keep output order ascending,"for x in 1 to 5:
+    print(x)",gemini,incorrect,incorrect,
+q12,loops,q12_a1,fully_correct,s1,Create a fruits list variable,"fruits = [""apple"", ""banana"", ""cherry"", ""date""]
+for fruit in fruits:
+    print(fruit)",gemini,correct,correct,
+q12,loops,q12_a1,fully_correct,s2,Use a loop to iterate list items,"fruits = [""apple"", ""banana"", ""cherry"", ""date""]
+for fruit in fruits:
+    print(fruit)",gemini,correct,correct,
+q12,loops,q12_a1,fully_correct,s3,Access each item in loop,"fruits = [""apple"", ""banana"", ""cherry"", ""date""]
+for fruit in fruits:
+    print(fruit)",gemini,correct,correct,
+q12,loops,q12_a1,fully_correct,s4,Print each fruit,"fruits = [""apple"", ""banana"", ""cherry"", ""date""]
+for fruit in fruits:
+    print(fruit)",gemini,correct,correct,
+q12,loops,q12_a1,fully_correct,s5,Do not hardcode each print separately,"fruits = [""apple"", ""banana"", ""cherry"", ""date""]
+for fruit in fruits:
+    print(fruit)",gemini,correct,correct,
+q12,loops,q12_a2,partly_correct,s1,Create a fruits list variable,"fruits = [""apple"", ""banana"", ""cherry"", ""date""]
+
+print(fruits[0])
+print(fruits[1])
+print(fruits[2])
+print(fruits[3])",gemini,correct,correct,
+q12,loops,q12_a2,partly_correct,s2,Use a loop to iterate list items,"fruits = [""apple"", ""banana"", ""cherry"", ""date""]
+
+print(fruits[0])
+print(fruits[1])
+print(fruits[2])
+print(fruits[3])",gemini,incorrect,incorrect,
+q12,loops,q12_a2,partly_correct,s3,Access each item in loop,"fruits = [""apple"", ""banana"", ""cherry"", ""date""]
+
+print(fruits[0])
+print(fruits[1])
+print(fruits[2])
+print(fruits[3])",gemini,incorrect,incorrect,
+q12,loops,q12_a2,partly_correct,s4,Print each fruit,"fruits = [""apple"", ""banana"", ""cherry"", ""date""]
+
+print(fruits[0])
+print(fruits[1])
+print(fruits[2])
+print(fruits[3])",gemini,correct,correct,
+q12,loops,q12_a2,partly_correct,s5,Do not hardcode each print separately,"fruits = [""apple"", ""banana"", ""cherry"", ""date""]
+
+print(fruits[0])
+print(fruits[1])
+print(fruits[2])
+print(fruits[3])",gemini,incorrect,incorrect,
+q12,loops,q12_a3,fully_incorrect,s1,Create a fruits list variable,"print(""apple"")
+print(""banana"")
+print(""orange"")
+print(""grape"")",gemini,incorrect,incorrect,
+q12,loops,q12_a3,fully_incorrect,s2,Use a loop to iterate list items,"print(""apple"")
+print(""banana"")
+print(""orange"")
+print(""grape"")",gemini,incorrect,incorrect,
+q12,loops,q12_a3,fully_incorrect,s3,Access each item in loop,"print(""apple"")
+print(""banana"")
+print(""orange"")
+print(""grape"")",gemini,incorrect,incorrect,
+q12,loops,q12_a3,fully_incorrect,s4,Print each fruit,"print(""apple"")
+print(""banana"")
+print(""orange"")
+print(""grape"")",gemini,correct,correct,
+q12,loops,q12_a3,fully_incorrect,s5,Do not hardcode each print separately,"print(""apple"")
+print(""banana"")
+print(""orange"")
+print(""grape"")",gemini,incorrect,incorrect,
+q13,loops,q13_a1,fully_correct,s1,Create a counter variable starting at 3,"count = 3
+while count >= 1:
+    print(count)
+    count = count - 1",gemini,correct,correct,
+q13,loops,q13_a1,fully_correct,s2,Use a while loop,"count = 3
+while count >= 1:
+    print(count)
+    count = count - 1",gemini,correct,correct,
+q13,loops,q13_a1,fully_correct,s3,Print counter each iteration,"count = 3
+while count >= 1:
+    print(count)
+    count = count - 1",gemini,correct,correct,
+q13,loops,q13_a1,fully_correct,s4,Decrease counter each loop,"count = 3
+while count >= 1:
+    print(count)
+    count = count - 1",gemini,correct,correct,
+q13,loops,q13_a1,fully_correct,s5,Stop at 1 and exit loop,"count = 3
+while count >= 1:
+    print(count)
+    count = count - 1",gemini,correct,correct,
+q13,loops,q13_a2,partly_correct,s1,Create a counter variable starting at 3,"count = 3
+while count >= 1:
+    print(count)
+    # I think I need something else here but I'm not sure what.
+    # It just keeps printing 3. Maybe it's supposed to stop by itself?",gemini,correct,correct,
+q13,loops,q13_a2,partly_correct,s2,Use a while loop,"count = 3
+while count >= 1:
+    print(count)
+    # I think I need something else here but I'm not sure what.
+    # It just keeps printing 3. Maybe it's supposed to stop by itself?",gemini,correct,correct,
+q13,loops,q13_a2,partly_correct,s3,Print counter each iteration,"count = 3
+while count >= 1:
+    print(count)
+    # I think I need something else here but I'm not sure what.
+    # It just keeps printing 3. Maybe it's supposed to stop by itself?",gemini,correct,correct,
+q13,loops,q13_a2,partly_correct,s4,Decrease counter each loop,"count = 3
+while count >= 1:
+    print(count)
+    # I think I need something else here but I'm not sure what.
+    # It just keeps printing 3. Maybe it's supposed to stop by itself?",gemini,incorrect,incorrect,
+q13,loops,q13_a2,partly_correct,s5,Stop at 1 and exit loop,"count = 3
+while count >= 1:
+    print(count)
+    # I think I need something else here but I'm not sure what.
+    # It just keeps printing 3. Maybe it's supposed to stop by itself?",gemini,incorrect,incorrect,
+q13,loops,q13_a3,fully_incorrect,s1,Create a counter variable starting at 3,"counter = 0
+
+while True:
+    print(3)",gemini,incorrect,incorrect,
+q13,loops,q13_a3,fully_incorrect,s2,Use a while loop,"counter = 0
+
+while True:
+    print(3)",gemini,correct,correct,
+q13,loops,q13_a3,fully_incorrect,s3,Print counter each iteration,"counter = 0
+
+while True:
+    print(3)",gemini,incorrect,incorrect,
+q13,loops,q13_a3,fully_incorrect,s4,Decrease counter each loop,"counter = 0
+
+while True:
+    print(3)",gemini,incorrect,incorrect,
+q13,loops,q13_a3,fully_incorrect,s5,Stop at 1 and exit loop,"counter = 0
+
+while True:
+    print(3)",gemini,incorrect,incorrect,
+q14,loops,q14_a1,fully_correct,s1,Create a list of numbers,"my_numbers = [7, 12, 3, 9, 15] # s1: Create a list of numbers
+
+total_sum = 0 # s2: Create a total accumulator variable
+
+for number in my_numbers: # s3: Loop through the numbers
+    total_sum = total_sum + number # s4: Add each number to total
+
+print(""The final total is:"", total_sum) # s5: Print final total",gemini,correct,correct,
+q14,loops,q14_a1,fully_correct,s2,Create a total accumulator variable,"my_numbers = [7, 12, 3, 9, 15] # s1: Create a list of numbers
+
+total_sum = 0 # s2: Create a total accumulator variable
+
+for number in my_numbers: # s3: Loop through the numbers
+    total_sum = total_sum + number # s4: Add each number to total
+
+print(""The final total is:"", total_sum) # s5: Print final total",gemini,correct,correct,
+q14,loops,q14_a1,fully_correct,s3,Loop through the numbers,"my_numbers = [7, 12, 3, 9, 15] # s1: Create a list of numbers
+
+total_sum = 0 # s2: Create a total accumulator variable
+
+for number in my_numbers: # s3: Loop through the numbers
+    total_sum = total_sum + number # s4: Add each number to total
+
+print(""The final total is:"", total_sum) # s5: Print final total",gemini,correct,correct,
+q14,loops,q14_a1,fully_correct,s4,Add each number to total,"my_numbers = [7, 12, 3, 9, 15] # s1: Create a list of numbers
+
+total_sum = 0 # s2: Create a total accumulator variable
+
+for number in my_numbers: # s3: Loop through the numbers
+    total_sum = total_sum + number # s4: Add each number to total
+
+print(""The final total is:"", total_sum) # s5: Print final total",gemini,correct,correct,
+q14,loops,q14_a1,fully_correct,s5,Print final total,"my_numbers = [7, 12, 3, 9, 15] # s1: Create a list of numbers
+
+total_sum = 0 # s2: Create a total accumulator variable
+
+for number in my_numbers: # s3: Loop through the numbers
+    total_sum = total_sum + number # s4: Add each number to total
+
+print(""The final total is:"", total_sum) # s5: Print final total",gemini,correct,correct,
+q14,loops,q14_a2,partly_correct,s1,Create a list of numbers,"my_list = [10, 5, 2]  # Subtask s1: Create a list of numbers
+
+the_total = 0         # Subtask s2: Create a total accumulator variable
+
+for item in my_list:  # Subtask s3: Loop through the numbers
+    print(item)       # Subtask s4: Beginner might print each item, forgetting to add to the total
+
+# Subtask s5: Print final total
+print(""The final total is:"", the_total)",gemini,correct,correct,
+q14,loops,q14_a2,partly_correct,s2,Create a total accumulator variable,"my_list = [10, 5, 2]  # Subtask s1: Create a list of numbers
+
+the_total = 0         # Subtask s2: Create a total accumulator variable
+
+for item in my_list:  # Subtask s3: Loop through the numbers
+    print(item)       # Subtask s4: Beginner might print each item, forgetting to add to the total
+
+# Subtask s5: Print final total
+print(""The final total is:"", the_total)",gemini,correct,correct,
+q14,loops,q14_a2,partly_correct,s3,Loop through the numbers,"my_list = [10, 5, 2]  # Subtask s1: Create a list of numbers
+
+the_total = 0         # Subtask s2: Create a total accumulator variable
+
+for item in my_list:  # Subtask s3: Loop through the numbers
+    print(item)       # Subtask s4: Beginner might print each item, forgetting to add to the total
+
+# Subtask s5: Print final total
+print(""The final total is:"", the_total)",gemini,correct,correct,
+q14,loops,q14_a2,partly_correct,s4,Add each number to total,"my_list = [10, 5, 2]  # Subtask s1: Create a list of numbers
+
+the_total = 0         # Subtask s2: Create a total accumulator variable
+
+for item in my_list:  # Subtask s3: Loop through the numbers
+    print(item)       # Subtask s4: Beginner might print each item, forgetting to add to the total
+
+# Subtask s5: Print final total
+print(""The final total is:"", the_total)",gemini,incorrect,incorrect,
+q14,loops,q14_a2,partly_correct,s5,Print final total,"my_list = [10, 5, 2]  # Subtask s1: Create a list of numbers
+
+the_total = 0         # Subtask s2: Create a total accumulator variable
+
+for item in my_list:  # Subtask s3: Loop through the numbers
+    print(item)       # Subtask s4: Beginner might print each item, forgetting to add to the total
+
+# Subtask s5: Print final total
+print(""The final total is:"", the_total)",gemini,incorrect,incorrect,
+q14,loops,q14_a3,fully_incorrect,s1,Create a list of numbers,"num = 12345 
+total = ""zero"" 
+
+for i in range(5):
+    total = total + i
+
+print(""The answer is:"")",gemini,incorrect,incorrect,
+q14,loops,q14_a3,fully_incorrect,s2,Create a total accumulator variable,"num = 12345 
+total = ""zero"" 
+
+for i in range(5):
+    total = total + i
+
+print(""The answer is:"")",gemini,incorrect,incorrect,
+q14,loops,q14_a3,fully_incorrect,s3,Loop through the numbers,"num = 12345 
+total = ""zero"" 
+
+for i in range(5):
+    total = total + i
+
+print(""The answer is:"")",gemini,incorrect,incorrect,
+q14,loops,q14_a3,fully_incorrect,s4,Add each number to total,"num = 12345 
+total = ""zero"" 
+
+for i in range(5):
+    total = total + i
+
+print(""The answer is:"")",gemini,incorrect,incorrect,
+q14,loops,q14_a3,fully_incorrect,s5,Print final total,"num = 12345 
+total = ""zero"" 
+
+for i in range(5):
+    total = total + i
+
+print(""The answer is:"")",gemini,incorrect,incorrect,
+q15,loops,q15_a1,fully_correct,s1,Use a loop from 1 to 10,"for num in range(1, 11):
+    if num % 2 == 0:
+        print(num)",gemini,correct,correct,
+q15,loops,q15_a1,fully_correct,s2,Use conditional check for even numbers,"for num in range(1, 11):
+    if num % 2 == 0:
+        print(num)",gemini,correct,correct,
+q15,loops,q15_a1,fully_correct,s3,Use modulo operator correctly,"for num in range(1, 11):
+    if num % 2 == 0:
+        print(num)",gemini,correct,correct,
+q15,loops,q15_a1,fully_correct,s4,Print only even values,"for num in range(1, 11):
+    if num % 2 == 0:
+        print(num)",gemini,correct,correct,
+q15,loops,q15_a1,fully_correct,s5,Exclude odd numbers from output,"for num in range(1, 11):
+    if num % 2 == 0:
+        print(num)",gemini,correct,correct,
+q15,loops,q15_a2,partly_correct,s1,Use a loop from 1 to 10,"for i in range(1, 11):
+    if i % 2 == 1:
+        print(i)",gemini,correct,correct,
+q15,loops,q15_a2,partly_correct,s2,Use conditional check for even numbers,"for i in range(1, 11):
+    if i % 2 == 1:
+        print(i)",gemini,incorrect,incorrect,
+q15,loops,q15_a2,partly_correct,s3,Use modulo operator correctly,"for i in range(1, 11):
+    if i % 2 == 1:
+        print(i)",gemini,correct,correct,
+q15,loops,q15_a2,partly_correct,s4,Print only even values,"for i in range(1, 11):
+    if i % 2 == 1:
+        print(i)",gemini,incorrect,incorrect,
+q15,loops,q15_a2,partly_correct,s5,Exclude odd numbers from output,"for i in range(1, 11):
+    if i % 2 == 1:
+        print(i)",gemini,incorrect,incorrect,
+q15,loops,q15_a3,fully_incorrect,s1,Use a loop from 1 to 10,"print(1)
+print(2)
+print(3)
+print(4)
+print(5)
+print(6)
+print(7)
+print(8)
+print(9)
+print(10)",gemini,incorrect,incorrect,
+q15,loops,q15_a3,fully_incorrect,s2,Use conditional check for even numbers,"print(1)
+print(2)
+print(3)
+print(4)
+print(5)
+print(6)
+print(7)
+print(8)
+print(9)
+print(10)",gemini,incorrect,incorrect,
+q15,loops,q15_a3,fully_incorrect,s3,Use modulo operator correctly,"print(1)
+print(2)
+print(3)
+print(4)
+print(5)
+print(6)
+print(7)
+print(8)
+print(9)
+print(10)",gemini,incorrect,incorrect,
+q15,loops,q15_a3,fully_incorrect,s4,Print only even values,"print(1)
+print(2)
+print(3)
+print(4)
+print(5)
+print(6)
+print(7)
+print(8)
+print(9)
+print(10)",gemini,incorrect,incorrect,
+q15,loops,q15_a3,fully_incorrect,s5,Exclude odd numbers from output,"print(1)
+print(2)
+print(3)
+print(4)
+print(5)
+print(6)
+print(7)
+print(8)
+print(9)
+print(10)",gemini,incorrect,incorrect,
+q16,functions,q16_a1,fully_correct,s1,Define a function named greet,"def greet(name):
+    print(""Hello "" + name)
+
+greet(""Alice"")",gemini,correct,correct,
+q16,functions,q16_a1,fully_correct,s2,Add one parameter called name,"def greet(name):
+    print(""Hello "" + name)
+
+greet(""Alice"")",gemini,correct,correct,
+q16,functions,q16_a1,fully_correct,s3,Create greeting output using name,"def greet(name):
+    print(""Hello "" + name)
+
+greet(""Alice"")",gemini,correct,correct,
+q16,functions,q16_a1,fully_correct,s4,Print greeting inside function,"def greet(name):
+    print(""Hello "" + name)
+
+greet(""Alice"")",gemini,correct,correct,
+q16,functions,q16_a1,fully_correct,s5,Call the function once,"def greet(name):
+    print(""Hello "" + name)
+
+greet(""Alice"")",gemini,correct,correct,
+q16,functions,q16_a2,partly_correct,s1,Define a function named greet,"def greet(name):
+    print(""Hello there!"")",gemini,correct,correct,
+q16,functions,q16_a2,partly_correct,s2,Add one parameter called name,"def greet(name):
+    print(""Hello there!"")",gemini,correct,correct,
+q16,functions,q16_a2,partly_correct,s3,Create greeting output using name,"def greet(name):
+    print(""Hello there!"")",gemini,incorrect,incorrect,
+q16,functions,q16_a2,partly_correct,s4,Print greeting inside function,"def greet(name):
+    print(""Hello there!"")",gemini,correct,incorrect,
+q16,functions,q16_a2,partly_correct,s5,Call the function once,"def greet(name):
+    print(""Hello there!"")",gemini,incorrect,incorrect,
+q16,functions,q16_a3,fully_incorrect,s1,Define a function named greet,"def greet name:
+    print(""Hello "" + name)
+
+greet(""World"")",gemini,correct,incorrect,
+q16,functions,q16_a3,fully_incorrect,s2,Add one parameter called name,"def greet name:
+    print(""Hello "" + name)
+
+greet(""World"")",gemini,incorrect,incorrect,
+q16,functions,q16_a3,fully_incorrect,s3,Create greeting output using name,"def greet name:
+    print(""Hello "" + name)
+
+greet(""World"")",gemini,correct,incorrect,
+q16,functions,q16_a3,fully_incorrect,s4,Print greeting inside function,"def greet name:
+    print(""Hello "" + name)
+
+greet(""World"")",gemini,correct,incorrect,
+q16,functions,q16_a3,fully_incorrect,s5,Call the function once,"def greet name:
+    print(""Hello "" + name)
+
+greet(""World"")",gemini,correct,incorrect,
+q17,functions,q17_a1,fully_correct,s1,Define a function named add,"# Define a function called 'add' that takes two numbers as input
+def add(num1, num2): # s1, s2 - Defining the function and adding parameters
+    # Calculate the sum of the two numbers
+    # We store the result in a new variable called 'total_sum'
+    total_sum = num1 + num2 # s3 - Computing the sum
+
+    # Return the calculated sum
+    return total_sum # s4 - Returning the computed sum
+
+# Now let's try to use our 'add' function!
+
+# We'll pick two numbers to add
+my_first_number = 7
+my_second_number = 3
+
+# Call the 'add' function with our numbers
+# The result of the addition will be stored in 'result_of_addition'
+result_of_addition = add(my_first_number, my_second_number) # s5 - Calling the function
+
+# Print out the result
+print(""The sum of"", my_first_number, ""and"", my_second_number, ""is:"", result_of_addition) # s5 - Printing the result",gemini,correct,correct,
+q17,functions,q17_a1,fully_correct,s2,Add two parameters,"# Define a function called 'add' that takes two numbers as input
+def add(num1, num2): # s1, s2 - Defining the function and adding parameters
+    # Calculate the sum of the two numbers
+    # We store the result in a new variable called 'total_sum'
+    total_sum = num1 + num2 # s3 - Computing the sum
+
+    # Return the calculated sum
+    return total_sum # s4 - Returning the computed sum
+
+# Now let's try to use our 'add' function!
+
+# We'll pick two numbers to add
+my_first_number = 7
+my_second_number = 3
+
+# Call the 'add' function with our numbers
+# The result of the addition will be stored in 'result_of_addition'
+result_of_addition = add(my_first_number, my_second_number) # s5 - Calling the function
+
+# Print out the result
+print(""The sum of"", my_first_number, ""and"", my_second_number, ""is:"", result_of_addition) # s5 - Printing the result",gemini,correct,correct,
+q17,functions,q17_a1,fully_correct,s3,Compute sum of parameters,"# Define a function called 'add' that takes two numbers as input
+def add(num1, num2): # s1, s2 - Defining the function and adding parameters
+    # Calculate the sum of the two numbers
+    # We store the result in a new variable called 'total_sum'
+    total_sum = num1 + num2 # s3 - Computing the sum
+
+    # Return the calculated sum
+    return total_sum # s4 - Returning the computed sum
+
+# Now let's try to use our 'add' function!
+
+# We'll pick two numbers to add
+my_first_number = 7
+my_second_number = 3
+
+# Call the 'add' function with our numbers
+# The result of the addition will be stored in 'result_of_addition'
+result_of_addition = add(my_first_number, my_second_number) # s5 - Calling the function
+
+# Print out the result
+print(""The sum of"", my_first_number, ""and"", my_second_number, ""is:"", result_of_addition) # s5 - Printing the result",gemini,correct,correct,
+q17,functions,q17_a1,fully_correct,s4,Return the computed sum,"# Define a function called 'add' that takes two numbers as input
+def add(num1, num2): # s1, s2 - Defining the function and adding parameters
+    # Calculate the sum of the two numbers
+    # We store the result in a new variable called 'total_sum'
+    total_sum = num1 + num2 # s3 - Computing the sum
+
+    # Return the calculated sum
+    return total_sum # s4 - Returning the computed sum
+
+# Now let's try to use our 'add' function!
+
+# We'll pick two numbers to add
+my_first_number = 7
+my_second_number = 3
+
+# Call the 'add' function with our numbers
+# The result of the addition will be stored in 'result_of_addition'
+result_of_addition = add(my_first_number, my_second_number) # s5 - Calling the function
+
+# Print out the result
+print(""The sum of"", my_first_number, ""and"", my_second_number, ""is:"", result_of_addition) # s5 - Printing the result",gemini,correct,correct,
+q17,functions,q17_a1,fully_correct,s5,Call the function and print result,"# Define a function called 'add' that takes two numbers as input
+def add(num1, num2): # s1, s2 - Defining the function and adding parameters
+    # Calculate the sum of the two numbers
+    # We store the result in a new variable called 'total_sum'
+    total_sum = num1 + num2 # s3 - Computing the sum
+
+    # Return the calculated sum
+    return total_sum # s4 - Returning the computed sum
+
+# Now let's try to use our 'add' function!
+
+# We'll pick two numbers to add
+my_first_number = 7
+my_second_number = 3
+
+# Call the 'add' function with our numbers
+# The result of the addition will be stored in 'result_of_addition'
+result_of_addition = add(my_first_number, my_second_number) # s5 - Calling the function
+
+# Print out the result
+print(""The sum of"", my_first_number, ""and"", my_second_number, ""is:"", result_of_addition) # s5 - Printing the result",gemini,correct,correct,
+q17,functions,q17_a2,partly_correct,s1,Define a function named add,"def add(num1, num2):
+    total = num1 + num2
+
+add(5, 3)
+print(total)",gemini,correct,correct,
+q17,functions,q17_a2,partly_correct,s2,Add two parameters,"def add(num1, num2):
+    total = num1 + num2
+
+add(5, 3)
+print(total)",gemini,,correct,
+q17,functions,q17_a2,partly_correct,s3,Compute sum of parameters,"def add(num1, num2):
+    total = num1 + num2
+
+add(5, 3)
+print(total)",gemini,,correct,
+q17,functions,q17_a2,partly_correct,s4,Return the computed sum,"def add(num1, num2):
+    total = num1 + num2
+
+add(5, 3)
+print(total)",gemini,,incorrect,
+q17,functions,q17_a2,partly_correct,s5,Call the function and print result,"def add(num1, num2):
+    total = num1 + num2
+
+add(5, 3)
+print(total)",gemini,,incorrect,
+q17,functions,q17_a3,fully_incorrect,s1,Define a function named add,"# Task: Write a function add that takes two numbers and returns their sum.
+
+# s1: Define a function named add (Fail - 'add' is a string, not a function)
+# s2: Add two parameters (Fail - 'add' is not a function, so no parameters)
+# s3: Compute sum of parameters (Fail - 'number1' and 'number2' are strings, no sum computed)
+# s4: Return the computed sum (Fail - No function to return from, no sum computed)
+# s5: Call the function and print result (Fail - 'add' is not called, it's just printed as a variable)
+
+add = ""I need to make an add function here"" # Student thinks defining a variable named 'add' is making a function
+
+number1 = ""five"" # Student uses strings instead of numbers
+number2 = ""ten""
+
+# Student is confused about how to make it a function, take parameters, and return.
+# Student tries to print what they have.
+print(add, number1, number2)",gemini,incorrect,incorrect,
+q17,functions,q17_a3,fully_incorrect,s2,Add two parameters,"# Task: Write a function add that takes two numbers and returns their sum.
+
+# s1: Define a function named add (Fail - 'add' is a string, not a function)
+# s2: Add two parameters (Fail - 'add' is not a function, so no parameters)
+# s3: Compute sum of parameters (Fail - 'number1' and 'number2' are strings, no sum computed)
+# s4: Return the computed sum (Fail - No function to return from, no sum computed)
+# s5: Call the function and print result (Fail - 'add' is not called, it's just printed as a variable)
+
+add = ""I need to make an add function here"" # Student thinks defining a variable named 'add' is making a function
+
+number1 = ""five"" # Student uses strings instead of numbers
+number2 = ""ten""
+
+# Student is confused about how to make it a function, take parameters, and return.
+# Student tries to print what they have.
+print(add, number1, number2)",gemini,incorrect,incorrect,
+q17,functions,q17_a3,fully_incorrect,s3,Compute sum of parameters,"# Task: Write a function add that takes two numbers and returns their sum.
+
+# s1: Define a function named add (Fail - 'add' is a string, not a function)
+# s2: Add two parameters (Fail - 'add' is not a function, so no parameters)
+# s3: Compute sum of parameters (Fail - 'number1' and 'number2' are strings, no sum computed)
+# s4: Return the computed sum (Fail - No function to return from, no sum computed)
+# s5: Call the function and print result (Fail - 'add' is not called, it's just printed as a variable)
+
+add = ""I need to make an add function here"" # Student thinks defining a variable named 'add' is making a function
+
+number1 = ""five"" # Student uses strings instead of numbers
+number2 = ""ten""
+
+# Student is confused about how to make it a function, take parameters, and return.
+# Student tries to print what they have.
+print(add, number1, number2)",gemini,incorrect,incorrect,
+q17,functions,q17_a3,fully_incorrect,s4,Return the computed sum,"# Task: Write a function add that takes two numbers and returns their sum.
+
+# s1: Define a function named add (Fail - 'add' is a string, not a function)
+# s2: Add two parameters (Fail - 'add' is not a function, so no parameters)
+# s3: Compute sum of parameters (Fail - 'number1' and 'number2' are strings, no sum computed)
+# s4: Return the computed sum (Fail - No function to return from, no sum computed)
+# s5: Call the function and print result (Fail - 'add' is not called, it's just printed as a variable)
+
+add = ""I need to make an add function here"" # Student thinks defining a variable named 'add' is making a function
+
+number1 = ""five"" # Student uses strings instead of numbers
+number2 = ""ten""
+
+# Student is confused about how to make it a function, take parameters, and return.
+# Student tries to print what they have.
+print(add, number1, number2)",gemini,incorrect,incorrect,
+q17,functions,q17_a3,fully_incorrect,s5,Call the function and print result,"# Task: Write a function add that takes two numbers and returns their sum.
+
+# s1: Define a function named add (Fail - 'add' is a string, not a function)
+# s2: Add two parameters (Fail - 'add' is not a function, so no parameters)
+# s3: Compute sum of parameters (Fail - 'number1' and 'number2' are strings, no sum computed)
+# s4: Return the computed sum (Fail - No function to return from, no sum computed)
+# s5: Call the function and print result (Fail - 'add' is not called, it's just printed as a variable)
+
+add = ""I need to make an add function here"" # Student thinks defining a variable named 'add' is making a function
+
+number1 = ""five"" # Student uses strings instead of numbers
+number2 = ""ten""
+
+# Student is confused about how to make it a function, take parameters, and return.
+# Student tries to print what they have.
+print(add, number1, number2)",gemini,incorrect,incorrect,
+q18,functions,q18_a1,fully_correct,s1,Define function is_even,"def is_even(number):
+    if number % 2 == 0:
+        return True
+    else:
+        return False",gemini,correct,correct,
+q18,functions,q18_a1,fully_correct,s2,Accept one numeric parameter,"def is_even(number):
+    if number % 2 == 0:
+        return True
+    else:
+        return False",gemini,correct,correct,
+q18,functions,q18_a1,fully_correct,s3,Use modulo by 2,"def is_even(number):
+    if number % 2 == 0:
+        return True
+    else:
+        return False",gemini,correct,correct,
+q18,functions,q18_a1,fully_correct,s4,Return True for even numbers,"def is_even(number):
+    if number % 2 == 0:
+        return True
+    else:
+        return False",gemini,correct,correct,
+q18,functions,q18_a1,fully_correct,s5,Return False for odd numbers,"def is_even(number):
+    if number % 2 == 0:
+        return True
+    else:
+        return False",gemini,correct,correct,
+q18,functions,q18_a2,partly_correct,s1,Define function is_even,"def is_even(number):
+    return number % 2",gemini,correct,correct,
+q18,functions,q18_a2,partly_correct,s2,Accept one numeric parameter,"def is_even(number):
+    return number % 2",gemini,correct,correct,
+q18,functions,q18_a2,partly_correct,s3,Use modulo by 2,"def is_even(number):
+    return number % 2",gemini,correct,correct,
+q18,functions,q18_a2,partly_correct,s4,Return True for even numbers,"def is_even(number):
+    return number % 2",gemini,incorrect,incorrect,
+q18,functions,q18_a2,partly_correct,s5,Return False for odd numbers,"def is_even(number):
+    return number % 2",gemini,incorrect,incorrect,
+q18,functions,q18_a3,fully_incorrect,s1,Define function is_even,"def check_the_number_status():
+    entered_value = input(""Please type a number here: "")
+    number = int(entered_value) # Beginners often assume input will be convertible
+
+    if number == 1:
+        return True # Fails: 1 is odd, but returns True
+    elif number == 2:
+        return False # Fails: 2 is even, but returns False
+    elif number > 100:
+        print(""That's a very large number!"") # Fails: prints instead of returning boolean
+        # Implicitly returns None, which is not False
+    else:
+        return ""Not sure about this one."" # Fails: returns string instead of boolean",gemini,incorrect,incorrect,
+q18,functions,q18_a3,fully_incorrect,s2,Accept one numeric parameter,"def check_the_number_status():
+    entered_value = input(""Please type a number here: "")
+    number = int(entered_value) # Beginners often assume input will be convertible
+
+    if number == 1:
+        return True # Fails: 1 is odd, but returns True
+    elif number == 2:
+        return False # Fails: 2 is even, but returns False
+    elif number > 100:
+        print(""That's a very large number!"") # Fails: prints instead of returning boolean
+        # Implicitly returns None, which is not False
+    else:
+        return ""Not sure about this one."" # Fails: returns string instead of boolean",gemini,incorrect,incorrect,
+q18,functions,q18_a3,fully_incorrect,s3,Use modulo by 2,"def check_the_number_status():
+    entered_value = input(""Please type a number here: "")
+    number = int(entered_value) # Beginners often assume input will be convertible
+
+    if number == 1:
+        return True # Fails: 1 is odd, but returns True
+    elif number == 2:
+        return False # Fails: 2 is even, but returns False
+    elif number > 100:
+        print(""That's a very large number!"") # Fails: prints instead of returning boolean
+        # Implicitly returns None, which is not False
+    else:
+        return ""Not sure about this one."" # Fails: returns string instead of boolean",gemini,incorrect,incorrect,
+q18,functions,q18_a3,fully_incorrect,s4,Return True for even numbers,"def check_the_number_status():
+    entered_value = input(""Please type a number here: "")
+    number = int(entered_value) # Beginners often assume input will be convertible
+
+    if number == 1:
+        return True # Fails: 1 is odd, but returns True
+    elif number == 2:
+        return False # Fails: 2 is even, but returns False
+    elif number > 100:
+        print(""That's a very large number!"") # Fails: prints instead of returning boolean
+        # Implicitly returns None, which is not False
+    else:
+        return ""Not sure about this one."" # Fails: returns string instead of boolean",gemini,incorrect,incorrect,
+q18,functions,q18_a3,fully_incorrect,s5,Return False for odd numbers,"def check_the_number_status():
+    entered_value = input(""Please type a number here: "")
+    number = int(entered_value) # Beginners often assume input will be convertible
+
+    if number == 1:
+        return True # Fails: 1 is odd, but returns True
+    elif number == 2:
+        return False # Fails: 2 is even, but returns False
+    elif number > 100:
+        print(""That's a very large number!"") # Fails: prints instead of returning boolean
+        # Implicitly returns None, which is not False
+    else:
+        return ""Not sure about this one."" # Fails: returns string instead of boolean",gemini,incorrect,incorrect,
+q19,functions,q19_a1,fully_correct,s1,Define function square,"def square(number_to_square):
+    # Subtask s3: Compute number times number
+    # We multiply the input number by itself to get its square
+    calculated_square = number_to_square * number_to_square
+    
+    # Subtask s4: Return computed value
+    # The function sends back the calculated square
+    return calculated_square
+
+# Subtask s5: Call function and print output
+# Let's try our square function with a number
+example_number = 7
+squared_value = square(example_number)
+
+print(f""The number is: {example_number}"")
+print(f""Its square is: {squared_value}"")
+
+# Let's try another number directly in the print statement
+print(f""The square of 12 is: {square(12)}"")",gemini,correct,correct,
+q19,functions,q19_a1,fully_correct,s2,Accept one parameter,"def square(number_to_square):
+    # Subtask s3: Compute number times number
+    # We multiply the input number by itself to get its square
+    calculated_square = number_to_square * number_to_square
+    
+    # Subtask s4: Return computed value
+    # The function sends back the calculated square
+    return calculated_square
+
+# Subtask s5: Call function and print output
+# Let's try our square function with a number
+example_number = 7
+squared_value = square(example_number)
+
+print(f""The number is: {example_number}"")
+print(f""Its square is: {squared_value}"")
+
+# Let's try another number directly in the print statement
+print(f""The square of 12 is: {square(12)}"")",gemini,correct,correct,
+q19,functions,q19_a1,fully_correct,s3,Compute number times number,"def square(number_to_square):
+    # Subtask s3: Compute number times number
+    # We multiply the input number by itself to get its square
+    calculated_square = number_to_square * number_to_square
+    
+    # Subtask s4: Return computed value
+    # The function sends back the calculated square
+    return calculated_square
+
+# Subtask s5: Call function and print output
+# Let's try our square function with a number
+example_number = 7
+squared_value = square(example_number)
+
+print(f""The number is: {example_number}"")
+print(f""Its square is: {squared_value}"")
+
+# Let's try another number directly in the print statement
+print(f""The square of 12 is: {square(12)}"")",gemini,correct,correct,
+q19,functions,q19_a1,fully_correct,s4,Return computed value,"def square(number_to_square):
+    # Subtask s3: Compute number times number
+    # We multiply the input number by itself to get its square
+    calculated_square = number_to_square * number_to_square
+    
+    # Subtask s4: Return computed value
+    # The function sends back the calculated square
+    return calculated_square
+
+# Subtask s5: Call function and print output
+# Let's try our square function with a number
+example_number = 7
+squared_value = square(example_number)
+
+print(f""The number is: {example_number}"")
+print(f""Its square is: {squared_value}"")
+
+# Let's try another number directly in the print statement
+print(f""The square of 12 is: {square(12)}"")",gemini,correct,correct,
+q19,functions,q19_a1,fully_correct,s5,Call function and print output,"def square(number_to_square):
+    # Subtask s3: Compute number times number
+    # We multiply the input number by itself to get its square
+    calculated_square = number_to_square * number_to_square
+    
+    # Subtask s4: Return computed value
+    # The function sends back the calculated square
+    return calculated_square
+
+# Subtask s5: Call function and print output
+# Let's try our square function with a number
+example_number = 7
+squared_value = square(example_number)
+
+print(f""The number is: {example_number}"")
+print(f""Its square is: {squared_value}"")
+
+# Let's try another number directly in the print statement
+print(f""The square of 12 is: {square(12)}"")",gemini,correct,correct,
+q19,functions,q19_a2,partly_correct,s1,Define function square,"def square(number):
+    # Subtask s1: Define function square - Correct
+    # Subtask s2: Accept one parameter - Correct
+    
+    # Subtask s3: Compute number times number - Incorrect (beginner might confuse with doubling)
+    computed_value = number + number 
+    
+    # Subtask s4: Return computed value - Incorrect (beginner might print instead of return)
+    print(""The square of"", number, ""is:"", computed_value)
+
+# Subtask s5: Call function and print output - Incorrect (will print the function's internal output, then None because the function doesn't explicitly return anything)
+input_number = 4
+result_from_call = square(input_number)
+print(""Result stored from function call:"", result_from_call)",gemini,correct,correct,
+q19,functions,q19_a2,partly_correct,s2,Accept one parameter,"def square(number):
+    # Subtask s1: Define function square - Correct
+    # Subtask s2: Accept one parameter - Correct
+    
+    # Subtask s3: Compute number times number - Incorrect (beginner might confuse with doubling)
+    computed_value = number + number 
+    
+    # Subtask s4: Return computed value - Incorrect (beginner might print instead of return)
+    print(""The square of"", number, ""is:"", computed_value)
+
+# Subtask s5: Call function and print output - Incorrect (will print the function's internal output, then None because the function doesn't explicitly return anything)
+input_number = 4
+result_from_call = square(input_number)
+print(""Result stored from function call:"", result_from_call)",gemini,correct,correct,
+q19,functions,q19_a2,partly_correct,s3,Compute number times number,"def square(number):
+    # Subtask s1: Define function square - Correct
+    # Subtask s2: Accept one parameter - Correct
+    
+    # Subtask s3: Compute number times number - Incorrect (beginner might confuse with doubling)
+    computed_value = number + number 
+    
+    # Subtask s4: Return computed value - Incorrect (beginner might print instead of return)
+    print(""The square of"", number, ""is:"", computed_value)
+
+# Subtask s5: Call function and print output - Incorrect (will print the function's internal output, then None because the function doesn't explicitly return anything)
+input_number = 4
+result_from_call = square(input_number)
+print(""Result stored from function call:"", result_from_call)",gemini,incorrect,incorrect,
+q19,functions,q19_a2,partly_correct,s4,Return computed value,"def square(number):
+    # Subtask s1: Define function square - Correct
+    # Subtask s2: Accept one parameter - Correct
+    
+    # Subtask s3: Compute number times number - Incorrect (beginner might confuse with doubling)
+    computed_value = number + number 
+    
+    # Subtask s4: Return computed value - Incorrect (beginner might print instead of return)
+    print(""The square of"", number, ""is:"", computed_value)
+
+# Subtask s5: Call function and print output - Incorrect (will print the function's internal output, then None because the function doesn't explicitly return anything)
+input_number = 4
+result_from_call = square(input_number)
+print(""Result stored from function call:"", result_from_call)",gemini,incorrect,incorrect,
+q19,functions,q19_a2,partly_correct,s5,Call function and print output,"def square(number):
+    # Subtask s1: Define function square - Correct
+    # Subtask s2: Accept one parameter - Correct
+    
+    # Subtask s3: Compute number times number - Incorrect (beginner might confuse with doubling)
+    computed_value = number + number 
+    
+    # Subtask s4: Return computed value - Incorrect (beginner might print instead of return)
+    print(""The square of"", number, ""is:"", computed_value)
+
+# Subtask s5: Call function and print output - Incorrect (will print the function's internal output, then None because the function doesn't explicitly return anything)
+input_number = 4
+result_from_call = square(input_number)
+print(""Result stored from function call:"", result_from_call)",gemini,incorrect,incorrect,
+q19,functions,q19_a3,fully_incorrect,s1,Define function square,"square = ""I need to make a function to square a number, but I don't know how to define it yet.""
+
+# Call function and print output
+# This part will cause an error because 'square' is not a function.
+print(square(5))",gemini,incorrect,incorrect,
+q19,functions,q19_a3,fully_incorrect,s2,Accept one parameter,"square = ""I need to make a function to square a number, but I don't know how to define it yet.""
+
+# Call function and print output
+# This part will cause an error because 'square' is not a function.
+print(square(5))",gemini,incorrect,incorrect,
+q19,functions,q19_a3,fully_incorrect,s3,Compute number times number,"square = ""I need to make a function to square a number, but I don't know how to define it yet.""
+
+# Call function and print output
+# This part will cause an error because 'square' is not a function.
+print(square(5))",gemini,incorrect,incorrect,
+q19,functions,q19_a3,fully_incorrect,s4,Return computed value,"square = ""I need to make a function to square a number, but I don't know how to define it yet.""
+
+# Call function and print output
+# This part will cause an error because 'square' is not a function.
+print(square(5))",gemini,incorrect,incorrect,
+q19,functions,q19_a3,fully_incorrect,s5,Call function and print output,"square = ""I need to make a function to square a number, but I don't know how to define it yet.""
+
+# Call function and print output
+# This part will cause an error because 'square' is not a function.
+print(square(5))",gemini,incorrect,incorrect,
+q20,functions,q20_a1,fully_correct,s1,Define function show_message,"def show_message(text):
+    print(text)
+
+show_message(""This is a test message!"")",gemini,correct,correct,
+q20,functions,q20_a1,fully_correct,s2,Accept one text parameter,"def show_message(text):
+    print(text)
+
+show_message(""This is a test message!"")",gemini,,correct,
+q20,functions,q20_a1,fully_correct,s3,Print the parameter inside function,"def show_message(text):
+    print(text)
+
+show_message(""This is a test message!"")",gemini,,correct,
+q20,functions,q20_a1,fully_correct,s4,Call function with sample text,"def show_message(text):
+    print(text)
+
+show_message(""This is a test message!"")",gemini,,correct,
+q20,functions,q20_a1,fully_correct,s5,Ensure output matches given text,"def show_message(text):
+    print(text)
+
+show_message(""This is a test message!"")",gemini,,correct,
+q20,functions,q20_a2,partly_correct,s1,Define function show_message,"def show_message(text_input):
+    print(""Hello from the function!"")
+
+show_message(""This is my first message!"")",gemini,correct,correct,
+q20,functions,q20_a2,partly_correct,s2,Accept one text parameter,"def show_message(text_input):
+    print(""Hello from the function!"")
+
+show_message(""This is my first message!"")",gemini,correct,correct,
+q20,functions,q20_a2,partly_correct,s3,Print the parameter inside function,"def show_message(text_input):
+    print(""Hello from the function!"")
+
+show_message(""This is my first message!"")",gemini,incorrect,incorrect,
+q20,functions,q20_a2,partly_correct,s4,Call function with sample text,"def show_message(text_input):
+    print(""Hello from the function!"")
+
+show_message(""This is my first message!"")",gemini,correct,correct,
+q20,functions,q20_a2,partly_correct,s5,Ensure output matches given text,"def show_message(text_input):
+    print(""Hello from the function!"")
+
+show_message(""This is my first message!"")",gemini,incorrect,incorrect,
+q20,functions,q20_a3,fully_incorrect,s1,Define function show_message,"func show_messages:
+  my_text_output = ""Oops, I forgot the actual message!""
+  print(my_text_output)
+
+call_the_message_func(""This should be printed!"")",gemini,incorrect,incorrect,
+q20,functions,q20_a3,fully_incorrect,s2,Accept one text parameter,"func show_messages:
+  my_text_output = ""Oops, I forgot the actual message!""
+  print(my_text_output)
+
+call_the_message_func(""This should be printed!"")",gemini,incorrect,incorrect,
+q20,functions,q20_a3,fully_incorrect,s3,Print the parameter inside function,"func show_messages:
+  my_text_output = ""Oops, I forgot the actual message!""
+  print(my_text_output)
+
+call_the_message_func(""This should be printed!"")",gemini,incorrect,incorrect,
+q20,functions,q20_a3,fully_incorrect,s4,Call function with sample text,"func show_messages:
+  my_text_output = ""Oops, I forgot the actual message!""
+  print(my_text_output)
+
+call_the_message_func(""This should be printed!"")",gemini,incorrect,incorrect,
+q20,functions,q20_a3,fully_incorrect,s5,Ensure output matches given text,"func show_messages:
+  my_text_output = ""Oops, I forgot the actual message!""
+  print(my_text_output)
+
+call_the_message_func(""This should be printed!"")",gemini,incorrect,incorrect,
+q1,variables,q1_a2,partly_correct,s1,Create a variable named name,"name = ""Bella""
+AGE = 22
+print(""My name is "" + name + "" and I am "" + age + "" years old."")",gemini,correct,correct,
+q1,variables,q1_a2,partly_correct,s2,Create a variable named age,"name = ""Bella""
+AGE = 22
+print(""My name is "" + name + "" and I am "" + age + "" years old."")",gemini,incorrect,incorrect,
+q1,variables,q1_a2,partly_correct,s3,Store a text value in name,"name = ""Bella""
+AGE = 22
+print(""My name is "" + name + "" and I am "" + age + "" years old."")",gemini,correct,incorrect,
+q1,variables,q1_a2,partly_correct,s4,Store a number value in age,"name = ""Bella""
+AGE = 22
+print(""My name is "" + name + "" and I am "" + age + "" years old."")",gemini,incorrect,incorrect,
+q1,variables,q1_a2,partly_correct,s5,Print one sentence containing both values,"name = ""Bella""
+AGE = 22
+print(""My name is "" + name + "" and I am "" + age + "" years old."")",gemini,incorrect,incorrect,

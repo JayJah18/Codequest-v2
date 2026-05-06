@@ -1,22 +1,422 @@
 [
-  {"task_id":"q1","answers":[{"answer_id":"a1","type":"correct","code":"name = 'Sam'\nage = 20\nprint(f'My name is {name} and I am {age}')"},{"answer_id":"a2","type":"partially_correct","code":"name = 'Sam'\nprint(name)"},{"answer_id":"a3","type":"incorrect","code":"print('hello')"}]},
-  {"task_id":"q2","answers":[{"answer_id":"a1","type":"correct","code":"x = 3\ny = 4\ntotal = x + y\nprint(total)"},{"answer_id":"a2","type":"partially_correct","code":"x = 3\ny = 4\nprint(x + y)"},{"answer_id":"a3","type":"incorrect","code":"x = '3'\ny = '4'\nprint(x)"}]},
-  {"task_id":"q3","answers":[{"answer_id":"a1","type":"correct","code":"city = 'Derby'\nmessage = f'Welcome to {city}'\nprint(message)"},{"answer_id":"a2","type":"partially_correct","code":"city = 'Derby'\nprint('Welcome')"},{"answer_id":"a3","type":"incorrect","code":"print(city_name)"}]},
-  {"task_id":"q4","answers":[{"answer_id":"a1","type":"correct","code":"width = 5\nheight = 2\narea = width * height\nprint(area)"},{"answer_id":"a2","type":"partially_correct","code":"width = 5\nheight = 2\nprint(width * height)"},{"answer_id":"a3","type":"incorrect","code":"width = 5\nheight = 2\nprint(width + height)"}]},
-  {"task_id":"q5","answers":[{"answer_id":"a1","type":"correct","code":"celsius = 22\nmessage = f'Temperature is {celsius}C'\nprint(message)"},{"answer_id":"a2","type":"partially_correct","code":"celsius = 22\nprint(celsius)"},{"answer_id":"a3","type":"incorrect","code":"temp = 'cold'\nprint('done')"}]},
-  {"task_id":"q6","answers":[{"answer_id":"a1","type":"correct","code":"number = 5\nif number > 0:\n    print('positive')\nelse:\n    print('not positive')"},{"answer_id":"a2","type":"partially_correct","code":"number = 5\nif number > 0:\n    print('positive')"},{"answer_id":"a3","type":"incorrect","code":"number = 5\nprint(number)"}]},
-  {"task_id":"q7","answers":[{"answer_id":"a1","type":"correct","code":"age = 17\nif age >= 18:\n    print('access granted')\nelse:\n    print('access denied')"},{"answer_id":"a2","type":"partially_correct","code":"age = 19\nif age >= 18:\n    print('access granted')"},{"answer_id":"a3","type":"incorrect","code":"print('access granted')"}]},
-  {"task_id":"q8","answers":[{"answer_id":"a1","type":"correct","code":"number = 7\nif number % 2 == 0:\n    print('even')\nelse:\n    print('odd')"},{"answer_id":"a2","type":"partially_correct","code":"number = 8\nif number % 2 == 0:\n    print('even')"},{"answer_id":"a3","type":"incorrect","code":"number = 8\nprint('odd')"}]},
-  {"task_id":"q9","answers":[{"answer_id":"a1","type":"correct","code":"a = 3\nb = 5\nif a > b:\n    print('a is larger')\nelif b > a:\n    print('b is larger')\nelse:\n    print('equal')"},{"answer_id":"a2","type":"partially_correct","code":"a = 3\nb = 5\nif b > a:\n    print('b is larger')"},{"answer_id":"a3","type":"incorrect","code":"a = 3\nb = 5\nprint('a is larger')"}]},
-  {"task_id":"q10","answers":[{"answer_id":"a1","type":"correct","code":"password = 'admin123'\nif password == 'admin123':\n    print('valid')\nelse:\n    print('invalid')"},{"answer_id":"a2","type":"partially_correct","code":"password = 'admin123'\nif password == 'admin123':\n    print('valid')"},{"answer_id":"a3","type":"incorrect","code":"password = 'abc'\nprint('valid')"}]},
-  {"task_id":"q11","answers":[{"answer_id":"a1","type":"correct","code":"for i in range(1, 6):\n    print(i)"},{"answer_id":"a2","type":"partially_correct","code":"for i in range(1, 6):\n    pass"},{"answer_id":"a3","type":"incorrect","code":"print(1)\nprint(2)"}]},
-  {"task_id":"q12","answers":[{"answer_id":"a1","type":"correct","code":"fruits = ['apple', 'banana', 'pear']\nfor fruit in fruits:\n    print(fruit)"},{"answer_id":"a2","type":"partially_correct","code":"fruits = ['apple', 'banana']\nprint(fruits[0])"},{"answer_id":"a3","type":"incorrect","code":"print('apple')\nprint('banana')"}]},
-  {"task_id":"q13","answers":[{"answer_id":"a1","type":"correct","code":"count = 3\nwhile count >= 1:\n    print(count)\n    count -= 1"},{"answer_id":"a2","type":"partially_correct","code":"count = 3\nwhile count >= 1:\n    print(count)"},{"answer_id":"a3","type":"incorrect","code":"for i in range(3):\n    print(i)"}]},
-  {"task_id":"q14","answers":[{"answer_id":"a1","type":"correct","code":"numbers = [1, 2, 3]\ntotal = 0\nfor n in numbers:\n    total += n\nprint(total)"},{"answer_id":"a2","type":"partially_correct","code":"numbers = [1, 2, 3]\nprint(sum(numbers))"},{"answer_id":"a3","type":"incorrect","code":"numbers = [1, 2, 3]\nprint(numbers)"}]},
-  {"task_id":"q15","answers":[{"answer_id":"a1","type":"correct","code":"for n in range(1, 11):\n    if n % 2 == 0:\n        print(n)"},{"answer_id":"a2","type":"partially_correct","code":"for n in range(1, 11):\n    print(n)"},{"answer_id":"a3","type":"incorrect","code":"for n in range(1, 6):\n    print(n)"}]},
-  {"task_id":"q16","answers":[{"answer_id":"a1","type":"correct","code":"def greet(name):\n    print(f'Hello {name}')\n\ngreet('Sam')"},{"answer_id":"a2","type":"partially_correct","code":"def greet(name):\n    print('Hello')"},{"answer_id":"a3","type":"incorrect","code":"print('Hello Sam')"}]},
-  {"task_id":"q17","answers":[{"answer_id":"a1","type":"correct","code":"def add(a, b):\n    return a + b\n\nprint(add(2, 3))"},{"answer_id":"a2","type":"partially_correct","code":"def add(a, b):\n    return a + b"},{"answer_id":"a3","type":"incorrect","code":"def add(a, b):\n    print(a + b)"}]},
-  {"task_id":"q18","answers":[{"answer_id":"a1","type":"correct","code":"def is_even(n):\n    if n % 2 == 0:\n        return True\n    return False"},{"answer_id":"a2","type":"partially_correct","code":"def is_even(n):\n    return n % 2 == 0"},{"answer_id":"a3","type":"incorrect","code":"def is_even(n):\n    return True"}]},
-  {"task_id":"q19","answers":[{"answer_id":"a1","type":"correct","code":"def square(n):\n    return n * n\n\nprint(square(4))"},{"answer_id":"a2","type":"partially_correct","code":"def square(n):\n    return n * n"},{"answer_id":"a3","type":"incorrect","code":"def square(n):\n    return n + n"}]},
-  {"task_id":"q20","answers":[{"answer_id":"a1","type":"correct","code":"def show_message(text):\n    print(text)\n\nshow_message('hello world')"},{"answer_id":"a2","type":"partially_correct","code":"def show_message(text):\n    print('hello')"},{"answer_id":"a3","type":"incorrect","code":"print('hello world')"}]}
+  {
+    "task_id": "q1",
+    "concept": "variables",
+    "answers": [
+      {
+        "answer_id": "q1_a1",
+        "variant_type": "fully_correct",
+        "code": "name = \"Alice\"\nage = 25\nprint(\"My name is \" + name + \" and I am \" + str(age) + \" years old.\")"
+      },
+      {
+        "answer_id": "q1_a2",
+        "variant_type": "partly_correct",
+        "code": "name = \"Bella\"\nAGE = 22\nprint(\"My name is \" + name + \" and I am \" + age + \" years old.\")"
+      },
+      {
+        "answer_id": "q1_a3",
+        "variant_type": "fully_incorrect",
+        "code": "name = John\nage = \"twenty five\"\nprint(\"My name is\" + name + \"and I am\" + age + \"years old.\")"
+      }
+    ]
+  },
+  {
+    "task_id": "q2",
+    "concept": "variables",
+    "answers": [
+      {
+        "answer_id": "q2_a1",
+        "variant_type": "fully_correct",
+        "code": "number1 = 10\nnumber2 = 20\nsum_result = number1 + number2\nprint(sum_result)"
+      },
+      {
+        "answer_id": "q2_a2",
+        "variant_type": "partly_correct",
+        "code": "number_one = 5\nnumber_two = 10\n\nresult = number_one * number_two # beginner might accidentally use wrong operator\n\nprint(\"Calculations complete.\") # beginner might print a status message instead of the actual sum, or forget which variable stores the sum"
+      },
+      {
+        "answer_id": "q2_a3",
+        "variant_type": "fully_incorrect",
+        "code": "my first number = 5\nmy second number = 10\n\nsum result = my first number plus my second number\n\nprint sum result"
+      }
+    ]
+  },
+  {
+    "task_id": "q3",
+    "concept": "variables",
+    "answers": [
+      {
+        "answer_id": "q3_a1",
+        "variant_type": "fully_correct",
+        "code": "city = \"London\"\nprint(\"Hello from \" + city + \"!\")"
+      },
+      {
+        "answer_id": "q3_a2",
+        "variant_type": "partly_correct",
+        "code": "city = \"London\"\nprint(\"Hello from city\")"
+      },
+      {
+        "answer_id": "q3_a3",
+        "variant_type": "fully_incorrect",
+        "code": "my_place = 123\nprint(\"Hello \" my_place \"!\")"
+      }
+    ]
+  },
+  {
+    "task_id": "q4",
+    "concept": "variables",
+    "answers": [
+      {
+        "answer_id": "q4_a1",
+        "variant_type": "fully_correct",
+        "code": "width = 10\nheight = 5\narea = width * height\nprint(area)"
+      },
+      {
+        "answer_id": "q4_a2",
+        "variant_type": "partly_correct",
+        "code": "width = 10\nheight = 5\n\narea = width + height\n\nprint(Area)"
+      },
+      {
+        "answer_id": "q4_a3",
+        "variant_type": "fully_incorrect",
+        "code": "print(\"width = 10\")\nprint(\"height = 5\")\n\narea = width * height\n\nprint(\"area\")"
+      }
+    ]
+  },
+  {
+    "task_id": "q5",
+    "concept": "variables",
+    "answers": [
+      {
+        "answer_id": "q5_a1",
+        "variant_type": "fully_correct",
+        "code": "celsius = 22.5\noutput_message = \"The temperature in Celsius is \" + str(celsius) + \" degrees.\"\nprint(output_message)"
+      },
+      {
+        "answer_id": "q5_a2",
+        "variant_type": "partly_correct",
+        "code": "celsius = 25\nprint(\"The temperature is \" + celsius)"
+      },
+      {
+        "answer_id": "q5_a3",
+        "variant_type": "fully_incorrect",
+        "code": "temp_c = \"twenty five\"\n\nprint \"The temperature is \" + temp_c + \" degrees.\""
+      }
+    ]
+  },
+  {
+    "task_id": "q6",
+    "concept": "conditionals",
+    "answers": [
+      {
+        "answer_id": "q6_a1",
+        "variant_type": "fully_correct",
+        "code": "number = 10\n\nif number > 0:\n    print(\"Positive\")\nelse:\n    print(\"Not positive\")"
+      },
+      {
+        "answer_id": "q6_a2",
+        "variant_type": "partly_correct",
+        "code": "num = 5\n\nif num:\n    print(\"positive\")\n# else:\n#     print(\"not positive\")"
+      },
+      {
+        "answer_id": "q6_a3",
+        "variant_type": "fully_incorrect",
+        "code": "number_input = input(\"Enter a number: \")\n\nprint(\"Let's check your number...\")\n\nprint(\"The number you entered is positive.\")\nprint(\"The number you entered is not positive.\")"
+      }
+    ]
+  },
+  {
+    "task_id": "q7",
+    "concept": "conditionals",
+    "answers": [
+      {
+        "answer_id": "q7_a1",
+        "variant_type": "fully_correct",
+        "code": "age = 19\nif age >= 18:\n    print(\"access granted\")\nelse:\n    print(\"access denied\")"
+      },
+      {
+        "answer_id": "q7_a2",
+        "variant_type": "partly_correct",
+        "code": "age = 17\n\nif age > 18:\n    print(\"You can enter\")\nelse:\n    print(\"access denied\")"
+      },
+      {
+        "answer_id": "q7_a3",
+        "variant_type": "fully_incorrect",
+        "code": "if 17 > 18:\n    print(\"You can come in!\")\n\nif 17 < 18:\n    print(\"No entry.\")"
+      }
+    ]
+  },
+  {
+    "task_id": "q8",
+    "concept": "conditionals",
+    "answers": [
+      {
+        "answer_id": "q8_a1",
+        "variant_type": "fully_correct",
+        "code": "num = 7  # s1: Create a number variable (using 7 as an example)\n\n# s2: Use modulo operator with 2\n# s3: Use conditional logic\nif num % 2 == 0:  # Check if the remainder when divided by 2 is 0\n    print(\"Even\")  # s4: Print even when divisible by 2\nelse:\n    print(\"Odd\")  # s5: Print odd otherwise"
+      },
+      {
+        "answer_id": "q8_a2",
+        "variant_type": "partly_correct",
+        "code": "my_num = 10 \n\nrem = my_num % 2 \n\nif rem == 0 \n    print(\"It's even!\") \nelse:\n    print(\"It's odd!\")"
+      },
+      {
+        "answer_id": "q8_a3",
+        "variant_type": "fully_incorrect",
+        "code": "if 7 / 2 == 2:\n    print(\"It's an odd number!\")\nelse:\n    print(\"It's an even number!\")"
+      }
+    ]
+  },
+  {
+    "task_id": "q9",
+    "concept": "conditionals",
+    "answers": [
+      {
+        "answer_id": "q9_a1",
+        "variant_type": "fully_correct",
+        "code": "num1 = 10\nnum2 = 5\n\nif num1 > num2:\n    print(\"The first number is larger.\")\nelif num2 > num1:\n    print(\"The second number is larger.\")\nelse:\n    print(\"The numbers are equal.\")"
+      },
+      {
+        "answer_id": "q9_a2",
+        "variant_type": "partly_correct",
+        "code": "num1 = 10\nnum2 = 7\n\nif num1 > num2:\n    print(\"Number one is bigger!\")\nelse:\n    print(\"Number two is bigger.\")"
+      },
+      {
+        "answer_id": "q9_a3",
+        "variant_type": "fully_incorrect",
+        "code": "number_one = \"10\"\nnumber_two = \"2\"\n\nif number_one > number_two:\n    print(\"Number one is bigger!\")\nif number_two > number_one:\n    print(\"Number two is bigger!\")\nif number_one == number_two:\n    print(\"They are the same!\")"
+      }
+    ]
+  },
+  {
+    "task_id": "q10",
+    "concept": "conditionals",
+    "answers": [
+      {
+        "answer_id": "q10_a1",
+        "variant_type": "fully_correct",
+        "code": "password = \"admin123\"\n\nif password == \"admin123\":\n    print(\"valid\")\nelse:\n    print(\"invalid\")"
+      },
+      {
+        "answer_id": "q10_a2",
+        "variant_type": "partly_correct",
+        "code": "user_password = \"admin123\"\n\nif user_password == \"admin\":\n    print(\"Password accepted!\")\nelse:\n    print(\"invalid\")"
+      },
+      {
+        "answer_id": "q10_a3",
+        "variant_type": "fully_incorrect",
+        "code": "pw = input(\"Enter password: \")\npw = \"admin123\" \n\nif pw == \"admin123\":\n    print(\"Correct!\")\n\nif pw != \"admin123\":\n    print(\"Incorrect\")"
+      }
+    ]
+  },
+  {
+    "task_id": "q11",
+    "concept": "loops",
+    "answers": [
+      {
+        "answer_id": "q11_a1",
+        "variant_type": "fully_correct",
+        "code": "for i in range(1, 6):\n    print(i)"
+      },
+      {
+        "answer_id": "q11_a2",
+        "variant_type": "partly_correct",
+        "code": "for x in range(5):\n    print(\"x\")"
+      },
+      {
+        "answer_id": "q11_a3",
+        "variant_type": "fully_incorrect",
+        "code": "for x in 1 to 5:\n    print(x)"
+      }
+    ]
+  },
+  {
+    "task_id": "q12",
+    "concept": "loops",
+    "answers": [
+      {
+        "answer_id": "q12_a1",
+        "variant_type": "fully_correct",
+        "code": "fruits = [\"apple\", \"banana\", \"cherry\", \"date\"]\nfor fruit in fruits:\n    print(fruit)"
+      },
+      {
+        "answer_id": "q12_a2",
+        "variant_type": "partly_correct",
+        "code": "fruits = [\"apple\", \"banana\", \"cherry\", \"date\"]\n\nprint(fruits[0])\nprint(fruits[1])\nprint(fruits[2])\nprint(fruits[3])"
+      },
+      {
+        "answer_id": "q12_a3",
+        "variant_type": "fully_incorrect",
+        "code": "print(\"apple\")\nprint(\"banana\")\nprint(\"orange\")\nprint(\"grape\")"
+      }
+    ]
+  },
+  {
+    "task_id": "q13",
+    "concept": "loops",
+    "answers": [
+      {
+        "answer_id": "q13_a1",
+        "variant_type": "fully_correct",
+        "code": "count = 3\nwhile count >= 1:\n    print(count)\n    count = count - 1"
+      },
+      {
+        "answer_id": "q13_a2",
+        "variant_type": "partly_correct",
+        "code": "count = 3\nwhile count >= 1:\n    print(count)\n    # I think I need something else here but I'm not sure what.\n    # It just keeps printing 3. Maybe it's supposed to stop by itself?"
+      },
+      {
+        "answer_id": "q13_a3",
+        "variant_type": "fully_incorrect",
+        "code": "counter = 0\n\nwhile True:\n    print(3)"
+      }
+    ]
+  },
+  {
+    "task_id": "q14",
+    "concept": "loops",
+    "answers": [
+      {
+        "answer_id": "q14_a1",
+        "variant_type": "fully_correct",
+        "code": "my_numbers = [7, 12, 3, 9, 15] # s1: Create a list of numbers\n\ntotal_sum = 0 # s2: Create a total accumulator variable\n\nfor number in my_numbers: # s3: Loop through the numbers\n    total_sum = total_sum + number # s4: Add each number to total\n\nprint(\"The final total is:\", total_sum) # s5: Print final total"
+      },
+      {
+        "answer_id": "q14_a2",
+        "variant_type": "partly_correct",
+        "code": "my_list = [10, 5, 2]  # Subtask s1: Create a list of numbers\n\nthe_total = 0         # Subtask s2: Create a total accumulator variable\n\nfor item in my_list:  # Subtask s3: Loop through the numbers\n    print(item)       # Subtask s4: Beginner might print each item, forgetting to add to the total\n\n# Subtask s5: Print final total\nprint(\"The final total is:\", the_total)"
+      },
+      {
+        "answer_id": "q14_a3",
+        "variant_type": "fully_incorrect",
+        "code": "num = 12345 \ntotal = \"zero\" \n\nfor i in range(5):\n    total = total + i\n\nprint(\"The answer is:\")"
+      }
+    ]
+  },
+  {
+    "task_id": "q15",
+    "concept": "loops",
+    "answers": [
+      {
+        "answer_id": "q15_a1",
+        "variant_type": "fully_correct",
+        "code": "for num in range(1, 11):\n    if num % 2 == 0:\n        print(num)"
+      },
+      {
+        "answer_id": "q15_a2",
+        "variant_type": "partly_correct",
+        "code": "for i in range(1, 11):\n    if i % 2 == 1:\n        print(i)"
+      },
+      {
+        "answer_id": "q15_a3",
+        "variant_type": "fully_incorrect",
+        "code": "print(1)\nprint(2)\nprint(3)\nprint(4)\nprint(5)\nprint(6)\nprint(7)\nprint(8)\nprint(9)\nprint(10)"
+      }
+    ]
+  },
+  {
+    "task_id": "q16",
+    "concept": "functions",
+    "answers": [
+      {
+        "answer_id": "q16_a1",
+        "variant_type": "fully_correct",
+        "code": "def greet(name):\n    print(\"Hello \" + name)\n\ngreet(\"Alice\")"
+      },
+      {
+        "answer_id": "q16_a2",
+        "variant_type": "partly_correct",
+        "code": "def greet(name):\n    print(\"Hello there!\")"
+      },
+      {
+        "answer_id": "q16_a3",
+        "variant_type": "fully_incorrect",
+        "code": "def greet name:\n    print(\"Hello \" + name)\n\ngreet(\"World\")"
+      }
+    ]
+  },
+  {
+    "task_id": "q17",
+    "concept": "functions",
+    "answers": [
+      {
+        "answer_id": "q17_a1",
+        "variant_type": "fully_correct",
+        "code": "# Define a function called 'add' that takes two numbers as input\ndef add(num1, num2): # s1, s2 - Defining the function and adding parameters\n    # Calculate the sum of the two numbers\n    # We store the result in a new variable called 'total_sum'\n    total_sum = num1 + num2 # s3 - Computing the sum\n\n    # Return the calculated sum\n    return total_sum # s4 - Returning the computed sum\n\n# Now let's try to use our 'add' function!\n\n# We'll pick two numbers to add\nmy_first_number = 7\nmy_second_number = 3\n\n# Call the 'add' function with our numbers\n# The result of the addition will be stored in 'result_of_addition'\nresult_of_addition = add(my_first_number, my_second_number) # s5 - Calling the function\n\n# Print out the result\nprint(\"The sum of\", my_first_number, \"and\", my_second_number, \"is:\", result_of_addition) # s5 - Printing the result"
+      },
+      {
+        "answer_id": "q17_a2",
+        "variant_type": "partly_correct",
+        "code": "def add(num1, num2):\n    total = num1 + num2\n\nadd(5, 3)\nprint(total)"
+      },
+      {
+        "answer_id": "q17_a3",
+        "variant_type": "fully_incorrect",
+        "code": "# Task: Write a function add that takes two numbers and returns their sum.\n\n# s1: Define a function named add (Fail - 'add' is a string, not a function)\n# s2: Add two parameters (Fail - 'add' is not a function, so no parameters)\n# s3: Compute sum of parameters (Fail - 'number1' and 'number2' are strings, no sum computed)\n# s4: Return the computed sum (Fail - No function to return from, no sum computed)\n# s5: Call the function and print result (Fail - 'add' is not called, it's just printed as a variable)\n\nadd = \"I need to make an add function here\" # Student thinks defining a variable named 'add' is making a function\n\nnumber1 = \"five\" # Student uses strings instead of numbers\nnumber2 = \"ten\"\n\n# Student is confused about how to make it a function, take parameters, and return.\n# Student tries to print what they have.\nprint(add, number1, number2)"
+      }
+    ]
+  },
+  {
+    "task_id": "q18",
+    "concept": "functions",
+    "answers": [
+      {
+        "answer_id": "q18_a1",
+        "variant_type": "fully_correct",
+        "code": "def is_even(number):\n    if number % 2 == 0:\n        return True\n    else:\n        return False"
+      },
+      {
+        "answer_id": "q18_a2",
+        "variant_type": "partly_correct",
+        "code": "def is_even(number):\n    return number % 2"
+      },
+      {
+        "answer_id": "q18_a3",
+        "variant_type": "fully_incorrect",
+        "code": "def check_the_number_status():\n    entered_value = input(\"Please type a number here: \")\n    number = int(entered_value) # Beginners often assume input will be convertible\n\n    if number == 1:\n        return True # Fails: 1 is odd, but returns True\n    elif number == 2:\n        return False # Fails: 2 is even, but returns False\n    elif number > 100:\n        print(\"That's a very large number!\") # Fails: prints instead of returning boolean\n        # Implicitly returns None, which is not False\n    else:\n        return \"Not sure about this one.\" # Fails: returns string instead of boolean"
+      }
+    ]
+  },
+  {
+    "task_id": "q19",
+    "concept": "functions",
+    "answers": [
+      {
+        "answer_id": "q19_a1",
+        "variant_type": "fully_correct",
+        "code": "def square(number_to_square):\n    # Subtask s3: Compute number times number\n    # We multiply the input number by itself to get its square\n    calculated_square = number_to_square * number_to_square\n    \n    # Subtask s4: Return computed value\n    # The function sends back the calculated square\n    return calculated_square\n\n# Subtask s5: Call function and print output\n# Let's try our square function with a number\nexample_number = 7\nsquared_value = square(example_number)\n\nprint(f\"The number is: {example_number}\")\nprint(f\"Its square is: {squared_value}\")\n\n# Let's try another number directly in the print statement\nprint(f\"The square of 12 is: {square(12)}\")"
+      },
+      {
+        "answer_id": "q19_a2",
+        "variant_type": "partly_correct",
+        "code": "def square(number):\n    # Subtask s1: Define function square - Correct\n    # Subtask s2: Accept one parameter - Correct\n    \n    # Subtask s3: Compute number times number - Incorrect (beginner might confuse with doubling)\n    computed_value = number + number \n    \n    # Subtask s4: Return computed value - Incorrect (beginner might print instead of return)\n    print(\"The square of\", number, \"is:\", computed_value)\n\n# Subtask s5: Call function and print output - Incorrect (will print the function's internal output, then None because the function doesn't explicitly return anything)\ninput_number = 4\nresult_from_call = square(input_number)\nprint(\"Result stored from function call:\", result_from_call)"
+      },
+      {
+        "answer_id": "q19_a3",
+        "variant_type": "fully_incorrect",
+        "code": "square = \"I need to make a function to square a number, but I don't know how to define it yet.\"\n\n# Call function and print output\n# This part will cause an error because 'square' is not a function.\nprint(square(5))"
+      }
+    ]
+  },
+  {
+    "task_id": "q20",
+    "concept": "functions",
+    "answers": [
+      {
+        "answer_id": "q20_a1",
+        "variant_type": "fully_correct",
+        "code": "def show_message(text):\n    print(text)\n\nshow_message(\"This is a test message!\")"
+      },
+      {
+        "answer_id": "q20_a2",
+        "variant_type": "partly_correct",
+        "code": "def show_message(text_input):\n    print(\"Hello from the function!\")\n\nshow_message(\"This is my first message!\")"
+      },
+      {
+        "answer_id": "q20_a3",
+        "variant_type": "fully_incorrect",
+        "code": "func show_messages:\n  my_text_output = \"Oops, I forgot the actual message!\"\n  print(my_text_output)\n\ncall_the_message_func(\"This should be printed!\")"
+      }
+    ]
+  }
 ]

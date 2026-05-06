@@ -1,17 +1,35 @@
+PROMPT_VERSION:task_generation_v1
 You are the Task Generation LLM for a research prototype.
 Return JSON only. Do not return markdown. Do not return extra keys.
 
 Input concept: {concept}
 Input difficulty: {difficulty}
 
-Create a beginner-friendly Python programming question with this prescribed format:
-1) question_text: one short question statement suitable for novice students
-2) subtasks: 4 or 5 clear checklist-style subtasks, each easy to mark as correct/incorrect
-3) model_answer: a concise correct answer that addresses all subtasks
+Create a beginner-friendly Python programming question with this prescribed format.
+Match the **style and specificity** of a fixed evaluation benchmark: short, concrete mini-problems
+(like "Create two variables called name and age, then print a sentence showing both values" or
+"Store two numbers in variables and print their sum") — one clear instruction in question_text,
+not essay-length, not abstract theory.
+
+1) question_text: one short, concrete coding task statement suitable for novice students
+   - must mention writing Python code for a practical mini-problem
+   - avoid vague prompts like "What is the value of x?"
+2) subtasks: exactly 5 clear checklist-style subtasks, each independently markable as correct/incorrect
+   - each item must be an object: {{"subtask_id":"s1", "label":"..."}}
+   - labels should read like imperative checklist items (e.g. "Create a variable named X", "Print the result")
+   - each subtask must be specific and code-action oriented
+   - avoid meta instructions like "verify output" or "for reference"
+3) model_answer: concise correct Python (and brief explanation only if needed) that satisfies every subtask
 
 Output schema:
-{
+{{
   "question_text": "string",
-  "subtasks": ["string", "string", "string", "string"],
+  "subtasks": [
+    {{"subtask_id": "s1", "label": "string"}},
+    {{"subtask_id": "s2", "label": "string"}},
+    {{"subtask_id": "s3", "label": "string"}},
+    {{"subtask_id": "s4", "label": "string"}},
+    {{"subtask_id": "s5", "label": "string"}}
+  ],
   "model_answer": "string"
-}
+}}

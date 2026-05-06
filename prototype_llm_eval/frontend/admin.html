@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin hub — CodeQuest</title>
+    <link rel="stylesheet" href="/static/theme.css" />
+    <link rel="stylesheet" href="/static/admin.css" />
+  </head>
+  <body class="cq-body">
+    <header class="cq-nav">
+      <a class="cq-brand" href="/admin">
+        <span class="cq-logo" aria-hidden="true">C</span>
+        <span>CodeQuest · Admin</span>
+      </a>
+      <nav class="cq-nav-links">
+        <a class="cq-btn cq-btn-ghost" href="/demo-ui">Public demo</a>
+        <a class="cq-btn cq-btn-ghost" href="/">Home</a>
+        <button type="button" class="cq-btn cq-btn-secondary" id="btn-logout">Log out</button>
+      </nav>
+    </header>
+
+    <main class="cq-main admin-main">
+      <p class="cq-tag">Prototype control hub</p>
+      <h1 class="admin-title">Research &amp; evaluation</h1>
+      <p class="cq-muted admin-lead">
+        These tools use the frozen benchmark, CSV outputs, and LLM providers configured in <code>local.env</code>. They are
+        intentionally separate from the public learner demo.
+      </p>
+
+      <section class="admin-grid">
+        <a class="admin-tile cq-card" href="/eval-ui">
+          <span class="admin-tile-tag">Labelling</span>
+          <h2>Human marking interface</h2>
+          <p>Ground-truth subtask labels vs LLM marking → <code>human_marks.csv</code></p>
+        </a>
+        <a class="admin-tile cq-card" href="/research-dashboard">
+          <span class="admin-tile-tag">Evidence</span>
+          <h2>Research dashboard</h2>
+          <p>Metrics, confusion tables, question &amp; feedback quality review</p>
+        </a>
+        <a class="admin-tile cq-card" href="/progress-ui">
+          <span class="admin-tile-tag">Scope</span>
+          <h2>Progression status</h2>
+          <p>What is (and is not) implemented for learner progression</p>
+        </a>
+        <a class="admin-tile cq-card" href="/demo-ui">
+          <span class="admin-tile-tag">Public</span>
+          <h2>Learner demo</h2>
+          <p>Same live/frozen task flow visitors see — useful for side-by-side demos</p>
+        </a>
+        <a class="admin-tile cq-card" href="/legacy-console">
+          <span class="admin-tile-tag">Legacy</span>
+          <h2>API console</h2>
+          <p>Minimal <code>/generate-task</code> · <code>/mark-answer</code> · <code>/generate-feedback</code> UI</p>
+        </a>
+      </section>
+
+      <section class="cq-card admin-files">
+        <h2 class="admin-files-title">Review artefacts (disk)</h2>
+        <ul class="admin-files-list">
+          <li><code>evaluation/results/human_marks.csv</code> — human marking (eval UI)</li>
+          <li><code>evaluation/results/question_generation_review.csv</code> — appropriateness (research dashboard)</li>
+          <li><code>evaluation/results/feedback_review.csv</code> — optional feedback quality sheet (if generated)</li>
+        </ul>
+      </section>
+    </main>
+    <footer class="cq-footer">Session-based prototype auth · log out when finished on a shared machine</footer>
+    <script src="/static/admin.js"></script>
+  </body>
+</html>

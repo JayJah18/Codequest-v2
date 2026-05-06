@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login — CodeQuest (prototype)</title>
+    <link rel="stylesheet" href="/static/theme.css" />
+    <link rel="stylesheet" href="/static/login.css" />
+  </head>
+  <body class="cq-body">
+    <header class="cq-nav">
+      <a class="cq-brand" href="/">
+        <span class="cq-logo" aria-hidden="true">C</span>
+        <span>CodeQuest</span>
+      </a>
+      <nav class="cq-nav-links">
+        <a class="cq-btn cq-btn-ghost" href="/demo-ui">Public demo</a>
+        <a class="cq-btn cq-btn-secondary" href="/">Home</a>
+      </nav>
+    </header>
+
+    <main class="login-main">
+      <div class="login-card cq-card">
+        <p class="cq-tag">Researcher / admin</p>
+        <h1 class="login-title">Prototype login</h1>
+        <p class="cq-muted login-note">
+          This is a <strong>demo-only</strong> gate (session cookie + env credentials). It is not password hashing, OAuth, or
+          production authentication. Use it to separate public learners from evaluation UIs in dissertations and vivas.
+        </p>
+        <form id="login-form" class="login-form">
+          <label class="login-label">
+            Username
+            <input type="text" id="username" name="username" autocomplete="username" required />
+          </label>
+          <label class="login-label">
+            Password
+            <input type="password" id="password" name="password" autocomplete="current-password" required />
+          </label>
+          <p id="login-error" class="login-error" role="alert" hidden></p>
+          <button type="submit" class="cq-btn cq-btn-primary login-submit">Sign in</button>
+        </form>
+        <p class="cq-muted login-hint">Credentials: set <code>ADMIN_USERNAME</code> / <code>ADMIN_PASSWORD</code> in <code>local.env</code>.</p>
+      </div>
+    </main>
+    <footer class="cq-footer"><a href="/" style="color: var(--cq-accent)">← Back to home</a></footer>
+    <script src="/static/login.js"></script>
+  </body>
+</html>

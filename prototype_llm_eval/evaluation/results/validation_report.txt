@@ -1,0 +1,25 @@
+VALIDATION REPORT (prototype_llm_eval)
+Generated: 2026-04-17T23:13:13.888772+00:00
+
+Fixed dataset
+  valid: True
+  tasks: 20 (expected 20)
+  subtasks total: 100 (expected 100)
+
+Answer variants
+  alignment_ok: True
+  answer row count (sum over tasks): 60
+
+Marking results CSV
+  rows: 180
+  marker_model counts: {'gemini': 60, 'llama': 60, 'mistral': 60}
+  actual_model_name (unique): ['gemini-2.5-flash', 'llama3.1', 'mistral-small-latest']
+
+Human marks CSV
+  rows: 300
+  rows with human_mark filled: 300
+
+Prompt versions
+  task_generation: PROMPT_VERSION:task_generation_v1
+  marking:         PROMPT_VERSION:marking_v1
+  feedback:        PROMPT_VERSION:feedback_v1

@@ -1,0 +1,4 @@
+marker_model,total_compared,tp_human_correct_llm_correct,tn_human_incorrect_llm_incorrect,fp_human_incorrect_llm_correct,fn_human_correct_llm_incorrect
+gemini,284,145,120,16,3
+llama,290,100,79,53,58
+mistral,300,142,112,26,20

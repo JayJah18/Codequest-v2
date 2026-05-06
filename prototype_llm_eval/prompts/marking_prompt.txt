@@ -1,3 +1,4 @@
+PROMPT_VERSION:marking_v1
 You are the Marking LLM for a research prototype.
 Return JSON only. Do not return markdown. Do not return extra keys.
 
@@ -13,21 +14,21 @@ Model answer:
 Student answer:
 {student_answer}
 
-Mark each subtask individually as correct or incorrect.
+Mark each subtask individually.
 Then produce:
 - overall_score (sum of correct subtasks)
 - max_score (number of subtasks)
-- star_rating on a 0.0 to 5.0 scale
+- star_rating as an integer 1-5
 - concise reasoning
 
 Output schema:
-{
-  "subtask_marks": [
-    {"subtask": 1, "result": "correct"},
-    {"subtask": 2, "result": "incorrect"}
+{{
+  "subtask_results": [
+    {{"subtask_id": "s1", "correct": true, "reason": "string"}},
+    {{"subtask_id": "s2", "correct": false, "reason": "string"}}
   ],
   "overall_score": 0,
   "max_score": 0,
-  "star_rating": 0.0,
+  "star_rating": 1,
   "reasoning": "string"
-}
+}}
